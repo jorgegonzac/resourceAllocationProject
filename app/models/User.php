@@ -1,26 +1,25 @@
 <?php
 
-use Illuminate\Auth\UserTrait;
-use Illuminate\Auth\UserInterface;
-use Illuminate\Auth\Reminders\RemindableTrait;
-use Illuminate\Auth\Reminders\RemindableInterface;
+class User extends Eloquent {
+    
+    // MASS ASSIGNMENT -------------------------------------------------------
+    // define which attributes are mass assignable (for security)
+    // we only want these 3 attributes able to be filled
+    protected $fillable = array('first_name', 'last_name', 'email','school_id');
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
+    // DEFINE RELATIONSHIPS --------------------------------------------------
 
-	use UserTrait, RemindableTrait;
+    // each user BELONGS to many resources --waiting_list
+    // define our pivot table also
+    public function roles() {
+        return $this->belongsToMany('Role', 'users_roles', 'user_id', 'role_id');
+    }
 
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
-	protected $table = 'users';
+    public function waitingList(){
+        return $this->hasMany('WaitingList');        
+    }
 
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
-	protected $hidden = array('password', 'remember_token');
-
+    public function bookings(){
+        return $this->hasMany('Booking');        
+    }
 }
