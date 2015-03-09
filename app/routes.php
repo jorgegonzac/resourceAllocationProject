@@ -11,7 +11,4 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('resources');
-});
+Route::get('/', 'ResourcesController@showRecent');

@@ -8,7 +8,7 @@ class Laboratory extends Eloquent {
 
     // DEFINE RELATIONSHIPS --------------------------------------------------
     
-      public function careers() {
+    public function careers() {
         return $this->belongsToMany('Career', 'careers_laboratories', 'career_id', 'laboratory_id');
     }
     

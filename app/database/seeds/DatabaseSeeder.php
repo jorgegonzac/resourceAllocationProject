@@ -32,7 +32,7 @@ class resourceAllocationSeeder extends Seeder{
 		DB::table('schedules')->delete(); //
 		DB::table('timetables')->delete(); //
 		DB::table('users')->delete(); //
-		DB::table('waitingLists')->delete();//
+		DB::table('waitinglists')->delete();//
 		DB::table('careers_laboratories')->delete();//
 		DB::table('roles_privilages')->delete();//
 		DB::table('timetables_resources')->delete();//
@@ -288,63 +288,63 @@ class resourceAllocationSeeder extends Seeder{
 			'resource_id' => $resource_1->id,
 			'user_id'	=>	$user_1->id
 		));
-		$waitingList_1 = Waitinglist::create(array(
+		$waitingList_2 = Waitinglist::create(array(
 			'start_date'	=>	'2015-03-01 10:00:00',
 			'end_date'	=>	'2015-03-01 18:00:00',
 			'resource_id' => $resource_3->id,
 			'user_id'	=>	$user_1->id
 		));
 
-		$waitingList_1 = Waitinglist::create(array(
+		$waitingList_3 = Waitinglist::create(array(
 			'start_date'	=>	'2015-03-06 14:00:00',
 			'end_date'	=>	'2015-03-06 18:00:00',
 			'resource_id' => $resource_2->id,
 			'user_id'	=>	$user_2->id
 		));
-		$waitingList_1 = Waitinglist::create(array(
+		$waitingList_4 = Waitinglist::create(array(
 			'start_date'	=>	'2015-03-02 14:00:00',
 			'end_date'	=>	'2015-03-02 18:00:00',
 			'resource_id' => $resource_4->id,
 			'user_id'	=>	$user_2->id
 		));
-		$waitingList_1 = Waitinglist::create(array(
+		$waitingList_5 = Waitinglist::create(array(
 			'start_date'	=>	'2015-03-01 14:00:00',
 			'end_date'	=>	'2015-03-01 18:00:00',
 			'resource_id' => $resource_5->id,
 			'user_id'	=>	$user_3->id
 		));
-		$waitingList_1 = Waitinglist::create(array(
+		$waitingList_6 = Waitinglist::create(array(
 			'start_date'	=>	'2015-03-04 14:00:00',
 			'end_date'	=>	'2015-03-04 18:00:00',
 			'resource_id' => $resource_6->id,
 			'user_id'	=>	$user_3->id
 		));
-		$waitingList_1 = Waitinglist::create(array(
+		$waitingList_7 = Waitinglist::create(array(
 			'start_date'	=>	'2015-03-01 14:00:00',
 			'end_date'	=>	'2015-03-01 18:00:00',
 			'resource_id' => $resource_5->id,
 			'user_id'	=>	$user_3->id
 		));
-		$waitingList_1 = Waitinglist::create(array(
+		$waitingList_8 = Waitinglist::create(array(
 			'start_date'	=>	'2015-03-04 14:00:00',
 			'end_date'	=>	'2015-03-04 18:00:00',
 			'resource_id' => $resource_1->id,
 			'user_id'	=>	$user_4->id
 		));
-		$waitingList_1 = Waitinglist::create(array(
+		$waitingList_9 = Waitinglist::create(array(
 			'start_date'	=>	'2015-03-01 14:00:00',
 			'end_date'	=>	'2015-03-01 18:00:00',
 			'resource_id' => $resource_3->id,
 			'user_id'	=>	$user_4->id
 		));
 
-		$waitingList_1 = Waitinglist::create(array(
+		$waitingList_10 = Waitinglist::create(array(
 			'start_date'	=>	'2015-03-06 14:00:00',
 			'end_date'	=>	'2015-03-06 18:00:00',
 			'resource_id' => $resource_2->id,
 			'user_id'	=>	$user_1->id
 		));
-		$waitingList_1 = Waitinglist::create(array(
+		$waitingList_11 = Waitinglist::create(array(
 			'start_date'	=>	'2015-03-02 14:00:00',
 			'end_date'	=>	'2015-03-02 18:00:00',
 			'resource_id' => $resource_5->id,
