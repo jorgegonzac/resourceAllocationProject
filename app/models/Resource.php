@@ -4,7 +4,7 @@ class Resource extends Eloquent {
     
     // MASS ASSIGNMENT -------------------------------------------------------
     // define which attributes are mass assignable (for security)
-    protected $fillable = array('name', 'description', 'image','category_id','laboratory_id');
+    protected $fillable = array('name', 'description', 'image','category_id','laboratory_id','tags');
 
     // DEFINE RELATIONSHIPS --------------------------------------------------
 

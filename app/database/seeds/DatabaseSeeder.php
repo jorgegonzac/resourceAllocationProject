@@ -123,25 +123,29 @@ class resourceAllocationSeeder extends Seeder{
 			'first_name'	=>	'jose',
 			'last_name'		=>	'Sanchez sanchez',
 			'email'			=>	'jose@jose.com',
-			'school_id'		=>	'A01202341'
+			'school_id'		=>	'A01202341',
+			'career_id'		=>	$career_1->id
 		));
 		$user_2 = User::create(array(
 			'first_name'	=>	'Jesus',
 			'last_name'		=>	'Sanchez sanchez',
 			'email'			=>	'jesus@jose.com',
-			'school_id'		=>	'A01212341'
+			'school_id'		=>	'A01212341',
+			'career_id'		=>	$career_2->id
 		));
 		$user_3 = User::create(array(
 			'first_name'	=>	'juan',
 			'last_name'		=>	'Sanchez sanchez',
 			'email'			=>	'juan@jose.com',
-			'school_id'		=>	'A01222341'
+			'school_id'		=>	'A01222341',
+			'career_id'		=>	$career_3->id
 		));
 		$user_4 = User::create(array(
 			'first_name'	=>	'javier',
 			'last_name'		=>	'Sanchez sanchez',
 			'email'			=>	'javier@jose.com',
-			'school_id'		=>	'A01232341'
+			'school_id'		=>	'A01232341',
+			'career_id'		=>	$career_4->id
 		));
 
 		$this->command->info('Users created');
@@ -232,14 +236,16 @@ class resourceAllocationSeeder extends Seeder{
 			'description' 	=>	'hace hoyos',
 			'image'		=>	'/images/taladro.jpg',
 			'category_id'	=>	$category_1->id,
-			'laboratory_id'	=>	$lab_1->id
+			'laboratory_id'	=>	$lab_1->id,
+			'tags'			=>	'madera%metal%electrico%corte'
 		));
 		$resource_2 = Resource::create(array(
 			'name'	=>	'taladro de madera ',
 			'description' 	=>	'hace hoyos 2',
 			'image'		=>	'/images/taladro2.jpg',
 			'category_id'	=>	$category_1->id,
-			'laboratory_id'	=>	$lab_2->id
+			'laboratory_id'	=>	$lab_2->id,
+			'tags'			=>	'madera%metal%electrico%corte'
 		));
 
 		$resource_3 = Resource::create(array(
@@ -247,14 +253,16 @@ class resourceAllocationSeeder extends Seeder{
 			'description' 	=>	'para clavar',
 			'image'		=>	'/images/martillo.jpg',
 			'category_id'	=>	$category_2->id,
-			'laboratory_id'	=>	$lab_3->id
+			'laboratory_id'	=>	$lab_3->id,
+			'tags'			=>	'grande%blanca%fierro%metal'
 		));
 		$resource_4 = Resource::create(array(
 			'name'	=>	'Rotomartillo electrico',
 			'description' 	=>	'para clavar clavitos',
 			'image'		=>	'/images/martilloroto.jpg',
 			'category_id'	=>	$category_2->id,
-			'laboratory_id'	=>	$lab_4->id
+			'laboratory_id'	=>	$lab_4->id,
+			'tags'			=>	'electronico%electrico%laser'
 		));
 
 		$resource_5 = Resource::create(array(
@@ -262,14 +270,16 @@ class resourceAllocationSeeder extends Seeder{
 			'description' 	=>	'para clavar',
 			'image'		=>	'/images/martillo.jpg',
 			'category_id'	=>	$category_3->id,
-			'laboratory_id'	=>	$lab_5->id
+			'laboratory_id'	=>	$lab_5->id,
+			'tags'			=>	'sierra%corte%madera'
 		));
 		$resource_6 = Resource::create(array(
 			'name'	=>	'Serrucho',
 			'description' 	=>	'el serrucho hace rin rin',
 			'image'		=>	'/images/serrucho.jpg',
 			'category_id'	=>	$category_3->id,
-			'laboratory_id'	=>	$lab_5->id
+			'laboratory_id'	=>	$lab_5->id,
+			'tags'			=>	'madera%metal%electrico%corte'
 		));
 		$this->command->info('Resources created');
 		

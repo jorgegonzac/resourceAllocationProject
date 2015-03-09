@@ -19,7 +19,9 @@ class User extends Eloquent {
         return $this->hasMany('WaitingList');        
     }
 
-    public function bookings(){
-        return $this->hasMany('Booking');        
+    public function career(){
+        return $this->hasOne('Career');
     }
+    
+
 }
