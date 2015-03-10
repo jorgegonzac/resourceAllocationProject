@@ -12,3 +12,4 @@
 */
 
 Route::get('/', 'ResourcesController@showRecent');
+Route::post('/', 'LaboratoriesController@showLaboratoryResources');

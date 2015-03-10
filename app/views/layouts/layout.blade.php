@@ -2,12 +2,12 @@
 <html>
     <head>
         @include('includes.head')
+        @include('includes.header')
     </head>
 
     <body>
         <div class="container">
-            <header class="row">
-                @include('includes.header')
+            <header>
             </header>
 
             <div id="resources" class="row">

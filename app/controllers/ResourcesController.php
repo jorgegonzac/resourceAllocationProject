@@ -2,10 +2,12 @@
 
 class ResourcesController extends \BaseController {
 
-	public function showRecent(){
-		$laboratories = Laboratory::lists('name');
+	public function showRecent()
+	{
+		$laboratories = Laboratory::all();
 		$bookings = Booking::with('resource')->orderBy('id', 'DESC')->take(4)->get();
-		return View::make('resources', ['laboratories' => $laboratories, 'recentBookings' => $bookings]);
+		$resources = Resource::all();
+		return View::make('resources', ['laboratories' => $laboratories, 'recentBookings' => $bookings, 'resourcesAll' => $resources]);
 	}
 
 	public function index()
