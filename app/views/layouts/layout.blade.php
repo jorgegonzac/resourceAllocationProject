@@ -2,6 +2,7 @@
 <html>
     <head>
         @include('includes.head')
+<<<<<<< HEAD
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.2.2/css/material-wfont.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.2.2/css/material-wfont.css">
 
@@ -46,12 +47,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.2.2/js/ripples.min.js">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.2.2/js/ripples.min.js.map">
+=======
+        @include('includes.header')
+>>>>>>> develop
     </head>
 
     <body>
         <div class="container">
-            <header class="row">
-                @include('includes.header')
+            <header>
             </header>
 
             <div id="resources" class="row">

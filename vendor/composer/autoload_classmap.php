@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddTagsColumnCareeridColumn' => $baseDir . '/app/database/migrations/2015_03_09_214148_add_tags_column-careerid_column.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Booking' => $baseDir . '/app/models/Booking.php',
     'Boris\\Boris' => $vendorDir . '/d11wtq/boris/lib/Boris/Boris.php',
@@ -32,7 +33,7 @@ return array(
     'ClassPreloader\\Parser\\FileVisitor' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/FileVisitor.php',
     'ClassPreloader\\Parser\\NodeTraverser' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/NodeTraverser.php',
     'CreateEntitiesTables' => $baseDir . '/app/database/migrations/2015_03_06_224906_create_entities_tables.php',
-    'CreateManyToManyTables' => $baseDir . '/app/database/migrations/2015_03_05_232259_create_many_to_many_tables.php',
+    'CreateManyToManyTables' => $baseDir . '/app/database/migrations/2015_03_06_225212_create_many_to_many_tables.php',
     'Crypt_AES' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/AES.php',
     'Crypt_Base' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/Base.php',
     'Crypt_Blowfish' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/Blowfish.php',
@@ -1584,7 +1585,7 @@ return array(
     'TestCase' => $baseDir . '/app/tests/TestCase.php',
     'Timetable' => $baseDir . '/app/models/Timetable.php',
     'User' => $baseDir . '/app/models/User.php',
-    'WaitingList' => $baseDir . '/app/models/WaitingList.php',
+    'Waitinglist' => $baseDir . '/app/models/Waitinglist.php',
     'Whoops\\Exception\\ErrorException' => $vendorDir . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
     'Whoops\\Exception\\Formatter' => $vendorDir . '/filp/whoops/src/Whoops/Exception/Formatter.php',
     'Whoops\\Exception\\Frame' => $vendorDir . '/filp/whoops/src/Whoops/Exception/Frame.php',
@@ -1606,4 +1607,5 @@ return array(
     'Whoops\\Run' => $vendorDir . '/filp/whoops/src/Whoops/Run.php',
     'Whoops\\Util\\Misc' => $vendorDir . '/filp/whoops/src/Whoops/Util/Misc.php',
     'Whoops\\Util\\TemplateHelper' => $vendorDir . '/filp/whoops/src/Whoops/Util/TemplateHelper.php',
+    'resourceAllocationSeeder' => $baseDir . '/app/database/seeds/DatabaseSeeder.php',
 );
