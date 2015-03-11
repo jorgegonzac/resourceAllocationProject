@@ -5,7 +5,7 @@ class ResourcesController extends \BaseController {
 	public function showRecent()
 	{
 		$laboratories = Laboratory::all();
-		$bookings = Booking::with('resource')->orderBy('id', 'DESC')->take(4)->get();
+		$bookings = Booking::with('resource')->distinct()->take(4)->get();
 		$resources = Resource::all();
 		return View::make('resources', ['laboratories' => $laboratories, 'recentBookings' => $bookings, 'resourcesAll' => $resources]);
 	}
