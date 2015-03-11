@@ -268,7 +268,7 @@ class resourceAllocationSeeder extends Seeder{
 		$resource_5 = Resource::create(array(
 			'name'	=>	'Martillo electrico de fierro',
 			'description' 	=>	'para clavar',
-			'image'		=>	'/images/martillo.jpg',
+			'image'		=>	'/images/martillo2.jpg',
 			'category_id'	=>	$category_3->id,
 			'laboratory_id'	=>	$lab_5->id,
 			'tags'			=>	'sierra%corte%madera'
