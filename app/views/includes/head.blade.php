@@ -21,7 +21,7 @@
 				$('.resources').empty();
 				$('.resources').append('<br><br>');
 				$.each(data, function(key, value){
-		    		$(".resources").append('<h1><a href=' + '""' + '><p>' + value.name + '</p></a></h1>');
+		    		$(".resources").append('<div class="col-md-4"><h1><a href=' + '""' + '><p>' + value.name + '</p> <img src="'+ value.image + '" alt="'+ value.name +'" style="width:304px;height:228px"></a></h1>');
 		    	});
 			});
 		});
