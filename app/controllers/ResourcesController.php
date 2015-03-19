@@ -11,7 +11,7 @@ class ResourcesController extends \BaseController {
 			$recent = Resource::where('id', '=', $booking->resource_id)->get();
 			$recents = array_add($recents, $booking->resource_id, $recent[0]);
 		}
-		return View::make('resources', ['laboratories' => $laboratories, 'recentBookings' => $recents]);
+		return View::make('resources', ['laboratories' => $laboratories, 'recentBookings' => $recents, 'bookings' => $bookings]);
 	}
 
 	public function index()
