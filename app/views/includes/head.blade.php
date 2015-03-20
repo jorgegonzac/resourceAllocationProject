@@ -16,7 +16,7 @@
 			if (id >= 100){
 				returnAll = 1;
 			}
-			$.post('/',{ id : id, returnResources : returnResources, returnAll : returnAll }).done(function(data){
+			$.post('inicio',{ id : id, returnResources : returnResources, returnAll : returnAll }).done(function(data){
 				console.log(data);
 				$('.resources').empty();
 				$('.resources').append('<br><br>');

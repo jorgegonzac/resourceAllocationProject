@@ -1,6 +1,6 @@
 <?php
 
-class LaboratoriesController extends \BaseController {
+class LaboratoriesController extends BaseController {
 
 	public function showLaboratoryResources()
 	{
