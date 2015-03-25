@@ -16,3 +16,5 @@ Route::resource('sessions', 'SessionsController');
 
 Route::get('inicio', 'ResourcesController@showRecent');
 Route::post('inicio', 'LaboratoriesController@showLaboratoryResources');
+
+Route::resource('users', 'UsersController');
