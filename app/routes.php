@@ -14,5 +14,23 @@ Route::get('login', 'SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
 Route::resource('sessions', 'SessionsController');
 
-Route::get('inicio', 'ResourcesController@showRecent');
-Route::post('inicio', 'LaboratoriesController@showLaboratoryResources');
+Route::get('inicio', 'SectionsController@showRecent');
+Route::post('inicio', 'SectionsController@showLaboratoryResources');
+
+Route::get('admin', 'SectionsController@showAdmin');
+
+Route::get('usuarios', 'SectionsController@showUsers');
+
+Route::get('laboratorios', 'SectionsController@showLaboratories');
+
+Route::get('categorias', 'SectionsController@showCategories');
+
+Route::get('recursos', 'SectionsController@showResources');
+
+Route::get('calendarios', 'SectionsController@showTimetables');
+
+Route::get('horarios', 'SectionsController@showSchedules');
+
+Route::get('reservaciones', 'SectionsController@showBookings');
+
+Route::get('listas-de-espera', 'SectionsController@showWaitingLists');

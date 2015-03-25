@@ -1,0 +1,117 @@
+/************************************/
+/*	         Header User			*/
+/************************************/
+
+.bg_gris{
+	background: #9595A1;
+	height: 60px;
+}
+
+.padding_header{
+	padding-top: 13px;
+}
+
+.logo_header{
+	color: black;
+	font-size: 14pt;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 15px 10px;
+}
+
+.search_bar_user{
+	margin-top: 4px;
+	width: 100%;
+}
+
+.home_header{
+	color: black;
+	font-size: 14pt;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 15px 10px;
+}
+
+.account_header{
+	color: black;
+	font-size: 14pt;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 15px 10px;
+}
+
+.logout_header{
+	color: black;
+	font-size: 14pt;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 15px 10px;
+}
+
+/************************************/
+/*	         Header Admin			*/
+/************************************/
+
+.bg_gris_admin{
+	background: #9595A1;
+	height: 80px;
+}
+
+.logo_header_admin{
+	color: black;
+	font-size: 14pt;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 25px 10px;
+}
+
+.home_header_admin{
+	color: black;
+	font-size: 14pt;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 25px 10px;
+}
+
+.search_bar_admin{
+	margin-top: 14px;
+	width: 100%;
+}
+
+.logout_header_admin{
+	color: black;
+	font-size: 14pt;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 25px 10px;
+}
+
+/************************************/
+/*	         Sidebar Admin			*/
+/************************************/
+
+.sidebar_admin {
+	background: #e6e7e8;
+	text-align: center;
+	padding: 0px 0px;
+	font-size: 28pt;
+}
+
+.sidebar_admin li {
+	list-style: none;
+	padding: 10px 0;
+	border: 1px solid black;
+}
+
+.sidebar_admin li a {
+	color: #6d6e70;
+	text-decoration: none;
+}
+
+.sidebar_admin li a.active {
+	color: #007833;
+}
+
+.sidebar_admin li a:hover {
+	color: #007833;
+}

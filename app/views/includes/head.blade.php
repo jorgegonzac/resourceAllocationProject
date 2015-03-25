@@ -4,6 +4,7 @@
 <!-- CSS are placed here -->
 {{ HTML::style('css/bootstrap.css') }}
 {{ HTML::style('css/bootstrap-theme.css') }}
+{{ HTML::style('css/styles.css')}}
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
