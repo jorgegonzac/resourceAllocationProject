@@ -12,9 +12,8 @@ class UsersController extends \BaseController {
 		//get all the users
 		$users = User::all();
 
-		return View::make('users.index')->with('users',$users);
+		return View::make('admin.users.index')->with('users',$users);
 	}
-
 
 	/**
 	 * Show the form for creating a new resource.
@@ -24,7 +23,7 @@ class UsersController extends \BaseController {
 	public function create()
 	{
 		//
-		return View::make('users.create');
+		return View::make('admin.users.create');
 	}
 
 
@@ -72,7 +71,7 @@ class UsersController extends \BaseController {
 	{
 		//
 		$user = User::find($id);
-		return View::make('users.show')->with('user',$user);
+		return View::make('admin.users.show')->with('user',$user);
 	}
 
 
@@ -86,7 +85,7 @@ class UsersController extends \BaseController {
 	{
 		//
 		$user = User::find($id);
-		return View::make('users.edit')->with('user',$user);
+		return View::make('admin.users.edit')->with('user',$user);
 	}
 
 

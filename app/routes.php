@@ -19,7 +19,9 @@ Route::post('inicio', 'SectionsController@showLaboratoryResources');
 
 Route::get('admin', 'SectionsController@showAdmin');
 
-Route::get('usuarios', 'SectionsController@showUsers');
+Route::resource('usuarios', 'UsersController');
+
+Route::get('users', 'UsersController@index2');
 
 Route::get('laboratorios', 'SectionsController@showLaboratories');
 
@@ -34,5 +36,3 @@ Route::get('horarios', 'SectionsController@showSchedules');
 Route::get('reservaciones', 'SectionsController@showBookings');
 
 Route::get('listas-de-espera', 'SectionsController@showWaitingLists');
-
-Route::resource('users', 'UsersController');
