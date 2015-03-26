@@ -34,6 +34,3 @@ Route::get('horarios', 'SectionsController@showSchedules');
 Route::get('reservaciones', 'SectionsController@showBookings');
 
 Route::get('listas-de-espera', 'SectionsController@showWaitingLists');
-
-Route::resource('users', 'UsersController');
-
