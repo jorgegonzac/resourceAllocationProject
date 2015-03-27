@@ -23,7 +23,7 @@ Route::resource('users', 'UsersController');
 
 Route::resource('laboratories','LaboratoriesController');
 
-Route::get('categorias', 'SectionsController@showCategories');
+Route::resource('categories','CategoriesController');
 
 Route::get('recursos', 'SectionsController@showResources');
 
