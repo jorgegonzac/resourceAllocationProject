@@ -21,7 +21,7 @@ Route::get('admin', 'SectionsController@showAdmin');
 
 Route::resource('users', 'UsersController');
 
-Route::get('laboratorios', 'SectionsController@showLaboratories');
+Route::resource('laboratories','LaboratoriesController');
 
 Route::get('categorias', 'SectionsController@showCategories');
 
