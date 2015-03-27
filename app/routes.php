@@ -19,9 +19,7 @@ Route::post('inicio', 'SectionsController@showLaboratoryResources');
 
 Route::get('admin', 'SectionsController@showAdmin');
 
-Route::resource('usuarios', 'UsersController');
-
-Route::get('users', 'UsersController@index2');
+Route::resource('users', 'UsersController');
 
 Route::get('laboratorios', 'SectionsController@showLaboratories');
 

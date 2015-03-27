@@ -1,17 +1,26 @@
-@extends('layouts.userslayout')
+@extends('layouts.adminlayout')
 @section('content')
 
-	<h1>Showing {{ $user->first_name }}</h1>
+<div class="text-center">
+    <h3>Mostrando información de </h3><h1>{{ $user->school_id }}</h1>
 
     <div class="jumbotron text-center">
-        <h2>{{ $user->first_name }}</h2>
         <p>
-        	<strong>Last name:</strong> {{ $user->last_name	}}<br>
-            <strong>Email:</strong> {{ $user->email }}<br>
+            <strong>Nombre:</strong> {{ $user->first_name   }}<br>
+            <strong>Apellido paterno:</strong> {{ $user->first_last_name }}<br>
+            <strong>Apellido materno:</strong> {{ $user->second_last_name }}<br>
+            <strong>Correo:</strong> {{ $user->email1 }}<br>
+            <strong>Correo alternativo:</strong> {{ $user->email2 }}<br>
             <strong>School id:</strong> {{ $user->school_id }}<br>
-            <strong>Career id:</strong> {{ $user->career_id }}
+            <strong>Career:</strong> {{ $user->career }}
         </p>
     </div>
 
+    <form action="{{ URL::to('users') }}">
+            <button type="submit" class="btn btn-info"> Regresar</button>
+    </form>
+
+
+</div>
 
 @stop

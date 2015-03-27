@@ -3,28 +3,28 @@
 		<a href="admin">
 			<li>Inicio</li>
 		</a>
-		<a href="usuarios">
+		<a href="../../users">
 			<li>Usuarios</li>
 		</a>
-		<a href="laboratorios">
+		<a href="../../laboratories">
 			<li>Laboratorios</li>
 		</a>
-		<a href="categorias">
+		<a href="../../categories">
 			<li>Categorias</li>
 		</a>
-		<a href="recursos">
+		<a href="../../resources">
 			<li>Recursos</li>
 		</a>
-		<a href="calendarios">
+		<a href="../../timetables">
 			<li>Calendarios</li>
 		</a>
-		<a href="horarios">
+		<a href="../../schedules">
 			<li>Horarios</li>
 		</a>
-		<a href="reservaciones">
+		<a href="../../bookings">
 			<li>Reservaciones</li>
 		</a>
-		<a href="listas-de-espera">
+		<a href="../../waitinglists">
 			<li>Listas de Espera</li>
 		</a>
 	</ul>

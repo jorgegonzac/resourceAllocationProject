@@ -36,25 +36,36 @@ class UsersController extends \BaseController {
 	{
 		//
 		$rules = array(
-            'first_name' => 'required',
-            'email'      => 'required|email',
-            'school_id'  => 'required|min:9',
-            'career_id'	 => 'exists:careers,id'
-        );
-		$validator = Validator::make(Input::all(), $rules);
+            'email1'      => 'required|email',
+            'email2'      => 'email',            
+            'school_id'  => 'required|size:9|alpha_num',
+        );        
+        $messages = [
+        	'required' 	=> 'Este campo es obligatorio !',
+        	'email'	   	=> 'Correo no valido',
+        	'min'	   	=> 'La matrícula no es valida',
+        	'size'	=> 'La matrícula no es valida'
+       	];
+		$validator = Validator::make(Input::all(), $rules, $messages);
+		
 		if($validator->fails()){
-			return Redirect::to('user/create')
-			->withErrors($validator);
-			//->withInput(Input::except('password'))
+			return Redirect::to('users/create')
+			->withErrors($validator->messages())
+			->withInput(Input::except('password'));
 		}else{
 			$user = new User;
-			$user->first_name	=	Input::get('first_name');
-			$user->last_name	=	Input::get('last_name');
-			$user->email 		=	Input::get('email');
-			$user->school_id	=	Input::get('school_id');
-			$user->career_id	=	Input::get('career_id');
-			$user->save();
-
+			$user->first_name		=	Input::get('first_name');
+			$user->first_last_name	=	Input::get('first_last_name');
+			$user->second_last_name	=	Input::get('second_last_name');
+			$user->email1 			=	Input::get('email1');
+			$user->email2 			=	Input::get('email2');
+			$user->password 		=	Input::get('password');
+			$user->school_id		=	Input::get('school_id');
+			$user->career 			=	Input::get('career');
+			if($user->email2 != ""){
+				$user->alternative = 1;
+			}
+			$user->save(); 
 			Session::flash('message', 'Successfully created user!');
 			return Redirect::to('users');
 		}
@@ -97,30 +108,42 @@ class UsersController extends \BaseController {
 	 */
 	public function update($id)
 	{
+		//
 		$rules = array(
-            'first_name' => 'required',
-            'email'      => 'required|email',
-            'school_id'  => 'required|min:9',
-            'career_id'	 => 'exists:careers,id'
+            'email1'      => 'required|email',
+            'email2'      => 'email',            
+            'school_id'  => 'required|size:9|alpha_num',
         );
-		$validator = Validator::make(Input::all(), $rules);
+		$messages = [
+        	'required' 	=> 'Este campo es obligatorio !',
+        	'email'	   	=> 'Correo no valido',
+        	'size'	   	=> 'La matrícula no es valida',
+        	'alpha_num'	=> 'La matrícula no es valida'
+       	];	
+		$validator = Validator::make(Input::all(), $rules, $messages);
 
 		if($validator->fails()){
-			return Redirect::to('user/' . $id . '/edit')
-			->withErrors($validator);
-			//->withInput(Input::except('password'))
+			return Redirect::to('users/' . $id . '/edit')
+			->withErrors($validator)
+			->withInput(Input::except('password'));
 		}else{
 			$user = User::find($id);
-			$user->first_name	=	Input::get('first_name');
-			$user->last_name	=	Input::get('last_name');
-			$user->email 		=	Input::get('email');
-			$user->school_id	=	Input::get('school_id');
-			$user->career_id	=	Input::get('career_id');
+			$user->first_name		=	Input::get('first_name');
+			$user->first_last_name	=	Input::get('first_last_name');
+			$user->second_last_name	=	Input::get('second_last_name');
+			$user->email1 			=	Input::get('email1');
+			$user->email2 			=	Input::get('email2');
+			$user->password 		=	Input::get('password');
+			$user->school_id		=	Input::get('school_id');
+			$user->career 			=	Input::get('career');
+			if($user->email2 != ""){
+				$user->alternative = 1;
+			}
 			$user->save();
 
 			Session::flash('message', 'Successfully updated user!');
 			return Redirect::to('users');
-		}	
+		}
 	}
 
 

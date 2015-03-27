@@ -46,4 +46,28 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     public function getAuthIdentifier(){
         return $this->school_id;
     }
+    public static function boot()
+    {
+        parent::boot();
+         
+        static::creating(function($model) {
+            static::setNullWhenEmpty($model);
+            return true;
+        });
+        static::updating(function($model) {
+            static::setNullWhenEmpty($model);
+            return true;
+        });
+
+    }
+ 
+    private static function setNullWhenEmpty($model)
+    {
+        foreach ($model->toArray() as $name => $value) {
+            if (empty($value)) {
+                $model->{$name} = null;
+            }
+        }
+    }
+
 }
