@@ -7,7 +7,7 @@
 {{ HTML::style('css/styles.css')}}
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <script>
 	$(document).ready(function(){
 		$('#selectLaboratory').on('click', function(){

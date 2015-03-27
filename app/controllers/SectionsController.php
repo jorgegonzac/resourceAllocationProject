@@ -39,7 +39,7 @@ class SectionsController extends BaseController
 
 	public function showAdmin()
 	{
-		return View::make('admin.inicioadmin');
+		return View::make('admin.index');
 	}
 
 	public function showUsers()

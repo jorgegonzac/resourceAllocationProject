@@ -115,3 +115,15 @@
 .sidebar_admin li a:hover {
 	color: #007833;
 }
+
+
+/************************************/
+/*	          Admin Content			*/
+/************************************/
+.content_icon_admin {
+	background: none;
+	border: none;
+}
+.error{
+	color: red ;
+}
