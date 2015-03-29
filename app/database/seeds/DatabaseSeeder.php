@@ -182,28 +182,28 @@ class resourceAllocationSeeder extends Seeder{
 
 
 		$schedule_1 = Schedule::create(array(
-			'day'	=>	'1',
-			'period'	=>	'2',
 			'start_hour'	=>	'09:00:00',
-			'end_hour'	=>	'18:00:00'
+			'end_hour'	=>	'18:00:00',
+			'name' 		=> 'horario1',
+			'weekday'	=>	'Lunes',
 		));
 		$schedule_2 = Schedule::create(array(
-			'day'	=>	'3',
-			'period'	=>	'2',
 			'start_hour'	=>	'09:00:00',
-			'end_hour'	=>	'18:00:00'
+			'end_hour'	=>	'18:00:00',
+			'name' 		=> 'horario2',
+			'weekday'	=>	'Martes',
 		));
 		$schedule_3 = Schedule::create(array(
-			'day'	=>	'1',
-			'period'	=>	'3',
 			'start_hour'	=>	'09:00:00',
-			'end_hour'	=>	'10:00:00'
+			'end_hour'	=>	'10:00:00',
+			'name' 		=> 'horario3',
+			'weekday'	=>	'Miercoles',
 		));
 		$schedule_4 = Schedule::create(array(
-			'day'	=>	'4',
-			'period'	=>	'1',
 			'start_hour'	=>	'09:00:00',
-			'end_hour'	=>	'10:00:00'
+			'end_hour'	=>	'10:00:00',
+			'name' 		=> 'horario4',
+			'weekday'	=>	'Jueves',
 		));
 		$this->command->info('Schedules created');
 

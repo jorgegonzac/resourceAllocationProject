@@ -25,12 +25,12 @@ Route::resource('laboratories','LaboratoriesController');
 
 Route::resource('categories','CategoriesController');
 
-Route::get('recursos', 'SectionsController@showResources');
+Route::resource('resources', 'ResourcesController');
 
-Route::get('calendarios', 'SectionsController@showTimetables');
+Route::resource('timetables', 'SectionsController@showTimetables');
 
-Route::get('horarios', 'SectionsController@showSchedules');
+Route::resource('schedules', 'SchedulesController');
 
-Route::get('reservaciones', 'SectionsController@showBookings');
+Route::resource('bookings', 'SectionsController@showBookings');
 
-Route::get('listas-de-espera', 'SectionsController@showWaitingLists');
+Route::resource('waitinglists', 'SectionsController@showWaitingLists');
