@@ -6565,7 +6565,6 @@ button.close {
 }
 /*# sourceMappingURL=bootstrap.css.map */
 
-
 #t-cards {
     padding-top: 80px;
     padding-bottom: 80px;
@@ -6577,14 +6576,14 @@ button.close {
 /********************************/
 .panel.panel-card {
     position: relative;
-    height: 250px;
+    height: 350px;
     border: none;
     overflow: hidden;
 }
 .panel.panel-card .panel-heading {
     position: relative;
     z-index: 2;
-    height: 300px;
+    height: 180px;
     border-bottom-color: #fff;
     overflow: hidden;
     
@@ -6612,8 +6611,8 @@ button.close {
     top: auto;
     left: 50%;
     z-index: 3;
-    width: 70px;
-    height: 70px;
+    width: 150px;
+    height: 150px;
     background-color: #fff;
     border-radius: 50%;
     opacity: 1;
