@@ -32,4 +32,28 @@ class Resource extends Eloquent {
         return $this->hasMany('Booking');        
     }
 
+    //Method to change empty values to null
+    public static function boot()
+    {
+        parent::boot();
+         
+        static::creating(function($model) {
+            static::setNullWhenEmpty($model);
+            return true;
+        });
+        static::updating(function($model) {
+            static::setNullWhenEmpty($model);
+            return true;
+        });
+
+    }
+ 
+    private static function setNullWhenEmpty($model)
+    {
+        foreach ($model->toArray() as $name => $value) {
+            if (empty($value)) {
+                $model->{$name} = null;
+            }
+        }
+    }
 }

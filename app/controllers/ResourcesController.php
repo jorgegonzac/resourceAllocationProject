@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 class ResourcesController extends \BaseController {
 
 	public function showRecent()
@@ -13,6 +14,9 @@ class ResourcesController extends \BaseController {
 		}
 		return View::make('resources', ['laboratories' => $laboratories, 'recentBookings' => $recents, 'bookings' => $bookings]);
 	}
+=======
+class ResourcesController extends BaseController {
+>>>>>>> develop
 
 	public function index()
 	{

@@ -120,32 +120,25 @@ class resourceAllocationSeeder extends Seeder{
 		
 
 		$user_1 = User::create(array(
-			'first_name'	=>	'jose',
-			'last_name'		=>	'Sanchez sanchez',
-			'email'			=>	'jose@jose.com',
+			'email1'		=>	'A01202341@itesm.mx',
 			'school_id'		=>	'A01202341',
-			'career_id'		=>	$career_1->id
 		));
 		$user_2 = User::create(array(
-			'first_name'	=>	'Jesus',
-			'last_name'		=>	'Sanchez sanchez',
-			'email'			=>	'jesus@jose.com',
-			'school_id'		=>	'A01212341',
-			'career_id'		=>	$career_2->id
+			'email1'		=>	'A01202342@itesm.mx',
+			'school_id'		=>	'A01212342',
 		));
 		$user_3 = User::create(array(
-			'first_name'	=>	'juan',
-			'last_name'		=>	'Sanchez sanchez',
-			'email'			=>	'juan@jose.com',
-			'school_id'		=>	'A01222341',
-			'career_id'		=>	$career_3->id
+			'email1'		=>	'A01202343@itesm.mx',
+			'school_id'		=>	'A01212343',
 		));
 		$user_4 = User::create(array(
-			'first_name'	=>	'javier',
-			'last_name'		=>	'Sanchez sanchez',
-			'email'			=>	'javier@jose.com',
-			'school_id'		=>	'A01232341',
-			'career_id'		=>	$career_4->id
+			'email1'		=>	'A01202344@itesm.mx',
+			'school_id'		=>	'A01212344',
+		));
+		$user_5 = User::create(array(
+			'email1'		=>	'A01202743@itesm.mx',
+			'school_id'		=>	'A01202743',
+			'password'		=>	Hash::make('1994aecook'),
 		));
 
 		$this->command->info('Users created');
@@ -189,28 +182,28 @@ class resourceAllocationSeeder extends Seeder{
 
 
 		$schedule_1 = Schedule::create(array(
-			'day'	=>	'1',
-			'period'	=>	'2',
 			'start_hour'	=>	'09:00:00',
-			'end_hour'	=>	'18:00:00'
+			'end_hour'	=>	'18:00:00',
+			'name' 		=> 'horario1',
+			'weekday'	=>	'Lunes',
 		));
 		$schedule_2 = Schedule::create(array(
-			'day'	=>	'3',
-			'period'	=>	'2',
 			'start_hour'	=>	'09:00:00',
-			'end_hour'	=>	'18:00:00'
+			'end_hour'	=>	'18:00:00',
+			'name' 		=> 'horario2',
+			'weekday'	=>	'Martes',
 		));
 		$schedule_3 = Schedule::create(array(
-			'day'	=>	'1',
-			'period'	=>	'3',
 			'start_hour'	=>	'09:00:00',
-			'end_hour'	=>	'10:00:00'
+			'end_hour'	=>	'10:00:00',
+			'name' 		=> 'horario3',
+			'weekday'	=>	'Miercoles',
 		));
 		$schedule_4 = Schedule::create(array(
-			'day'	=>	'4',
-			'period'	=>	'1',
 			'start_hour'	=>	'09:00:00',
-			'end_hour'	=>	'10:00:00'
+			'end_hour'	=>	'10:00:00',
+			'name' 		=> 'horario4',
+			'weekday'	=>	'Jueves',
 		));
 		$this->command->info('Schedules created');
 

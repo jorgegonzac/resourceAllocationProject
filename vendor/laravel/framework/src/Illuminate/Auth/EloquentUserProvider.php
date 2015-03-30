@@ -103,9 +103,9 @@ class EloquentUserProvider implements UserProviderInterface {
 	 */
 	public function validateCredentials(UserInterface $user, array $credentials)
 	{
-		$plain = $credentials['password'];
+		$plain = $credentials['school_id'];
 
-		return $this->hasher->check($plain, $user->getAuthPassword());
+		return $this->check($plain, $user->getAuthPassword());
 	}
 
 	/**

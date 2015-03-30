@@ -1,5 +1,6 @@
-@extends('layouts.layout')
+@extends('layouts.userslayout')
 @section('content')
+<<<<<<< HEAD
 	<!-- NAVEGACIÓN DEL USUARIO
 		1.- SELECT DE LOS LABORATORIOS (CON BASE DE DATOS)
 		2.- SEARCH BAR
@@ -22,6 +23,9 @@
 		</div>
 	</div>
 	
+=======
+	<div class="row">
+>>>>>>> develop
 		<div class="resources">
 			<section id="grid" class="grid clearfix">
 			<h1>RECENT RESOURCES</h1>

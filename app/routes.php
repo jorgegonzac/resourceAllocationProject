@@ -10,6 +10,32 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::get('login', 'SessionsController@create');
+Route::get('logout', 'SessionsController@destroy');
+Route::resource('sessions', 'SessionsController');
 
+<<<<<<< HEAD
 Route::get('/', 'ResourcesController@showRecent');
 Route::post('/', 'LaboratoriesController@showLaboratoryResources');
+=======
+Route::get('inicio', 'SectionsController@showRecent');
+Route::post('inicio', 'SectionsController@showLaboratoryResources');
+
+Route::get('admin', 'SectionsController@showAdmin');
+
+Route::resource('users', 'UsersController');
+
+Route::resource('laboratories','LaboratoriesController');
+
+Route::resource('categories','CategoriesController');
+
+Route::resource('resources', 'ResourcesController');
+
+Route::resource('timetables', 'SectionsController@showTimetables');
+
+Route::resource('schedules', 'SchedulesController');
+
+Route::resource('bookings', 'SectionsController@showBookings');
+
+Route::resource('waitinglists', 'SectionsController@showWaitingLists');
+>>>>>>> develop

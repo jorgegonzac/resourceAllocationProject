@@ -1,27 +1,73 @@
 <?php
 
-class User extends Eloquent {
-    
-    // MASS ASSIGNMENT -------------------------------------------------------
-    // define which attributes are mass assignable (for security)
-    // we only want these 3 attributes able to be filled
-    protected $fillable = array('first_name', 'last_name', 'email','school_id');
+use Illuminate\Auth\UserTrait;
+use Illuminate\Auth\UserInterface;
+use Illuminate\Auth\Reminders\RemindableTrait;
+use Illuminate\Auth\Reminders\RemindableInterface;
 
-    // DEFINE RELATIONSHIPS --------------------------------------------------
+class User extends Eloquent implements UserInterface, RemindableInterface {
 
-    // each user BELONGS to many resources --waiting_list
-    // define our pivot table also
-    public function roles() {
+    use UserTrait, RemindableTrait;
+
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
+
+    protected $fillable = array('first_name', 'first_last_name', 'second_last_name','email1','school_id', 'email2', 'alternative', 'career');
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password']  = Hash::make($value);
+    }
+
+    public function roles() 
+    {
         return $this->belongsToMany('Role', 'users_roles', 'user_id', 'role_id');
     }
 
-    public function waitingList(){
+    public function waitingList()
+    {
         return $this->hasMany('WaitingList');        
     }
 
-    public function career(){
+    public function career()
+    {
         return $this->hasOne('Career');
     }
-    
+
+    public function getAuthPassword()
+    {
+        return $this->school_id;
+    }
+
+    public function getAuthIdentifier(){
+        return $this->school_id;
+    }
+    public static function boot()
+    {
+        parent::boot();
+         
+        static::creating(function($model) {
+            static::setNullWhenEmpty($model);
+            return true;
+        });
+        static::updating(function($model) {
+            static::setNullWhenEmpty($model);
+            return true;
+        });
+
+    }
+ 
+    private static function setNullWhenEmpty($model)
+    {
+        foreach ($model->toArray() as $name => $value) {
+            if (empty($value)) {
+                $model->{$name} = null;
+            }
+        }
+    }
 
 }
