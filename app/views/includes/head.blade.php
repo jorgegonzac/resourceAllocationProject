@@ -11,6 +11,7 @@
 {{ HTML::style('css/normalize.css')}}
 {{ HTML::style('css/styles.css')}}
 {{ HTML::style('css/material-fullpalette.css')}}
+{{ HTML::style('css/material.css')}}
 
 <!-- JS are placed here -->
 

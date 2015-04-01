@@ -137,3 +137,14 @@
 .error{
 	color: red ;
 }
+
+/************************************/
+/*	          Booking Content			*/
+/************************************/
+
+.content_booking{
+
+	z-index:10;
+	margin-top: 100px;
+}
+

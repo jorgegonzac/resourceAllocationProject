@@ -1,4 +1,4 @@
-/* Common style */
+  /* Common style */
 .grid {
 	margin: 40px auto 120px;
 	max-width: 1000px;
@@ -71,6 +71,17 @@
 }
 
 .grid figure button {
+	position: absolute;
+	padding: 4px 20px;
+	border: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: bold;
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+}
+
+.grid figure a {
 	position: absolute;
 	padding: 4px 20px;
 	border: none;

@@ -36,3 +36,5 @@ Route::resource('bookings', 'SectionsController@showBookings');
 
 Route::resource('waitinglists', 'SectionsController@showWaitingLists');
 
+Route::resource('book', 'ResourcesController@book');
+
