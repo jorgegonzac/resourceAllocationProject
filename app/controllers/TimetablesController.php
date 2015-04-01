@@ -16,7 +16,7 @@ class TimetablesController extends BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('admin.timetables.create');
 	}
 
 
@@ -40,13 +40,13 @@ class TimetablesController extends BaseController {
 	public function show($id)
 	{
 		$timetable = Timetable::select()->where('id', '=', $id)->with('schedules')->get();
-		$horas = array('08:00' => '08:00 - 08:30', '08:30' => '08:30 - 09:00', '09:00' => '09:00 - 09:30', '09:30' => '09:30 - 10:00', '10:00' => '10:00 - 10:30', '10:30' => '10:30 - 11:00', '11:00' => '11:00 - 11:30', '11:30' => '11:30 - 12:00', '12:00' => '12:00 - 12:30', '12:30' => '12:30 - 13:00', '13:00' => '13:00 - 13:30', '13:30' => '13:30 - 14:00', '14:00' => '14:00 - 14:30', '14:30' => '14:30 - 15:00', '15:00' => '15:00 - 15:30', '15:30' => '15:30 - 16:00', '16:00' => '16:00 - 16:30');
-		$lunes = array('08:00 - 08:30' => false, '08:30 - 09:00' => false, '09:00 - 09:30' => false, '09:30 - 10:00' => false, '10:00 - 10:30' => false, '10:30 - 11:00' => false, '11:00 - 11:30' => false, '11:30 - 12:00' => false, '12:00 - 12:30' => false, '12:30 - 13:00' => false, '13:00 - 13:30' => false, '13:30 - 14:00' => false, '14:00 - 14:30' => false, '14:30 - 15:00' => false, '15:00 - 15:30' => false, '15:30 - 16:00' => false, '16:00 - 16:30' => false);
-		$martes = array('08:00 - 08:30' => false, '08:30 - 09:00' => false, '09:00 - 09:30' => false, '09:30 - 10:00' => false, '10:00 - 10:30' => false, '10:30 - 11:00' => false, '11:00 - 11:30' => false, '11:30 - 12:00' => false, '12:00 - 12:30' => false, '12:30 - 13:00' => false, '13:00 - 13:30' => false, '13:30 - 14:00' => false, '14:00 - 14:30' => false, '14:30 - 15:00' => false, '15:00 - 15:30' => false, '15:30 - 16:00' => false, '16:00 - 16:30' => false);
-		$miercoles = array('08:00 - 08:30' => false, '08:30 - 09:00' => false, '09:00 - 09:30' => false, '09:30 - 10:00' => false, '10:00 - 10:30' => false, '10:30 - 11:00' => false, '11:00 - 11:30' => false, '11:30 - 12:00' => false, '12:00 - 12:30' => false, '12:30 - 13:00' => false, '13:00 - 13:30' => false, '13:30 - 14:00' => false, '14:00 - 14:30' => false, '14:30 - 15:00' => false, '15:00 - 15:30' => false, '15:30 - 16:00' => false, '16:00 - 16:30' => false);
-		$jueves = array('08:00 - 08:30' => false, '08:30 - 09:00' => false, '09:00 - 09:30' => false, '09:30 - 10:00' => false, '10:00 - 10:30' => false, '10:30 - 11:00' => false, '11:00 - 11:30' => false, '11:30 - 12:00' => false, '12:00 - 12:30' => false, '12:30 - 13:00' => false, '13:00 - 13:30' => false, '13:30 - 14:00' => false, '14:00 - 14:30' => false, '14:30 - 15:00' => false, '15:00 - 15:30' => false, '15:30 - 16:00' => false, '16:00 - 16:30' => false);
-		$viernes = array('08:00 - 08:30' => false, '08:30 - 09:00' => false, '09:00 - 09:30' => false, '09:30 - 10:00' => false, '10:00 - 10:30' => false, '10:30 - 11:00' => false, '11:00 - 11:30' => false, '11:30 - 12:00' => false, '12:00 - 12:30' => false, '12:30 - 13:00' => false, '13:00 - 13:30' => false, '13:30 - 14:00' => false, '14:00 - 14:30' => false, '14:30 - 15:00' => false, '15:00 - 15:30' => false, '15:30 - 16:00' => false, '16:00 - 16:30' => false);
-		$sabado = array('08:00 - 08:30' => false, '08:30 - 09:00' => false, '09:00 - 09:30' => false, '09:30 - 10:00' => false, '10:00 - 10:30' => false, '10:30 - 11:00' => false, '11:00 - 11:30' => false, '11:30 - 12:00' => false, '12:00 - 12:30' => false, '12:30 - 13:00' => false, '13:00 - 13:30' => false, '13:30 - 14:00' => false, '14:00 - 14:30' => false, '14:30 - 15:00' => false, '15:00 - 15:30' => false, '15:30 - 16:00' => false, '16:00 - 16:30' => false);
+		$horas = array('08:00' => '08:00 - 08:30', '08:30' => '08:30 - 09:00', '09:00' => '09:00 - 09:30', '09:30' => '09:30 - 10:00', '10:00' => '10:00 - 10:30', '10:30' => '10:30 - 11:00', '11:00' => '11:00 - 11:30', '11:30' => '11:30 - 12:00', '12:00' => '12:00 - 12:30', '12:30' => '12:30 - 13:00', '13:00' => '13:00 - 13:30', '13:30' => '13:30 - 14:00', '14:00' => '14:00 - 14:30', '14:30' => '14:30 - 15:00', '15:00' => '15:00 - 15:30', '15:30' => '15:30 - 16:00', '16:00' => '16:00 - 16:30', '16:30' => '16:30 - 17:00', '17:00' => '17:00 - 17:30', '17:30' => '17:30 - 18:00', '18:00' => '18:00 - 18:30', '18:30' => '18:30 - 19:00', '19:00' => '19:00 - 19:30', '19:30' => '19:30 - 20:00', '20:00' => '20:00 - 20:30', '20:30' => '20:30 - 21:00');
+		$lunes = array('08:00 - 08:30' => false, '08:30 - 09:00' => false, '09:00 - 09:30' => false, '09:30 - 10:00' => false, '10:00 - 10:30' => false, '10:30 - 11:00' => false, '11:00 - 11:30' => false, '11:30 - 12:00' => false, '12:00 - 12:30' => false, '12:30 - 13:00' => false, '13:00 - 13:30' => false, '13:30 - 14:00' => false, '14:00 - 14:30' => false, '14:30 - 15:00' => false, '15:00 - 15:30' => false, '15:30 - 16:00' => false, '16:00 - 16:30' => false, '16:30 - 17:00' => false, '17:00 - 17:30' => false, '17:30 - 18:00' => false, '18:00 - 18:30' => false, '18:30 - 19:00' => false, '19:00 - 19:30' => false, '19:30 - 20:00' => false, '20:00 - 20:30' => false, '20:30 - 21:00' => false);
+		$martes = array('08:00 - 08:30' => false, '08:30 - 09:00' => false, '09:00 - 09:30' => false, '09:30 - 10:00' => false, '10:00 - 10:30' => false, '10:30 - 11:00' => false, '11:00 - 11:30' => false, '11:30 - 12:00' => false, '12:00 - 12:30' => false, '12:30 - 13:00' => false, '13:00 - 13:30' => false, '13:30 - 14:00' => false, '14:00 - 14:30' => false, '14:30 - 15:00' => false, '15:00 - 15:30' => false, '15:30 - 16:00' => false, '16:00 - 16:30' => false, '16:30 - 17:00' => false, '17:00 - 17:30' => false, '17:30 - 18:00' => false, '18:00 - 18:30' => false, '18:30 - 19:00' => false, '19:00 - 19:30' => false, '19:30 - 20:00' => false, '20:00 - 20:30' => false, '20:30 - 21:00' => false);
+		$miercoles = array('08:00 - 08:30' => false, '08:30 - 09:00' => false, '09:00 - 09:30' => false, '09:30 - 10:00' => false, '10:00 - 10:30' => false, '10:30 - 11:00' => false, '11:00 - 11:30' => false, '11:30 - 12:00' => false, '12:00 - 12:30' => false, '12:30 - 13:00' => false, '13:00 - 13:30' => false, '13:30 - 14:00' => false, '14:00 - 14:30' => false, '14:30 - 15:00' => false, '15:00 - 15:30' => false, '15:30 - 16:00' => false, '16:00 - 16:30' => false, '16:30 - 17:00' => false, '17:00 - 17:30' => false, '17:30 - 18:00' => false, '18:00 - 18:30' => false, '18:30 - 19:00' => false, '19:00 - 19:30' => false, '19:30 - 20:00' => false, '20:00 - 20:30' => false, '20:30 - 21:00' => false);
+		$jueves = array('08:00 - 08:30' => false, '08:30 - 09:00' => false, '09:00 - 09:30' => false, '09:30 - 10:00' => false, '10:00 - 10:30' => false, '10:30 - 11:00' => false, '11:00 - 11:30' => false, '11:30 - 12:00' => false, '12:00 - 12:30' => false, '12:30 - 13:00' => false, '13:00 - 13:30' => false, '13:30 - 14:00' => false, '14:00 - 14:30' => false, '14:30 - 15:00' => false, '15:00 - 15:30' => false, '15:30 - 16:00' => false, '16:00 - 16:30' => false, '16:30 - 17:00' => false, '17:00 - 17:30' => false, '17:30 - 18:00' => false, '18:00 - 18:30' => false, '18:30 - 19:00' => false, '19:00 - 19:30' => false, '19:30 - 20:00' => false, '20:00 - 20:30' => false, '20:30 - 21:00' => false);
+		$viernes = array('08:00 - 08:30' => false, '08:30 - 09:00' => false, '09:00 - 09:30' => false, '09:30 - 10:00' => false, '10:00 - 10:30' => false, '10:30 - 11:00' => false, '11:00 - 11:30' => false, '11:30 - 12:00' => false, '12:00 - 12:30' => false, '12:30 - 13:00' => false, '13:00 - 13:30' => false, '13:30 - 14:00' => false, '14:00 - 14:30' => false, '14:30 - 15:00' => false, '15:00 - 15:30' => false, '15:30 - 16:00' => false, '16:00 - 16:30' => false, '16:30 - 17:00' => false, '17:00 - 17:30' => false, '17:30 - 18:00' => false, '18:00 - 18:30' => false, '18:30 - 19:00' => false, '19:00 - 19:30' => false, '19:30 - 20:00' => false, '20:00 - 20:30' => false, '20:30 - 21:00' => false);
+		$sabado = array('08:00 - 08:30' => false, '08:30 - 09:00' => false, '09:00 - 09:30' => false, '09:30 - 10:00' => false, '10:00 - 10:30' => false, '10:30 - 11:00' => false, '11:00 - 11:30' => false, '11:30 - 12:00' => false, '12:00 - 12:30' => false, '12:30 - 13:00' => false, '13:00 - 13:30' => false, '13:30 - 14:00' => false, '14:00 - 14:30' => false, '14:30 - 15:00' => false, '15:00 - 15:30' => false, '15:30 - 16:00' => false, '16:00 - 16:30' => false, '16:30 - 17:00' => false, '17:00 - 17:30' => false, '17:30 - 18:00' => false, '18:00 - 18:30' => false, '18:30 - 19:00' => false, '19:00 - 19:30' => false, '19:30 - 20:00' => false, '20:00 - 20:30' => false, '20:30 - 21:00' => false);
 		foreach ($timetable[0]->schedules as $schedule){
 			$weekday = $schedule->weekday;
 			$startHour = $schedule->start_hour;
@@ -85,17 +85,36 @@ class TimetablesController extends BaseController {
 					$arr_cmp[] = '0' . $val_start . ':00 - 0' . $val_end . ':30' ;
 				}
 			}else{
-				while ($val_start < $val_end) {
+				while ($val_start < $val_end){
 					if(!$mediaInicio && !$mayor9Inicio){
-						$arr_cmp[] = '0' . $val_start . ':00 - ' . $val_start . ':30';
-						if($mediaInicio && ($val_start == 9)){
-							$mayor9Inicio = 1;
-						}
+						$arr_cmp[] = '0' . $val_start . ':00 - 0' .$val_start . ':30';
 						$mediaInicio = 1;
-					}else{
-						echo '';
+					}else if($mediaInicio && !$mayor9Inicio){
+						$aux = $val_start+1;
+						if($aux > 9){
+							$mayor9Inicio = 1;
+							$arr_cmp[] = '0' . $val_start . ':30 - ' . $aux . ':00';
+						}else{
+							$arr_cmp[] = '0' . $val_start . ':30 - 0' . $aux . ':00';	
+						}
+						$mediaInicio = 0;
+						$val_start++;
+					}else if(!$mediaInicio && $mayor9Inicio){
+						$arr_cmp[] = $val_start . ':00 - ' .$val_start . ':30';
+						$mediaInicio = 1;
+					}else if($mediaInicio && $mayor9Inicio){
+						$aux = $val_start+1;
+						$arr_cmp[] = $val_start . ':30 - ' . $aux . ':00';
+						$mediaInicio = 0;
+						$val_start++;
 					}
-					$val_start += 1;																					
+				}
+				if (($val_start == $val_end) && $mediaFin){
+					if ($val_start < 10){
+						$arr_cmp[] = '0' . $val_start . ':00 - 0' .$val_start . ':30';
+					}else{
+						$arr_cmp[] = $val_start . ':00 - ' .$val_start . ':30';
+					}
 				}
 			}
 			foreach ($arr_cmp as $key => $value){
@@ -165,8 +184,13 @@ class TimetablesController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$timetable = Timetable::find($id);
+		$relations = DB::table('timetables_schedules')->select()->where('timetable_id','=',$id)->get();
+		foreach ($relations as $relation) {
+			$query = DB::table('timetables_schedules')->select()->where('id', '=', $relation->id)->delete();
+		}
+		$timetable->delete();
+		return Redirect::to('timetables');
 	}
-
 
 }

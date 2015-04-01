@@ -168,5 +168,4 @@ class SchedulesController extends BaseController {
 		return Redirect::to('schedules');
 	}
 
-
 }
