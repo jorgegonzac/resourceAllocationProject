@@ -1,6 +1,10 @@
 <?php
 
 class ResourcesController extends BaseController {
+<<<<<<< HEAD
+=======
+
+>>>>>>> diana
 
 	public function index()
 	{
@@ -36,6 +40,13 @@ class ResourcesController extends BaseController {
 	{
 		//
 	}
+
+	public function book()
+	{
+		return View::make('booking');
+	}
+
+	
 
 
 }

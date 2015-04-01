@@ -125,6 +125,16 @@ class CategoriesController extends BaseController {
 		}		
 	}
 
+<<<<<<< HEAD
+=======
+
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+>>>>>>> diana
 	public function destroy($id)
 	{
 		//

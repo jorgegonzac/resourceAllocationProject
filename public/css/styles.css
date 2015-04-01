@@ -3,8 +3,20 @@
 /************************************/
 
 .bg_gris{
+<<<<<<< HEAD
 	background: #9595A1;
 	height: 60px;
+=======
+	background: #2424B2;
+	height: 60px;
+	box-shadow: 10px 5px 5px #7A7A7A;
+	z-index:9999;
+	position:fixed;
+	width:102%;
+	top:0;
+	left:0;
+	 
+>>>>>>> diana
 }
 
 .padding_header{
@@ -16,12 +28,24 @@
 	font-size: 14pt;
 	font-weight: bold;
 	text-decoration: none;
+<<<<<<< HEAD
 	padding: 15px 10px;
 }
 
 .search_bar_user{
 	margin-top: 4px;
 	width: 100%;
+=======
+	text-align: right;
+	padding-left:20px;
+	padding-top:7px;
+}
+
+.search_bar_user{
+	/*margin-top: 4px;*/
+	width: 170%;
+	padding-bottom:50px;
+>>>>>>> diana
 }
 
 .home_header{
@@ -29,7 +53,11 @@
 	font-size: 14pt;
 	font-weight: bold;
 	text-decoration: none;
+<<<<<<< HEAD
 	padding: 15px 10px;
+=======
+	padding: 10px 10px;
+>>>>>>> diana
 }
 
 .account_header{
@@ -37,7 +65,11 @@
 	font-size: 14pt;
 	font-weight: bold;
 	text-decoration: none;
+<<<<<<< HEAD
 	padding: 15px 10px;
+=======
+	padding: 10px 10px;
+>>>>>>> diana
 }
 
 .logout_header{
@@ -45,7 +77,11 @@
 	font-size: 14pt;
 	font-weight: bold;
 	text-decoration: none;
+<<<<<<< HEAD
 	padding: 15px 10px;
+=======
+	padding: 10px 10px;
+>>>>>>> diana
 }
 
 /************************************/
@@ -126,4 +162,19 @@
 }
 .error{
 	color: red ;
+<<<<<<< HEAD
 }
+=======
+}
+
+/************************************/
+/*	          Booking Content			*/
+/************************************/
+
+.content_booking{
+
+	z-index:10;
+	margin-top: 100px;
+}
+
+>>>>>>> diana
