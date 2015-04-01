@@ -14,6 +14,7 @@ Route::get('login', 'SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
 Route::resource('sessions', 'SessionsController');
 
+
 Route::get('inicio', 'SectionsController@showRecent');
 Route::post('inicio', 'SectionsController@showLaboratoryResources');
 
@@ -36,3 +37,9 @@ Route::resource('schedules', 'SchedulesController');
 Route::resource('bookings', 'SectionsController@showBookings');
 
 Route::resource('waitinglists', 'SectionsController@showWaitingLists');
+
+Route::resource('book', 'ResourcesController@book');
+
+
+
+

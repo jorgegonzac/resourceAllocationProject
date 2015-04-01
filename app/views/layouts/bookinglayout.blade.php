@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
-<html lang="en" class="demo-3 no-js">
+<html>
     <head>
-        @include('includes.head')
+        @include('includes.headBooking')
         @include('includes.header')
     </head>
     

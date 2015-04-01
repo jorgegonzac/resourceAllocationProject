@@ -2,6 +2,8 @@
 
 class ResourcesController extends BaseController {
 
+
+
 	public function index()
 	{
 		//
@@ -36,6 +38,13 @@ class ResourcesController extends BaseController {
 	{
 		//
 	}
+
+	public function book()
+	{
+		return View::make('booking');
+	}
+
+	
 
 
 }

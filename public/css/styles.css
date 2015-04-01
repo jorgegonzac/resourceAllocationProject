@@ -3,8 +3,17 @@
 /************************************/
 
 .bg_gris{
-	background: #9595A1;
+
+	background: #2424B2;
 	height: 60px;
+	box-shadow: 10px 5px 5px #7A7A7A;
+	z-index:9999;
+	position:fixed;
+	width:102%;
+	top:0;
+	left:0;
+	 
+
 }
 
 .padding_header{
@@ -16,12 +25,20 @@
 	font-size: 14pt;
 	font-weight: bold;
 	text-decoration: none;
-	padding: 15px 10px;
+
 }
 
 .search_bar_user{
-	margin-top: 4px;
-	width: 100%;
+	text-align: right;
+	padding-left:20px;
+	padding-top:7px;
+}
+
+.search_bar_user{
+	/*margin-top: 4px;*/
+	width: 170%;
+	padding-bottom:50px;
+
 }
 
 .home_header{
@@ -29,7 +46,7 @@
 	font-size: 14pt;
 	font-weight: bold;
 	text-decoration: none;
-	padding: 15px 10px;
+	padding: 10px 10px;
 }
 
 .account_header{
@@ -37,7 +54,8 @@
 	font-size: 14pt;
 	font-weight: bold;
 	text-decoration: none;
-	padding: 15px 10px;
+	padding: 10px 10px;
+
 }
 
 .logout_header{
@@ -45,7 +63,8 @@
 	font-size: 14pt;
 	font-weight: bold;
 	text-decoration: none;
-	padding: 15px 10px;
+	padding: 10px 10px;
+
 }
 
 /************************************/
@@ -138,3 +157,15 @@
 .asignar_horario{
 	display: none;
 }
+/************************************/
+/*	          Booking Content			*/
+/************************************/
+
+.content_booking{
+
+	z-index:10;
+	margin-top: 100px;
+}
+
+
+

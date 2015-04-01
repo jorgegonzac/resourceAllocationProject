@@ -1,20 +1,23 @@
-<!DOCTYPE HTML>
-<html lang="en" class="demo-3 no-js">
+<!doctype html>
+<html>
     <head>
+        
         @include('includes.head')
         @include('includes.header')
     </head>
-    
+
     <body>
         <div class="container">
-            <div class="row">
+            <header>
+            </header>
+
+            <div id="resources" class="row">
                 @yield('content')
             </div>
+
+            <footer class="row">
+                @include('includes.footer')
+            </footer>
         </div>
-        
-        <footer class="row">
-            @include('includes.footer')
-        </footer>
     </body>
-        
 </html>
