@@ -27,7 +27,7 @@ Route::resource('categories','CategoriesController');
 
 Route::resource('resources', 'ResourcesController');
 
-Route::resource('timetables', 'SectionsController@showTimetables');
+Route::resource('timetables', 'TimetablesController');
 
 Route::resource('schedules', 'SchedulesController');
 

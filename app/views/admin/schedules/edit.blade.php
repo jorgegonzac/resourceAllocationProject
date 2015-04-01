@@ -34,9 +34,6 @@
 
 			{{ Form::radio('day', 'Sabado', '', array('id' => 'radio_saturday')) }}
 			{{ Form::label('Sabado') }}
-
-			{{ Form::radio('day', 'Domingo', '', array('id' => 'radio_sunday')) }}
-			{{ Form::label('Domingo') }}
 		</div>
 		
 		<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
