@@ -2,19 +2,24 @@
 <link rel="icon" href="favicon.jpg"/>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
 <!-- CSS are placed here -->
 {{ HTML::style('css/bootstrap.css') }}
 {{ HTML::style('css/bootstrap-theme.css') }}
-<<<<<<< HEAD
 {{ HTML::style('css/component.css')}}
 {{ HTML::style('css/demo.css')}}
 {{ HTML::style('css/normalize.css')}}
-{{ HTML::script('js/hover.js') }}
+{{ HTML::style('css/styles.css')}}
+{{ HTML::style('css/material-fullpalette.css')}}
+
+<!-- JS are placed here -->
+
+{{ HTML::script('js/hovers.js') }}
 {{ HTML::script('js/snap.svg-min.js') }}
 
-=======
-{{ HTML::style('css/styles.css')}}
->>>>>>> develop
+
+
+
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -30,16 +35,18 @@
 			$.post('inicio',{ id : id, returnResources : returnResources, returnAll : returnAll }).done(function(data){
 				console.log(data);
 				$('.resources').empty();
-				$('.resources').append('<br><br>');
+				$('.resources').append('<section id="grid" class="grid clearfix">');
 				$.each(data, function(key, value){
-		    		$(".resources").append('<div class="col-sm-6 col-md-3"><div class="panel panel-default panel-card"><div class="panel-heading"><img src="'+value.image+'" style="width:200px;height:228px"/><button class="btn btn-primary btn-sm" role="button">Apartar</button></div><div class="panel-body text-center"><h4 class="panel-header"><a href="">'+value.name+'</a></h4><small>'+value.description+'</small></div><div class="panel-thumbnails"><div class="row"><div class="col-xs-4"><img src="'+value.image+'" style="width:200px;height:228px"/></div></div></div></div></div>');
+		    		$(".resources").append('<a href="#" data-path-hover="M 0,0 0,38 90,58 180.5,38 180,0 z"><figure><img src="'+value.image+'" style="width:250px;height:437px" /><svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 0 0 L 0 182 L 90 126.5 L 180 182 L 180 0 L 0 0 z "/></svg><figcaption><h2>'+value.name+'</h2><p>'+value.description+'</p></figcaption><button>Apartar</button></figure></a>');
 		    	});
+		    	$('.resources').append('</section>');
 			});
 		});
 	});
-<<<<<<< HEAD
+
 </script>
-=======
+
+<script>
 
 	$(document).ready(function() {
 	    $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
@@ -52,4 +59,6 @@
 	    });
 	});
 </script>
->>>>>>> develop
+
+
+

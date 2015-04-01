@@ -11,7 +11,7 @@
 (function() {
 	
 	function init() {
-		var speed = 250,
+		var speed = 300,
 			easing = mina.easeinout;
 
 		[].slice.call ( document.querySelectorAll( '#grid > a' ) ).forEach( function( el ) {
