@@ -5,7 +5,6 @@
 
 	<h2> Editar Horario</h2>
 
-<<<<<<< HEAD
 	{{ Form::model($schedule, array('method' => 'PATCH', 'route' => array('schedules.update', $schedule->id))) }}
 
 		<div class="form-group">
@@ -67,33 +66,8 @@
 			{{ Form::button('Editar', array('type' => 'submit', 'class' => 'btn btn-success')) }}
 		
 		{{ Form::close() }}
-=======
-	{{ Form::open(array('route' => 'schedules.store')) }}
-
-			<div class="form-group">
-				{{ Form::label('name', 'Nombre:') }}
-				{{ Form::text('name') }}
-				{{ $errors->first('name', '<span class="error">:message</span>') }}
-			</div>
-
-			<div class="form-group">
-				{{ Form::label('description', 'Descripción:') }}
-				{{ Form::text('description') }}
-			</div>
-
-			<div class="text-center">
-			    {{ Form::button('Guardar',array('type' => 'submit', 'class' => 'btn btn-success')) }}
-			</div>
-			
-	{{ Form::close() }}
->>>>>>> diana
-
 		<form action="{{ URL::to('schedules') }}">
 	        	<button type="submit" class="btn btn-danger"> Cancelar</button>
 		</form>
-<<<<<<< HEAD
-
-=======
->>>>>>> diana
 </div>
 @stop

@@ -10,13 +10,9 @@ class SchedulesController extends BaseController {
 
 	public function create()
 	{
-<<<<<<< HEAD
 		$horasInicio = array('8:00' => '8:00', '8:30' => '8:30', '9:00' => '9:00', '9:30' => '9:30', '10:00' => '10:00', '10:30' => '10:30', '11:00' => '11:00', '11:30' => '11:30', '12:00' => '12:00', '12:30' => '12:30', '13:00' => '13:30', '14:00' => '14:00', '14:30' => '14:30', '15:00' => '15:00', '15:30' => '15:30', '16:00' => '16:00', '16:30' => '16:30', '17:00' => '17:00', '17:30' => '17:30', '18:00' => '18:00', '18:30' => '18:30', '19:00' => '19:00', '19:30' => '19:30', '20:00' => '20:00', '20:30' => '20:30');
 		$horasFin = array('8:30' => '8:30', '9:00' => '9:00', '9:30' => '9:30', '10:00' => '10:00', '10:30' => '10:30', '11:00' => '11:00', '11:30' => '11:30', '12:00' => '12:00', '12:30' => '12:30', '13:00' => '13:30', '14:00' => '14:00', '14:30' => '14:30', '15:00' => '15:00', '15:30' => '15:30', '16:00' => '16:00', '16:30' => '16:30', '17:00' => '17:00', '17:30' => '17:30', '18:00' => '18:00', '18:30' => '18:30', '19:00' => '19:00', '19:30' => '19:30', '20:00' => '20:00', '20:30' => '20:30', '21:00' => '21:00');
 		return View::make('admin.schedules.create', ['horasInicio' => $horasInicio, 'horasFin' => $horasFin]);
-=======
-		return View::make('admin.schedules.create');
->>>>>>> diana
 	}
 
 	public function store()
@@ -30,13 +26,8 @@ class SchedulesController extends BaseController {
        	];
 		$validator = Validator::make(Input::only('name'), $rules, $messages);
 		$weekday = Input::get('day');
-<<<<<<< HEAD
 		$startHour = Input::get('hora_inicio');
 		$endHour = Input::get('hora_fin');
-=======
-		$startHour = Input::get('inicio');
-		$endHour = Input::get('fin');
->>>>>>> diana
 		if (strlen($startHour) == 4){
 			if ($startHour[2] == '3'){
 				$startAux = intval($startHour[0]) + 0.5;	
@@ -72,11 +63,7 @@ class SchedulesController extends BaseController {
 			$schedule->end_hour = $endHour;
 			$schedule->weekday = $weekday;
 			$schedule->save();
-<<<<<<< HEAD
 			Session::flash('message', 'Successfully created schedule!');
-=======
-			Session::flash('message', 'Successfully created category!');
->>>>>>> diana
 			return Redirect::to('schedules');
 		}else if(($startAux < $endAux) && ($validator->fails())){
 			return Redirect::back()
@@ -102,20 +89,14 @@ class SchedulesController extends BaseController {
 
 	public function edit($id)
 	{
-<<<<<<< HEAD
 		$horasInicio = array('8:00' => '8:00', '8:30' => '8:30', '9:00' => '9:00', '9:30' => '9:30', '10:00' => '10:00', '10:30' => '10:30', '11:00' => '11:00', '11:30' => '11:30', '12:00' => '12:00', '12:30' => '12:30', '13:00' => '13:30', '14:00' => '14:00', '14:30' => '14:30', '15:00' => '15:00', '15:30' => '15:30', '16:00' => '16:00', '16:30' => '16:30', '17:00' => '17:00', '17:30' => '17:30', '18:00' => '18:00', '18:30' => '18:30', '19:00' => '19:00', '19:30' => '19:30', '20:00' => '20:00', '20:30' => '20:30');
 		$horasFin = array('8:30' => '8:30', '9:00' => '9:00', '9:30' => '9:30', '10:00' => '10:00', '10:30' => '10:30', '11:00' => '11:00', '11:30' => '11:30', '12:00' => '12:00', '12:30' => '12:30', '13:00' => '13:30', '14:00' => '14:00', '14:30' => '14:30', '15:00' => '15:00', '15:30' => '15:30', '16:00' => '16:00', '16:30' => '16:30', '17:00' => '17:00', '17:30' => '17:30', '18:00' => '18:00', '18:30' => '18:30', '19:00' => '19:00', '19:30' => '19:30', '20:00' => '20:00', '20:30' => '20:30', '21:00' => '21:00');
 		$schedule = Schedule::find($id);
 		return View::make('admin.schedules.edit',['horasInicio' => $horasInicio, 'horasFin' => $horasFin, 'schedule' => $schedule]);
-=======
-		$schedule = Schedule::find($id);
-		return View::make('admin.schedules.edit')->with('schedule',$schedule);
->>>>>>> diana
 	}
 
 	public function update($id)
 	{
-<<<<<<< HEAD
 		$rules = array(
             'name'      => 'required',
         );        
@@ -178,9 +159,6 @@ class SchedulesController extends BaseController {
 				'invalid_hour' => 'La hora de inicio debe ser menor a la hora de fin.'])
 			->withInput();
 		}		
-=======
-		return "Edit";
->>>>>>> diana
 	}
 
 	public function destroy($id)
@@ -189,9 +167,4 @@ class SchedulesController extends BaseController {
 		$schedule->delete();
 		return Redirect::to('schedules');
 	}
-
-<<<<<<< HEAD
-=======
-
->>>>>>> diana
 }

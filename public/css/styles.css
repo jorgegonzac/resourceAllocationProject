@@ -157,12 +157,12 @@
 .asignar_horario{
 	display: none;
 }
+
 /************************************/
 /*	          Booking Content			*/
 /************************************/
 
 .content_booking{
-
 	z-index:10;
 	margin-top: 100px;
 }
