@@ -28,6 +28,14 @@
 		});
 	});
 
+	$(document).ready(function(){
+		$('#selectTimetable').on('change', function(){
+			var id = $(this).val();
+			console.log(id);
+			$.post('assign',{ id : id });
+		});
+	});
+
 	$(document).ready(function() {
 	    $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
 	        e.preventDefault();

@@ -8,35 +8,53 @@ class TimetablesController extends BaseController {
 		return View::make('admin.timetables.index', ['timetables' => $timetables]);
 	}
 
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
 	public function create()
 	{
 		return View::make('admin.timetables.create');
 	}
 
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
+	public function assign(){
+		$timetables = Timetable::all();
+		return View::make('admin.timetables.assign', ['timetables' => $timetables]);
 	}
 
+	public function showSchedules(){
+		$id = Input::get('id');
+		$timetable = Timetable::select()->where('id', '=', $id)->with('schedules')->get();
+		$schedules = array();
+		foreach ($timetable[0]->schedules as $schedule){
+			$schedules[] = $schedule;
+		}
+		return $schedules;
+	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+	public function store()
+	{
+		if(Input::get('agregar')){
+			return 'Agregar';
+		}else{
+			$rules = array(
+	            'name'      => 'required',
+	        );        
+	        $messages = [
+	        	'required' 	=> 'Este campo es obligatorio !',
+	       	];
+			$validator = Validator::make(Input::all(), $rules, $messages);
+			
+			if($validator->fails()){
+				return Redirect::to('timetables/create')
+				->withErrors($validator->messages())
+				->withInput();
+			}else{
+				$timetable = new Timetable;
+				$timetable->description  = Input::get('name');
+				$timetable->save(); 
+				Session::flash('message', 'Successfully created timetable!');
+				return Redirect::to('timetables');
+			}
+		}
+	}
+
 	public function show($id)
 	{
 		$timetable = Timetable::select()->where('id', '=', $id)->with('schedules')->get();
@@ -151,37 +169,16 @@ class TimetablesController extends BaseController {
 		return View::make('admin.timetables.show',['timetable' => $timetable, 'horas' => $horas, 'lunes' => $lunes, 'martes' => $martes, 'miercoles' => $miercoles, 'jueves' => $jueves, 'viernes' => $viernes, 'sabado' => $sabado]);
 	}
 
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function edit($id)
 	{
 		//
 	}
 
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function update($id)
 	{
 		//
 	}
 
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function destroy($id)
 	{
 		$timetable = Timetable::find($id);

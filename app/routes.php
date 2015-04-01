@@ -28,6 +28,8 @@ Route::resource('categories','CategoriesController');
 Route::resource('resources', 'ResourcesController');
 
 Route::resource('timetables', 'TimetablesController');
+Route::get('assign', 'TimetablesController@assign');
+Route::post('assign', 'TimetablesController@showSchedules');
 
 Route::resource('schedules', 'SchedulesController');
 
