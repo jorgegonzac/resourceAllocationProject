@@ -1,10 +1,8 @@
 <?php
 
 class ResourcesController extends BaseController {
-<<<<<<< HEAD
-=======
 
->>>>>>> diana
+
 
 	public function index()
 	{

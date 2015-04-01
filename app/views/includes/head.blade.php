@@ -6,9 +6,7 @@
 <!-- CSS are placed here -->
 {{ HTML::style('css/bootstrap.css') }}
 {{ HTML::style('css/bootstrap-theme.css') }}
-<<<<<<< HEAD
 {{ HTML::style('css/styles.css')}}
-=======
 {{ HTML::style('css/component.css')}}
 {{ HTML::style('css/demo.css')}}
 {{ HTML::style('css/normalize.css')}}
@@ -24,7 +22,7 @@
 
 
 
->>>>>>> diana
+
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -49,13 +47,10 @@
 		});
 	});
 
-<<<<<<< HEAD
-=======
 </script>
 
 <script>
 
->>>>>>> diana
 	$(document).ready(function() {
 	    $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
 	        e.preventDefault();
@@ -66,11 +61,11 @@
 	        $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
 	    });
 	});
-<<<<<<< HEAD
-</script>
-=======
+
 </script>
 
 
 
->>>>>>> diana
+
+
+

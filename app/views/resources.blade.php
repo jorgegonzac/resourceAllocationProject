@@ -1,12 +1,11 @@
 @extends('layouts.userslayout')
 @section('content')
-<<<<<<< HEAD
+
 	<div class="row">
-=======
 
 <section id="grid" class="grid clearfix">
 
->>>>>>> diana
+
 		<div class="resources">
  
 			<section id="grid" class="grid clearfix">
