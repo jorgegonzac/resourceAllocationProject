@@ -3,7 +3,7 @@
 
 <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
 	<div class="row">
-		<div class="col-xs-6 col-sm-6 col-md-6"> <h2>Categorías</h2></div>
+		<div class="col-xs-6 col-sm-6 col-md-6"> <h2>Horarios</h2></div>
 		<div class="col-xs-6 col-sm-6 col-md-6 text-right">
 			<form action="{{ URL::to('schedules/create') }}">
 	        	<button type="submit" class="btn btn-success">Nuevo Horario</button>
