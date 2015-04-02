@@ -1,7 +1,15 @@
 @extends('layouts.userslayout')
 @section('content')
 
+
 <section id="grid" class="grid clearfix">
+
+
+	<div class="row">
+
+<section id="grid" class="grid clearfix">
+
+
 
 		<div class="resources">
  

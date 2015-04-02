@@ -3,6 +3,7 @@
 /************************************/
 
 .bg_gris{
+
 	background: #2424B2;
 	height: 60px;
 	box-shadow: 10px 5px 5px #7A7A7A;
@@ -13,7 +14,6 @@
 	left:0;
 	 
 }
-
 .padding_header{
 	padding-top: 13px;
 }
@@ -23,6 +23,12 @@
 	font-size: 14pt;
 	font-weight: bold;
 	text-decoration: none;
+
+
+}
+
+.search_bar_user{
+>>>>>>> develop
 	text-align: right;
 	padding-left:20px;
 	padding-top:7px;
@@ -32,6 +38,7 @@
 	/*margin-top: 4px;*/
 	width: 170%;
 	padding-bottom:50px;
+
 }
 
 .home_header{
@@ -48,6 +55,7 @@
 	font-weight: bold;
 	text-decoration: none;
 	padding: 10px 10px;
+
 }
 
 .logout_header{
@@ -56,6 +64,7 @@
 	font-weight: bold;
 	text-decoration: none;
 	padding: 10px 10px;
+
 }
 
 /************************************/
@@ -137,6 +146,19 @@
 .error{
 	color: red ;
 }
+
+
+
+
+
+
+
+
+
+.asignar_horario{
+	display: none;
+}
+
 
 /************************************/
 /*	          Booking Content			*/
