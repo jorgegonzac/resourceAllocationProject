@@ -132,9 +132,9 @@ class CategoriesController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
+
 	public function destroy($id)
 	{
-		//
 		$category = Category::find($id);
 		$category->delete();
 		Session::flash('message', 'Successfully deleted category!');

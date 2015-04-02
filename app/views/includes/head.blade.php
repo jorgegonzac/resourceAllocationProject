@@ -46,6 +46,27 @@
 		});
 	});
 
+
+	$(document).ready(function(){
+		$('#selectTimetable').on('change', function(){
+			var id = $(this).val();
+			$.post('assign',{ id : id }).done(function(data){
+				if (data[0].length === 0){
+					$('.horarios').empty();
+					$('.horarios').append('<h4 class="error">*Este calendario no tiene ningún horario asignado.</h4><h3>Selecciona alguno de los que se proporcionan a continuación:</h3>');
+				}else{
+					$('.horarios').empty();
+					//Append header
+					$('.horarios').append('<table class='+'"table table-striped table-bordered"'+'><thead><tr><td>ID</td><td>Nombre</td><td>Día de la semana</td><td>Hora de Inicio</td><td>Hora de Fin</td><td>Acciones</td></tr></thead><tbody>');
+					$.each(data[0], function(key, value){
+						//Append body
+						$('.horarios').append('<tr><td>'+value.id+'</td><td>'+value.name+'</td><td>'+value.weekday+'</td><td>'+value.start_hour+'</td><td>'+value.end_hour+'</td><td><a href=""><p>Desasignar</p></a></td></tr></tbody></table>');
+					});
+				}	
+			});
+		});
+	});
+
 </script>
 
 <script>
