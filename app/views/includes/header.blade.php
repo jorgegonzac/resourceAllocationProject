@@ -3,12 +3,12 @@
 <nav class="row bg_gris">
 	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">		<!--LOGO TEC-->
 		<a href="">
-			<p class="logo_header"><img src="images/logotec.png" style="width:45px;height:45px"/></p>
+			<p class="logo_header"><img src="../../images/logotec.png" style="width:45px;height:45px"/></p>
 		</a>
 	</div> 	
 	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4  padding_header">		<!--SELECT LABS-->
 		<select id="selectLaboratory" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-			<option value="100">Todos Los Laboratorios</option>
+			<option value="0">Todos Los Laboratorios</option>
    			@foreach($laboratories as $laboratory)
 	   			<option value="{{ $laboratory->id }}">{{ $laboratory->name }}</option>
    			@endforeach
