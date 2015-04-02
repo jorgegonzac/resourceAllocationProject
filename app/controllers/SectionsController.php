@@ -37,6 +37,17 @@ class SectionsController extends BaseController
 		}
 	}
 
+	public function showBookingForm($id){
+		$resource = Resource::find($id);
+		$category = Category::find($resource->category_id);
+		$data = array(
+		    'resource'	=>	$resource,
+		    'category'	=>	$category
+		);
+
+		return View::make('booking')->with($data);
+	}
+
 	public function showAdmin()
 	{
 		return View::make('admin.index');

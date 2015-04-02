@@ -10,7 +10,7 @@ class SessionsController extends BaseController {
 	public function create()
 	{
 		if (Session::get('school_id')){
-			return Redirect::to('inicio');
+			return Redirect::to('index');
 		}
 
 		return View::make('sessions.create');
@@ -38,7 +38,7 @@ class SessionsController extends BaseController {
 			if (!$vacio){
 				//Auth
 				Auth::login($user[0]);
-				return Redirect::to('inicio');
+				return Redirect::to('index');
 			}else{
 				//Activar modal - Pedir correo alternativo - Pendiente
 				//Insert a la base de datos
@@ -50,7 +50,7 @@ class SessionsController extends BaseController {
 				//Auth
 				Auth::login($user);
 				//Regresar vista de recientes
-				return Redirect::to('inicio');
+				return Redirect::to('index');
 			}
 		}else{
 

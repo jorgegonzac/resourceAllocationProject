@@ -15,8 +15,9 @@ Route::get('logout', 'SessionsController@destroy');
 Route::resource('sessions', 'SessionsController');
 
 
-Route::get('inicio', 'SectionsController@showRecent');
-Route::post('inicio', 'SectionsController@showLaboratoryResources');
+Route::get('index', 'SectionsController@showRecent');
+Route::post('index', 'SectionsController@showLaboratoryResources');
+Route::get('index/{id}/showBookingForm', 'SectionsController@showBookingForm');
 
 Route::get('admin', 'SectionsController@showAdmin');
 
