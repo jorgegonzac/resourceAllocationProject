@@ -11,7 +11,7 @@
 			<section id="grid" class="grid clearfix">
 			<h2> Recursos usados recientemente</h2>
 			@foreach( $recentBookings as $recentBooking)
-					<a  href="book" data-path-hover="M 0,0 0,38 90,58 180.5,38 180,0 z">
+					<a  href="{{ URL::to('index/' . $recentBooking->id . '/showBookingForm') }}" data-path-hover="M 0,0 0,38 90,58 180.5,38 180,0 z">
 						{{ Form::hidden('id', $recentBooking->id) }}
 						<figure>
 							<img src="{{$recentBooking->image}}" style="width:250px;height:437px" />
