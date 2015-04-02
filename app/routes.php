@@ -28,9 +28,7 @@ Route::resource('categories','CategoriesController');
 
 Route::resource('resources', 'ResourcesController');
 
-Route::resource('timetables', 'TimetablesController');
-Route::get('assign', 'TimetablesController@assign');
-Route::post('assign', 'TimetablesController@showSchedules');
+Route::resource('timetables', 'SectionsController@showTimetables');
 
 Route::resource('schedules', 'SchedulesController');
 
@@ -39,7 +37,4 @@ Route::resource('bookings', 'SectionsController@showBookings');
 Route::resource('waitinglists', 'SectionsController@showWaitingLists');
 
 Route::resource('book', 'ResourcesController@book');
-
-
-
 

@@ -3,7 +3,6 @@
 /************************************/
 
 .bg_gris{
-
 	background: #2424B2;
 	height: 60px;
 	box-shadow: 10px 5px 5px #7A7A7A;
@@ -13,7 +12,6 @@
 	top:0;
 	left:0;
 	 
-
 }
 
 .padding_header{
@@ -25,10 +23,6 @@
 	font-size: 14pt;
 	font-weight: bold;
 	text-decoration: none;
-
-}
-
-.search_bar_user{
 	text-align: right;
 	padding-left:20px;
 	padding-top:7px;
@@ -38,7 +32,6 @@
 	/*margin-top: 4px;*/
 	width: 170%;
 	padding-bottom:50px;
-
 }
 
 .home_header{
@@ -55,7 +48,6 @@
 	font-weight: bold;
 	text-decoration: none;
 	padding: 10px 10px;
-
 }
 
 .logout_header{
@@ -64,7 +56,6 @@
 	font-weight: bold;
 	text-decoration: none;
 	padding: 10px 10px;
-
 }
 
 /************************************/
@@ -114,6 +105,8 @@
 	text-align: center;
 	padding: 0px 0px;
 	font-size: 28pt;
+	/*position:absolute;
+	z-index: 9999;*/
 }
 
 .sidebar_admin li {
@@ -147,20 +140,22 @@
 	color: red ;
 }
 
+.content_admin{
 
+	/*width:700px;*/
+	padding-left: 800px;
+	margin-right: auto;
+	text-align: center;
 
-
-
-
+}
 
 /************************************/
 /*	          Booking Content			*/
 /************************************/
 
 .content_booking{
+
 	z-index:10;
 	margin-top: 100px;
 }
-
-
 

@@ -10,19 +10,19 @@
 			</form>
 		</div>
 	</div>
-	<table class="table table-striped table-bordered">
-	    <thead>
-	        <tr>
-	            <td>ID</td>
-	            <td>Nombre</td>
-	            <td>Día de la semana</td>
-	            <td>Hora de Inicio</td>
-	            <td>Hora de Fin</td>
-	            <td>Acciones</td>
-	        </tr>
-	    </thead>
-	    <tbody>
-	    	@foreach($schedules as $schedule)
+		<table class="table table-striped table-bordered">
+		    <thead>
+		        <tr>
+		            <td>ID</td>
+		            <td>Nombre</td>
+		            <td>Día de la semana</td>
+		            <td>Hora de Inicio</td>
+		            <td>Hora de Fin</td>
+		            <td>Acciones</td>
+		        </tr>
+		    </thead>
+		    <tbody>
+		    	@foreach($schedules as $schedule)
 		        <tr>
 		            <td>{{ $schedule->id }}</td>
 		            <td>{{ $schedule->name }}</td>
@@ -39,8 +39,8 @@
 	                <a  href="{{ URL::to('schedules/' . $schedule->id . '/edit') }}"> <i class="fa fa-pencil-square-o fa-lg"></i></a>
 	            	</td>
 		        </tr>	        
-	        @endforeach
-	    </tbody>
-	</table>
-</div>
+		        @endforeach
+		    </tbody>
+		</table>
+	</div>
 @stop
