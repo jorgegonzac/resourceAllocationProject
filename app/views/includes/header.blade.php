@@ -31,7 +31,7 @@
 	</div>
 
 	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">		<!-- HOME -->
-		<a href="">
+		<a href="inicio">
 			<p class="home_header"><i class="fa fa-home fa-2x" style="color:white"></i></p>
 		</a>
 	</div>

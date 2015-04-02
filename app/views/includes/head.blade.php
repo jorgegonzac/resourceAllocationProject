@@ -14,15 +14,16 @@
 {{ HTML::style('css/material.css')}}
 
 <!-- JS are placed here -->
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
 {{ HTML::script('js/hovers.js') }}
 {{ HTML::script('js/snap.svg-min.js') }}
+{{ HTML::script('js/bootstrap.js') }}
+<!-- {{ HTML::script('js/bootstrap.min.js') }} -->
 
-
-
-
-<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<!-- <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <script>
 	$(document).ready(function(){

@@ -3037,7 +3037,7 @@ fieldset[disabled] .btn {
 .btn-default:active,
 .btn-default.active,
 .open > .dropdown-toggle.btn-default {
-  background-image: none;
+  /*background-image: none;*/
 }
 .btn-default.disabled,
 .btn-default[disabled],
@@ -4476,8 +4476,9 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: #222;
+  background-color: #2424B2;
   border-color: #080808;
+  box-shadow: 0px 5px 5px #7A7A7A;
 }
 .navbar-inverse .navbar-brand {
   color: #9d9d9d;
@@ -6680,7 +6681,7 @@ button.close {
   border: 1px solid #ccc;
 }
 .search-form .form-group input.form-control {
-  padding-right: 20px;
+  padding-right: 50px;
   border: 0 none;
   background: transparent;
   box-shadow: none;
