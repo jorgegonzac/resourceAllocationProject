@@ -2,9 +2,7 @@
 <html>
     <head>
         @include('includes.headBooking')
-
         @include('includes.header1')
-
     </head>
     
     <body>

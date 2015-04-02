@@ -14,7 +14,6 @@
 {{ HTML::style('css/material.css')}}
 
 <!-- JS are placed here -->
-
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
@@ -25,12 +24,6 @@
 
 <!-- <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
-
-
-{{ HTML::script('js/hovers.js') }}
-{{ HTML::script('js/snap.svg-min.js') }}
-
-
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <script>
 	$(document).ready(function(){
@@ -53,17 +46,6 @@
 		});
 	});
 
-<<<<<<< HEAD
-=======
-
-	$(document).ready(function(){
-		$('#selectTimetable').on('change', function(){
-			var id = $(this).val();
-			console.log(id);
-			$.post('assign',{ id : id });
-		});
-	});
->>>>>>> develop
 </script>
 
 <script>
@@ -78,17 +60,7 @@
 	        $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
 	    });
 	});
-<<<<<<< HEAD
-=======
-
->>>>>>> develop
 </script>
 
 
 
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> develop

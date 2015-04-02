@@ -5,19 +5,9 @@
         "This file is @generated automatically"
     ],
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    "hash": "890cb88225711fdef2de119851793e66",
-=======
-<<<<<<< HEAD
->>>>>>> develop
     "hash": "ba6a12e31e4ff5b0f161c10cf7078ae9",
 =======
     "hash": "890cb88225711fdef2de119851793e66",
->>>>>>> develop
-<<<<<<< HEAD
-=======
->>>>>>> diana
 >>>>>>> develop
     "packages": [
         {
@@ -160,11 +150,6 @@
                 "zf2"
             ],
             "time": "2015-02-17 15:50:31"
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> develop
         },
         {
             "name": "intervention/image",
@@ -221,10 +206,6 @@
                 "watermark"
             ],
             "time": "2015-03-18 17:41:04"
-<<<<<<< HEAD
-=======
->>>>>>> diana
->>>>>>> develop
         },
         {
             "name": "ircmaxell/password-compat",

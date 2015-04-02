@@ -10,8 +10,6 @@
 		<div class="form-group">
 			{{ Form::label('name', 'Nombre:') }}
 			{{ Form::text('name') }}
-	<br>
-
 			{{ $errors->first('name', '<span class="error">:message</span>') }}
 		</div>
 
@@ -35,7 +33,6 @@
 
 			{{ Form::radio('day', 'Sabado', '', array('id' => 'radio_saturday')) }}
 			{{ Form::label('Sabado') }}
-
 
 			{{ Form::radio('day', 'Domingo', '', array('id' => 'radio_sunday')) }}
 			{{ Form::label('Domingo') }}
@@ -146,44 +143,4 @@
 	       	<button type="submit" class="btn btn-danger"> Cancelar</button>
 		</form>
 </div>
-=======
-		</div>
-		
-		<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
-		<div>
-			<h3>Hora de Inicio:</h3>
-		</div>
-
-
-		<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"></div>
-		<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-			{{ Form::select('hora_inicio', $horasInicio, null, array('class' => 'form-control')) }}
-		</div>
-		<br><br>
-		<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
-		<div>
-			<h3>Hora de Fin:</h3>
-		</div>
-		<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4"></div>
-		<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-			{{ Form::select('hora_fin', $horasFin, null, array('class' => 'form-control')) }}
-		</div><br><br>
-		@if($errors->any)
-			{{ $errors->first('invalid_hour', '<span class="error">:message</span>') }}
-		@endif
-		<br><br>
-	
-</div>
-
-		<div class="text-center">
-			{{ Form::button('Crear', array('type' => 'submit', 'class' => 'btn btn-success')) }}
-		
-		{{ Form::close() }}
-
-
-			<form action="{{ URL::to('schedules') }}">
-		       	<button type="submit" class="btn btn-danger"> Cancelar</button>
-			</form>
-		</div>
-
 @stop

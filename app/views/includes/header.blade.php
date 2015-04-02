@@ -1,6 +1,4 @@
 <!-- HEADER PARA USUARIOS LOGO / LABORATORIOS / SEARCH / HOME / USER INTERFACE / LOGOUT -->
-
-
 <nav class="row bg_gris">
 	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">		<!--LOGO TEC-->
 		<a href="">
@@ -14,9 +12,6 @@
 	   			<option value="{{ $laboratory->id }}">{{ $laboratory->name }}</option>
    			@endforeach
 		</select>
-
-	</div> 	
-
 
 	</div> 	
 	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 padding_header">		<!--SEARCH BAR-->
@@ -36,22 +31,18 @@
 	</div>
 
 	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">		<!-- HOME -->
-		<a href="">
-
+		<a href="inicio">
 			<p class="home_header"><i class="fa fa-home fa-2x" style="color:white"></i></p>
 		</a>
 	</div>
 	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">		<!--USER ACCOUNT (MODAL)-->
 		<a href="">
-
 			<p class="account_header"><i class="fa fa-user fa-2x" style="color:white"></i></p>
 		</a>
 	</div>
 	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">		<!--  LOGOUT  -->
-
 		<a href="logout">
 			<p class="logout_header"><i class="fa fa-power-off fa-2x" style="color:white"></i></p>
 		</a>
 	</div>
 </nav>
-

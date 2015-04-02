@@ -3,7 +3,6 @@
 class ResourcesController extends BaseController {
 
 
-
 	public function index()
 	{
 		//
