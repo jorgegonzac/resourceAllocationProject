@@ -16,8 +16,16 @@
    			@endforeach
 		</select>
 	</div>
-	<br><br>
-	<div class="asignar_horario">
+	<br><br><br><br>
+	<div class="col-lg-10 col-md-10">
+		<div class="agregarhorarios">
+			
+		</div>	
+	</div>
+
+	<div class="col-lg-10 col-md-10">
+		<div class="horarios">
+		</div>	
 	</div>
 
 	<br>

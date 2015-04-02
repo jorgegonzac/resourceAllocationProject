@@ -8,7 +8,6 @@
         <p>
             <strong>Nombre:</strong> {{ $schedule->name   }}<br>
             <strong>Día de la semana:</strong> {{ $schedule->weekday }}<br>
-            <strong>Periodo:</strong> {{ $schedule->period }}<br>
             <strong>Hora de Inicio:</strong> {{ $schedule->start_hour }}<br>
             <strong>Hora de Fin:</strong> {{ $schedule->end_hour }}<br>
         </p>

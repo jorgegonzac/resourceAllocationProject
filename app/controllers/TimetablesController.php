@@ -21,16 +21,25 @@ class TimetablesController extends BaseController {
 	public function showSchedules(){
 		$id = Input::get('id');
 		$timetable = Timetable::select()->where('id', '=', $id)->with('schedules')->get();
-		$schedules = array();
+		$schedules = Schedule::all();
+		$schedules_assigned = array();
+		$schedules_unassigned = array();
+		$schedules_id = array();
 		foreach ($timetable[0]->schedules as $schedule){
-			$schedules[] = $schedule;
+			$schedules_assigned[] = $schedule;
 		}
-		return $schedules;
+		foreach ($schedules_id as $schedule_id){
+			$schedule = Schedule::select()->where('id', '=', $schedule_id)->get();
+			$schedules_unassigned[] = $schedule;
+		}
+		$data = array('0' => $schedules_assigned, '1' => $schedules);
+		return $data;
 	}
 
 	public function store()
 	{
 		if(Input::get('agregar')){
+			//Validar si ya esta asignada
 			return 'Agregar';
 		}else{
 			$rules = array(
