@@ -1,4 +1,3 @@
-<!-- HEADER PARA ADMIN LOGO / SEARCH / HOME / LOGOUT -->
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
 	<div class="container">
@@ -17,6 +16,17 @@
 		</div>	
 
 		<div class="navbar-collapse collapse">
+
+			<ul class="nav navbar-nav navbar-left">
+				<br>
+				<select id="selectLaboratory" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					<option value="100">Todos Los Laboratorios</option>
+		   			@foreach($laboratories as $laboratory)
+			   			<option value="{{ $laboratory->id }}">{{ $laboratory->name }}</option>
+		   			@endforeach
+				</select>
+
+			</ul>
 
 
 			<ul class="nav navbar-nav navbar-right">
@@ -37,6 +47,9 @@
 	            </li>
 	            <li>
 	            	<a href="inicio"><i class="fa fa-home fa-3x" style="color:white"></i></a>
+	            </li>
+	            <li>
+	            	<a href="inicio"><i class="fa fa-user fa-3x" style="color:white"></i></a>
 	            </li>
 	            <li>
 	            	<a href="logout"><i class="fa fa-power-off fa-3x" style="color:white"></i></a>

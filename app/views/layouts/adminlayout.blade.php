@@ -5,7 +5,7 @@
     	
   	</head>
   	<body>
-        @include('includes.headeradmin')
+  
         @include('includes.sidebaradmin')
 		
 		<footer>
