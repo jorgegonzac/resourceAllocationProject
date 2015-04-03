@@ -5,10 +5,14 @@
         "This file is @generated automatically"
     ],
 <<<<<<< HEAD
+    "hash": "890cb88225711fdef2de119851793e66",
+=======
+<<<<<<< HEAD
     "hash": "ba6a12e31e4ff5b0f161c10cf7078ae9",
 =======
     "hash": "890cb88225711fdef2de119851793e66",
 >>>>>>> develop
+>>>>>>> diana
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -150,6 +154,8 @@
                 "zf2"
             ],
             "time": "2015-02-17 15:50:31"
+<<<<<<< HEAD
+=======
         },
         {
             "name": "intervention/image",
@@ -206,6 +212,7 @@
                 "watermark"
             ],
             "time": "2015-03-18 17:41:04"
+>>>>>>> diana
         },
         {
             "name": "ircmaxell/password-compat",

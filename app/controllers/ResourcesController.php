@@ -3,6 +3,7 @@
 class ResourcesController extends BaseController {
 
 
+
 	public function index()
 	{
 		$resources = Resource::all();
