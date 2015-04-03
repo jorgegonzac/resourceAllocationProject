@@ -6703,8 +6703,8 @@ button.close {
 }
 .search-form .form-group:hover,
 .search-form .form-group.hover {
-  width: 150%;
-  border-radius: 4px 25px 25px 4px;
+  width: 130%;
+  border-radius: 15px 25px 25px 15px;
 }
 .search-form .form-group span.form-control-feedback {
   position: absolute;
