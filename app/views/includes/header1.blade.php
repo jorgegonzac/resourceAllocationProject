@@ -17,7 +17,7 @@
 
 		<div class="navbar-collapse collapse">
 
-			<!-- <ul class="nav navbar-nav navbar-left">
+			<ul class="nav navbar-nav navbar-left">
 				<br>
 				<select id="selectLaboratory" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 					<option value="100">Todos Los Laboratorios</option>
@@ -26,7 +26,7 @@
 		   			@endforeach
 				</select>
 
-			</ul> -->
+			</ul>
 
 
 			<ul class="nav navbar-nav navbar-right">
@@ -47,7 +47,7 @@
 	            </li>
 
 
-	            <li class="dropdown">
+	            <!-- <li class="dropdown">
 
 	            	<a href="#" id="selectLaboratory" class="dropdown-toggle" data-toggle="dropdown">Themes <b class="caret"></b></a>
 
@@ -66,7 +66,7 @@
 
 
 	            </li>
-
+ -->
 
 	            <li>
 	            	<a href="inicio"><i class="fa fa-home fa-3x" style="color:white"></i></a>
