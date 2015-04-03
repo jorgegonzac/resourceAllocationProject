@@ -46,14 +46,14 @@ td{
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6">
 
-                <h1 align="center">Resource Name</h1>
-                <p align="center">Category</p>
-                <p align="center">Description</p>
+                <h1 align="center">{{ $resource->name }} </h1>
+                <p align="center"> Categoría: {{ $category->name }}</p>
+                <p align="center"> Descripción: {{ $resource->description }} </p>
 
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6">
                 
-                <img src="images/martilloroto.jpg" style="width:500px;height:437px"/>
+                <img src="{{$resource->image}}" style="width:500px;height:437px"/>
 
             </div>
         </div> 
