@@ -12,7 +12,7 @@
 				<span class="icon-bar"></span>
 
 			</button>	
-			<a class="navbar-brand" href="#"><img src="images/logotec.png" style="width:40px;height:40px"/></a>
+			<a class="navbar-brand" href="#"><img src="/images/logotec.png" style="width:40px;height:40px"/></a>
 		</div>	
 
 		<div class="navbar-collapse collapse">

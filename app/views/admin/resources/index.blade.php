@@ -11,7 +11,8 @@
 		</div>
 	</div>
 
-		<table class="table table-striped table-bordered">
+		<div class="table-responsive">
+<table id="myTable" class="display table" width="100%" >
 		    <thead>
 		        <tr>
 		        	<td>ID</td>
@@ -50,5 +51,6 @@
 		        @endforeach
 		    </tbody>
 		</table>
+	</div>
 	</div>
 @stop
