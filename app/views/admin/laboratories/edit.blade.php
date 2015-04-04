@@ -3,7 +3,7 @@
 
 <div class="text-center">
 
-	<h2> Editar Usuario</h2>
+	<h2> Editar Laboratorio</h2>
 
 	{{ Form::model($laboratory, array('method' => 'PATCH', 'route' => array('laboratories.update', $laboratory->id))) }}
 

@@ -3,13 +3,13 @@
 
 <div class="text-center">
 
-	<h2>Crear Nuevo Recurso</h2>
+	<h2>Editar Recurso</h2>
 
-	{{ Form::open(array('route' => 'resources.store', 'files' => true)) }}
+	{{ Form::model($resource, array('method' => 'PATCH', 'route' => array('resources.update', $resource->id), 'files' => true)) }}
 
 		<div class="form-group">
 			{{ Form::label('name', 'Nombre:') }}
-			{{ Form::text('name') }} <br>
+			{{ Form::text('name') }}
 			{{ $errors->first('name', '<span class="error">:message</span>') }}
 		</div>
 
@@ -63,16 +63,17 @@
 
 		<div class="pull-right text-center">
 			{{ Form::label('image', 'Imagen:')}}
+			<img src="{{$resource->image}}" style="width:60px;height:60px" />
 			{{ Form::file('image') }} <br>
 			{{ $errors->first('image', '<span class="error">:message</span>') }}
 		</div>
 
-		<br><br><br><br><br>
+		<br><br><br><br><br><br><br>
 		<div class="text-center">
-		    {{ Form::button('Crear',array('type' => 'submit', 'class' => 'btn btn-success')) }}
+		    {{ Form::button('Guardar',array('type' => 'submit', 'class' => 'btn btn-success')) }}
 		</div>
-	{{ Form::close() }}
 
+	{{ Form::close() }}
 
 		<form action="{{ URL::to('resources') }}">
 	        	<button type="submit" class="btn btn-danger"> Cancelar</button>

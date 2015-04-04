@@ -18,7 +18,6 @@ class LaboratoriesController extends BaseController
 
 	public function store()
 	{
-		//
 		$rules = array(
             'name'      => 'required',
             'building'      => 'required|numeric',            
