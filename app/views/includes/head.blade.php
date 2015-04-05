@@ -16,16 +16,20 @@
 <!-- JS are placed here -->
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
 
 {{ HTML::script('js/hovers.js') }}
 {{ HTML::script('js/snap.svg-min.js') }}
+{{ HTML::script('js/jquery.dataTables.min.js') }}
 {{ HTML::script('js/bootstrap.js') }}
-
-
+{{ HTML::script('js/bootstrap.min.js') }}
 
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <script>
+	$(document).ready(function(){
+	    $('#myTable').dataTable();
+	});
 	$(document).ready(function(){
 		$('#selectLaboratory').on('change', function(){
 			var id = $(this).val();
@@ -52,20 +56,21 @@
 			var id = $(this).val();
 			$.post('assign',{ id : id }).done(function(data){
 				if (data[0].length === 0){
-					$('.horarios').empty();
-					$('.horarios').append('<h4 class="error">*Este calendario no tiene ningún horario asignado.</h4><h3>Selecciona alguno de los que se proporcionan a continuación:</h3>');
+					$('.assigned_schedules').empty();
+					$('.assigned_schedules').append('<h4 class="error">*Este calendario no tiene ningún horario asignado.</h4><h3>Selecciona alguno de los que se proporcionan a continuación:</h3>');
 				}else{
-					$('.horarios').empty();
+					$('.assigned_schedules').empty();
 					//Append header
-					$('.horarios').append('<table class='+'"table table-striped table-bordered"'+'><thead><tr><td>ID</td><td>Nombre</td><td>Día de la semana</td><td>Hora de Inicio</td><td>Hora de Fin</td><td>Acciones</td></tr></thead><tbody>');
+					$('.assigned_schedules').append('<div class=' + '"row"' + '><div class=' + '"col-lg-1"' + '>ID</div><div class=' + '"col-lg-2"' + '>Nombre</div><div class=' + '"col-lg-2"' + '>Día de la semana</div><div class='+'"col-lg-2"'+'>Hora de Inicio</div><div class='+'"col-lg-2"'+'>Hora de Fin</div><div class='+'"col-lg-1"'+'>Acciones</div></div>');
 					$.each(data[0], function(key, value){
 						//Append body
-						$('.horarios').append('<tr><td>'+value.id+'</td><td>'+value.name+'</td><td>'+value.weekday+'</td><td>'+value.start_hour+'</td><td>'+value.end_hour+'</td><td><a href=""><p>Desasignar</p></a></td></tr></tbody></table>');
+						$('.assigned_schedules').append('<div class=' +'"row"'+'><div class='+'"col-lg-1"'+'>'+value.id+'</div><div class='+'"col-lg-2"'+'>'+value.name+'</div><div class='+'"col-lg-2"'+'>'+value.weekday+'</div><div class='+'"col-lg-2"'+'>'+value.start_hour+'</div><div class='+'"col-lg-2"'+'>'+value.end_hour+'</div><div class='+'"col-lg-1"'+'><a href=""><p>Desasignar</p></a></div></div>');
 					});
 				}	
 			});
 		});
 	});
+
 </script>
 
 <script>

@@ -18,8 +18,12 @@
 		        	<td>ID</td>
 		            <td>Nombre</td>
 		            <td>Descripción</td>
-		            <td>Imagen</td>	  
-		            <td>Acciones</td>          
+		            <td>Laboratorio</td>
+		            <td>Categoria</td>
+		            <td>Calendario</td>
+		            <td>Tags</td>          
+		            <td>Imagen</td>	 
+		            <td>Acciones</td>
 		        </tr>
 		    </thead>
 		    <tbody>
@@ -28,6 +32,10 @@
 		            <td>{{ $resource->id }}</td>
 		            <td>{{ $resource->name }}</td>
 		            <td>{{ $resource->description }}</td>
+		            <td>{{ $resource->laboratory->name }}</td>
+		            <td>{{ $resource->category->name }}</td>
+		            <td>{{ $resource->timetables[0]->description }}</td>
+		            <td>{{ $resource->tags }}</td>
 		            <td><img src="{{$resource->image}}" style="width:60px;height:60px" /></td>
 		            <td>
 	                {{ Form::open(array('url' => 'resources/' . $resource->id)) }}

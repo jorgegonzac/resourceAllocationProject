@@ -5,25 +5,6 @@
 
 	<h2> Editar Horario</h2>
 
-	{{ Form::open(array('route' => 'schedules.store')) }}
-
-			<div class="form-group">
-				{{ Form::label('name', 'Nombre:') }}
-				{{ Form::text('name') }}
-				{{ $errors->first('name', '<span class="error">:message</span>') }}
-			</div>
-
-			<div class="form-group">
-				{{ Form::label('description', 'Descripción:') }}
-				{{ Form::text('description') }}
-			</div>
-
-			<div class="text-center">
-			    {{ Form::button('Guardar',array('type' => 'submit', 'class' => 'btn btn-success')) }}
-			</div>
-			
-	{{ Form::close() }}
-
 	{{ Form::model($schedule, array('method' => 'PATCH', 'route' => array('schedules.update', $schedule->id))) }}
 
 		<div class="form-group">

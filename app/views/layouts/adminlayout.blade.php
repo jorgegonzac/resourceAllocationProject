@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   	<head>
-   		@include('includes.headBooking')
+   		@include('includes.head')
     	
   	</head>
   	<body>

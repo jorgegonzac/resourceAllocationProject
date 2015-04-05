@@ -162,5 +162,17 @@
 	margin-top: 100px;
 }
 
-
+.modal-dialog-center { /* Edited classname 10/03/2014 */
+    margin: 0;
+    position: absolute;
+    top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+@media (max-width: 767px) {
+  .modal-dialog-center { /* Edited classname 10/03/2014 */
+    width: 100%;
+  }
+} 
 
