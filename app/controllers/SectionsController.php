@@ -40,11 +40,15 @@ class SectionsController extends BaseController
 	public function showBookingForm($id){
 		$resource = Resource::find($id);
 		$category = Category::find($resource->category_id);
+		$timetables = $resource->timetables;
+		$bookings =	Booking::where('resource_id','=',$resource->id)->get();
 		$data = array(
-		    'resource'	=>	$resource,
-		    'category'	=>	$category
+		    'resource'		=>	$resource,
+		    'category'		=>	$category,
+		    'timetables'	=>  $timetables,
+		    'bookings'		=>	$bookings,
 		);
-
+//		return $bookings;
 		return View::make('booking')->with($data);
 	}
 
