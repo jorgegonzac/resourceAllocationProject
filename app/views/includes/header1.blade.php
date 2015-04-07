@@ -69,13 +69,13 @@
  -->
 
 	            <li>
-	            	<a href="inicio"><i class="fa fa-home fa-3x" style="color:white"></i></a>
+	            	<a href="../../index"><i class="fa fa-home fa-3x" style="color:white"></i></a>
 	            </li>
 	            <li>
-	            	<a href="inicio"><i class="fa fa-user fa-3x" style="color:white"></i></a>
+	            	<a href="../index"><i class="fa fa-user fa-3x" style="color:white"></i></a>
 	            </li>
 	            <li>
-	            	<a href="logout"><i class="fa fa-power-off fa-3x" style="color:white"></i></a>
+	            	<a href="../logout"><i class="fa fa-power-off fa-3x" style="color:white"></i></a>
 	            </li>
 
 			</ul>

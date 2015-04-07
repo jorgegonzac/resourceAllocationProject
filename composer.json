@@ -5,7 +5,8 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"intervention/image": "~2.1"
+		"intervention/image": "~2.1",
+		"phpunit/phpunit": "4.0.*"
 	},
 	"autoload": {
 		"classmap": [
