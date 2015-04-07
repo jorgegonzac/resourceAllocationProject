@@ -1,5 +1,5 @@
 @extends('layouts.adminlayout')
 @section('content')
 
-<header><h1>Admin Page</h1></header>
+<header><h2>Admin Page</h2></header>
 @stop

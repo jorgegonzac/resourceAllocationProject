@@ -8,63 +8,15 @@ class ExampleTest extends TestCase {
 	 * @return void
 	 */
 
-	public function __construct()
-  	{
-      // We have no interest in testing Eloquent
-      $this->mock = Mockery::mock('Eloquent', 'Post');
-  	}
 
+	public function testResourcesUserNoLog(){ //tests if the user can see the resources if they go directly to the index without being logged in 
 
-	public function testStore()
-	{
-	    Input::replace($input = [
-	    	'school_id' => 'A01320622',
-	    	'password' => 'Naruto22.'
-		]);
-	 
-	    $this->mock
-	         ->shouldReceive('SessionsController@store')
-	         ->once()
-	         ->with($input);
-	 
-	    $this->app->instance('Post', $this->mock);
-	 
-	    $this->call('POST', '/login');
-	 
-	    $this->assertRedirectedToRoute('/index');
-
-
-	}
-
-
-// 	public function testResourcesUserNoLog(){ //tests if the user can see the resources if they go directly to the index without being logged in 
-
-// 		$this->call('GET','/index');
-// 		$this->see('Recursos usados recientemente');
-
-// // the result should be false since the user can't visit index without being logged in.
-
-// 	}
-
-	public function testAdminView(){ //tests if the user can see the resources if they go directly to the index without being logged in 
-
-		$this->call('GET','/admin');
-		$this->see('Horarios');
+		$this->call('GET','/index');
+		$this->see('Recursos usados recientemente');
 
 // the result should be false since the user can't visit index without being logged in.
 
 	}
-
-// 	public function testResourcesUserYesLog(){ //tests if the user can see the resources if they go directly to the index without being logged in 
-// 		$user = new User(array('school_id' => 'A01320622'));
-
-// 		$this->be($user);
-// 		$this->call('GET','/index');
-// 		$this->see('Recursos usados recientemente');
-
-// // the result should be false since the user can't visit index without being logged in.
-
-// 	}
 
 
 	public function testLoginPageRedirect(){ //tests if something is posted in login that it is redirected to index
@@ -73,6 +25,8 @@ class ExampleTest extends TestCase {
 		$this->assertRedirectTo('/index');
 
 	}
+
+	
 
 	protected function see($text, $element = 'body'){
 
@@ -84,6 +38,70 @@ class ExampleTest extends TestCase {
 
 
 	}
+
+	/***************************************************
+
+Admin view tests--Check that what is supposed to show is showing
+
+	**************************************************/
+
+
+
+	public function testAdminViewInicio(){ 
+		$this->call('GET','/admin');
+		$this->see('Admin Page','h2');
+
+
+	}
+
+	public function testAdminViewUsers(){
+
+		$this->call('GET','/users');
+		$this->see('Usuarios','h2');
+
+
+	}
+
+	public function testAdminViewLaboratorios(){
+
+		$this->call('GET','/laboratories');
+		$this->see('Laboratorios','h2');
+
+
+	}
+
+	public function testAdminViewCategories(){
+
+		$this->call('GET','/categories');
+		$this->see('Categorías','h2');
+
+
+	}
+
+	public function testAdminViewResources(){
+
+		$this->call('GET','/resources');
+		$this->see('Recursos','h2');
+
+	}
+
+	public function testAdminViewTimeTables(){
+
+		$this->call('GET','/timetables');
+		$this->see('Calendarios','h2');
+
+
+	}
+
+	public function testAdminViewSchedules(){
+
+		$this->call('GET','/schedules');
+		$this->see('Horarios','h2');
+
+
+	}
+
+
 
 
 

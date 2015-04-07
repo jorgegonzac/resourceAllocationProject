@@ -96,8 +96,8 @@
                 	}
                 @endforeach
 
-             	//var today = new Date();
-             	var today = new Date('2015-04-03 10:30:00');
+             	var today = new Date();
+             	//var today = new Date('2015-04-03 10:30:00');
              	var today_date = today.toDateString();
              	var day = today.getDay();	 //today's day
 
@@ -180,8 +180,8 @@
 	             		var invalid_date = 0;	//0  if its valid, 1 if its invalid because booking and 2 if its invalide because actual hour
 						var obj_start_date	= new Date(aux_date_2);
 						var obj_end_date	= new Date(aux_date);
-//						var obj_actual_date = new Date(this_day_format);
-						var obj_actual_date = new Date('2015-04-03 10:30:00');
+						var obj_actual_date = new Date(this_day_format);
+//						var obj_actual_date = new Date('2015-04-03 10:30:00');
 
 	             		@foreach($bookings as $key=> $booking)	
 				            booking_start_date  = "{{ $booking->start_date }}";
