@@ -11,7 +11,7 @@
 	<div class="col-lg-5"></div>
 	<div class="col-lg-4">
 		<select id="selectTimetable" class="btn btn-primary form-control">
-			<option value="100000">Elige un calendario</option>
+			<option selected disabled>Selecciona un calendario</option>
    			@foreach($timetables as $timetable)
 	   			<option value="{{$timetable->id}}">{{ $timetable->description }}</option>
    			@endforeach
@@ -22,12 +22,17 @@
 		
 	</div>
 
-	<div class="col-lg-10 col-md-10">
+	<div class="col-lg-5"></div>
+	<div class="col-lg-4 unassigned_schedules">
+		<select id="selectSchedule" class="btn btn-primary form-control">
+		</select>
 	</div>
 
 	<br>
 
 	{{ Form::close() }}
+
+	{{ Form::button('Asignar', array('type' => 'submit', 'class' => 'btn btn-success', 'name' => 'asignar')) }}
 	
 	<form action="{{ URL::to('timetables') }}">
        	<button type="submit" class="btn btn-primary">Regresar</button>

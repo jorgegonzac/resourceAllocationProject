@@ -55,9 +55,20 @@
 		$('#selectTimetable').on('change', function(){
 			var id = $(this).val();
 			$.post('assign',{ id : id }).done(function(data){
+				console.log(data);
 				if (data[0].length === 0){
 					$('.assigned_schedules').empty();
 					$('.assigned_schedules').append('<h4 class="error">*Este calendario no tiene ningún horario asignado.</h4><h3>Selecciona alguno de los que se proporcionan a continuación:</h3>');
+					if(data[1].length === 0){
+						$('.unassigned_schedules').append('<h4 class="error">*No hay ningún calendario dado de alta.</h4>');
+					}else{
+						$('#selectSchedule').empty();
+						$('#selectSchedule').append('<option selected disabled>Selecciona un horario a asignar</option>');
+						$('#selectSchedule').show();
+						$.each(data[1], function(key, value){
+							$('#selectSchedule').append($("<option></option>").attr("value",value.id).text(value.name)); 
+						});	
+					}
 				}else{
 					$('.assigned_schedules').empty();
 					//Append header
@@ -66,10 +77,19 @@
 						//Append body
 						$('.assigned_schedules').append('<div class=' +'"row"'+'><div class='+'"col-lg-1"'+'>'+value.id+'</div><div class='+'"col-lg-2"'+'>'+value.name+'</div><div class='+'"col-lg-2"'+'>'+value.weekday+'</div><div class='+'"col-lg-2"'+'>'+value.start_hour+'</div><div class='+'"col-lg-2"'+'>'+value.end_hour+'</div><div class='+'"col-lg-1"'+'><a href=""><p>Desasignar</p></a></div></div>');
 					});
+					//Validar que haya disponibles
+					$('#selectSchedule').empty();
+					$('#selectSchedule').append('<option selected disabled>Selecciona un horario a asignar</option>');
+					$('#selectSchedule').show();
+					$.each(data[1], function(key, value){
+						$('#selectSchedule').append($("<option></option>").attr("value",value.id).text(value.name)); 
+					});
 				}	
 			});
 		});
 	});
+
+		
 
 </script>
 
