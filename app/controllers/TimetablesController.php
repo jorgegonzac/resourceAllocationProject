@@ -19,21 +19,29 @@ class TimetablesController extends BaseController {
 	}
 
 	public function showSchedules(){
-		$id = Input::get('id');
-		$timetable = Timetable::select()->where('id', '=', $id)->with('schedules')->get();
-		$schedules = Schedule::all();
-		$schedules_assigned = array();
-		$schedules_unassigned = array();
-		$schedules_id = array();
-		foreach ($timetable[0]->schedules as $schedule){
-			$schedules_assigned[] = $schedule;
+		if(Input::get('agregar')){
+			return 'Agregar';
+		}else{
+			$id = Input::get('id');
+			$timetable = Timetable::select()->where('id', '=', $id)->with('schedules')->get();
+			$schedules = Schedule::all();
+			$assigned_schedules = array();
+			$unassigned_schedules = array();
+			$assigned_ids = array();
+			foreach ($timetable[0]->schedules as $schedule){
+				$assigned_schedules[] = $schedule;
+				$assigned_ids[] = $schedule->id;
+			}
+			foreach ($schedules as $schedule){
+				if(in_array($schedule->id, $assigned_ids)){
+
+				}else{
+					$unassigned_schedules[] = $schedule;
+				}
+			}
+			$data = array('0' => $assigned_schedules, '1' => $unassigned_schedules);
+			return $data;
 		}
-		foreach ($schedules_id as $schedule_id){
-			$schedule = Schedule::select()->where('id', '=', $schedule_id)->get();
-			$schedules_unassigned[] = $schedule;
-		}
-		$data = array('0' => $schedules_assigned, '1' => $schedules);
-		return $data;
 	}
 
 	public function store()
