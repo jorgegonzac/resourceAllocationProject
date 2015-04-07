@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        @include('includes.head')
+        <!--@include('includes.head')-->
+        {{ HTML::style('css/style_login.css')}}
     </head>
 
     <body>
