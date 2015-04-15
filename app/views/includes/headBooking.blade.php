@@ -14,8 +14,8 @@
 
 <!-- JS are placed here -->
 
-{{ HTML::script('js/hovers.js') }}
-{{ HTML::script('js/snap.svg-min.js') }}
+<!-- {{ HTML::script('js/hovers.js') }}
+{{ HTML::script('js/snap.svg-min.js') }} -->
 {{ HTML::script('js/jquery.dataTables.min.js') }}
 {{ HTML::script('js/bootstrap.js') }}
 {{ HTML::script('js/bootstrap.min.js') }}
