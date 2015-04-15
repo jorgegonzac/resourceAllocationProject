@@ -12,7 +12,7 @@ class SectionsController extends BaseController
 				$recent = Resource::where('id', '=', $booking->resource_id)->get();
 				$recents = array_add($recents, $booking->resource_id, $recent[0]);
 			}
-			return View::make('resources', ['recentBookings' => $recents]);
+			return View::make('student.index', ['recentBookings' => $recents]);
 		}else{
 			return Redirect::to('login');
 		}
@@ -49,7 +49,7 @@ class SectionsController extends BaseController
 		    'bookings'		=>	$bookings,
 		);
 //		return $bookings;
-		return View::make('booking')->with($data);
+		return View::make('student.booking')->with($data);
 	}
 
 	public function showAdmin()
