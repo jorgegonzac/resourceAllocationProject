@@ -15,18 +15,18 @@
 <table id="myTable" class="display table" width="100%" >
 		    <thead>
 		        <tr>
-		        	<td>id</td>
 		            <td>Nombre</td>
 		            <td>Edificio</td>		  
+		            <td>Encargado</td>
 		            <td>Acciones</td>          
 		        </tr>
 		    </thead>
 		    <tbody>
 		    	@foreach($laboratories as $key => $lab)
 		        <tr>
-		            <td>{{ $lab->id }}</td>
 		            <td>{{ $lab->name }}</td>
 		            <td>{{ $lab->building }}</td>
+		            <td>{{ $lab->user->first_name." ".$lab->user->first_last_name." " }}</td>
 		            <td>
 
 	                {{ Form::open(array('url' => 'laboratories/' . $lab->id)) }}

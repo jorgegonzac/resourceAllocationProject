@@ -15,11 +15,11 @@ Route::get('logout', 'SessionsController@destroy');
 Route::resource('sessions', 'SessionsController');
 
 
-Route::get('index', 'SectionsController@showRecent');
-Route::post('index', 'SectionsController@showLaboratoryResources');
-Route::get('index/{id}/showBookingForm', 'SectionsController@showBookingForm');
+Route::get('index', 'StudentController@showRecent');
+Route::post('index', 'StudentController@showLaboratoryResources');
+Route::get('index/{id}/showBookingForm', 'StudentController@showBookingForm');
 
-Route::get('admin', 'SectionsController@showAdmin');
+Route::get('admin', 'AdminController@showAdmin');
 
 Route::resource('users', 'UsersController');
 
@@ -35,9 +35,9 @@ Route::post('assign', 'TimetablesController@showSchedules');
 
 Route::resource('schedules', 'SchedulesController');
 
-Route::resource('bookings', 'SectionsController@showBookings');
+Route::resource('bookings', 'AdminController@showBookings');
 
-Route::resource('waitinglists', 'SectionsController@showWaitingLists');
+Route::resource('waitinglists', 'AdminController@showWaitingLists');
 
 Route::resource('book', 'ResourcesController@book');
 
