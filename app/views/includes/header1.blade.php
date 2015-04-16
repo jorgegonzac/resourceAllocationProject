@@ -72,7 +72,7 @@
 	            	<a href="../../index"><i class="fa fa-home fa-3x" style="color:white"></i></a>
 	            </li>
 	            <li>
-	            	<a href="../index"><i class="fa fa-user fa-3x" style="color:white"></i></a>
+	            	<a onclick="showStudentInfo()"><i class="fa fa-user fa-3x" style="color:white"></i></a></button>
 	            </li>
 	            <li>
 	            	<a href="../logout"><i class="fa fa-power-off fa-3x" style="color:white"></i></a>
@@ -87,3 +87,27 @@
 	</div>
 
 </div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-center modal-lg">
+	    <div class="modal-content">
+	        <br>
+	      
+	    	<div class="modal-body">
+	        	<div class="userInfo"></div>
+	    	</div>
+	    </div>
+		  	<div class="modal-footer">
+		  	<center>
+		    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		    </center>
+      	</div>
+	    </div>
+	  </div>
+	</div>
+
+
+
+
+

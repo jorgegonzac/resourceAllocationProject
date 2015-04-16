@@ -16,16 +16,28 @@
 
 <!-- {{ HTML::script('js/hovers.js') }}
 {{ HTML::script('js/snap.svg-min.js') }} -->
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 {{ HTML::script('js/jquery.dataTables.min.js') }}
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 {{ HTML::script('js/bootstrap.js') }}
 {{ HTML::script('js/bootstrap.min.js') }}
 
-<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 <script>
+
+	function showStudentInfo(){
+
+		$.get('../../account', function(data){
+			console.log(data);
+            $('.userInfo').empty();
+            $('.userInfo').append(data);
+            $("#userModal").modal('show');
+        });
+
+	}
 
 	function validateMaxChecks(check){
 		 chk_arr =  document.getElementsByName('time_checkbox[]');

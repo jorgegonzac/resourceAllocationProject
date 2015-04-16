@@ -43,6 +43,9 @@ Route::resource('book', 'ResourcesController@book');
 
 Route::post('booking','BookingsController@bookResurce');
 
+Route::get('account', 'UsersController@showCurrent');
+
+
 
 
 

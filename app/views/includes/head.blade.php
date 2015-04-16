@@ -12,21 +12,24 @@
 {{ HTML::style('css/styles.css')}}
 {{ HTML::style('css/material-fullpalette.css')}}
 {{ HTML::style('css/material.css')}}
+<link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+
+<!-- {{ HTML::style('css/bootstrap.min.css')}} -->
 
 <!-- JS are placed here -->
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
-
+{{ HTML::script('js/jquery.dataTables.min.js') }}
 {{ HTML::script('js/hovers.js') }}
 {{ HTML::script('js/snap.svg-min.js') }}
-{{ HTML::script('js/jquery.dataTables.min.js') }}
 {{ HTML::script('js/bootstrap.js') }}
 {{ HTML::script('js/bootstrap.min.js') }}
 
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <script>
+
+
 	$(document).ready(function(){
 	    $('#myTable').dataTable();
 	});
@@ -40,15 +43,18 @@
 			}
 			$.post('../index',{ id : id, returnResources : returnResources, returnAll : returnAll }).done(function(data){
 				console.log(data);
-				$('.resources').empty();
-				$('.resources').append('<section id="grid" class="grid clearfix">');
+				$('.clearfix').empty();
+				$('.clearfix').append('');
 				$.each(data, function(key, value){
-		    		$(".resources").append("<a href='{{ URL::to('index/ " + value.id + " /showBookingForm') }}' "+'data-path-hover="M 0,0 0,38 90,58 180.5,38 180,0 z"><figure><img src="'+value.image+'" style="width:250px;height:437px" /><svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 0 0 L 0 182 L 90 126.5 L 180 182 L 180 0 L 0 0 z "/></svg><figcaption><h2>'+value.name+'</h2><p>'+value.description+'</p></figcaption><button>Apartar</button></figure></a>');
+		    		$(".clearfix").append("<a href=\"{{ URL::to('index/ " + value.id + " /showBookingForm') }}\"data-path-hover=\"M 0,0 0,38 90,58 180.5,38 180,0 z\"><figure><img src=\""+value.image+"\"style=\"width:250px;height:437px\" /><svg viewBox=\"0 0 180 320\" preserveAspectRatio=\"none\"><path d=\"M 0 0 L 0 182 L 90 126.5 L 180 182 L 180 0 L 0 0 z \"/></svg><figcaption><h2>"+value.name+"</h2><p>"+value.description+"</p></figcaption><button>Apartar</button></figure></a>");
 		    	});
-		    	$('.resources').append('</section>');
+		    	$('.clearfix').append('');
 			});
 		});
 	});
+
+
+
 
 
 	$(document).ready(function(){
@@ -108,7 +114,36 @@
 
 </script>
 
+<script>
+            (function() {
+    
+                function init() {
+                    var speed = 300,
+                        easing = mina.backout;
 
+                    [].slice.call ( document.querySelectorAll( '#grid > a' ) ).forEach( function( el ) {
+                        var s = Snap( el.querySelector( 'svg' ) ), path = s.select( 'path' ),
+                            pathConfig = {
+                                from : path.attr( 'd' ),
+                                to : el.getAttribute( 'data-path-hover' )
+                            };
+
+                        el.addEventListener( 'mouseenter', function() {
+                            path.animate( { 'path' : pathConfig.to }, speed, easing );
+                        } );
+
+                        el.addEventListener( 'mouseleave', function() {
+                            path.animate( { 'path' : pathConfig.from }, speed, easing );
+                        } );
+                    } );
+                }
+
+                init();
+
+            })();
+    </script>
+
+	
 
 
 

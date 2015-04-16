@@ -1,9 +1,8 @@
 @extends('layouts.userslayout')
 @section('content')
 
-	<div class="row">
+	<!-- <div class="row"> -->
 
-<section id="grid" class="grid clearfix">
 
 
 		<div class="resources">
@@ -28,8 +27,12 @@
 				</section>
 
 		</div>
-		</section>
- 	<script>
+
+
+		
+	
+	
+ 	<script type="text/javascript">
             (function() {
     
                 function init() {
