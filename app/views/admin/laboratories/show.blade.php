@@ -8,6 +8,8 @@
         <p>
             <strong>Nombre:</strong> {{ $laboratory->name   }}<br>
             <strong>Edificio:</strong> {{ $laboratory->building }}<br>
+            <strong>Encargado:</strong> {{ $laboratory->user->first_name." ".$laboratory->user->first_last_name." ".$laboratory->user->second_last_name }}<br>
+            <strong>Correo de Contacto:</strong> {{ $laboratory->user->email1}}
         </p>
     </div>
 

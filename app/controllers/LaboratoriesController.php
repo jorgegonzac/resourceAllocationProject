@@ -13,7 +13,16 @@ class LaboratoriesController extends BaseController
 	public function create()
 	{
 		//
-		return View::make('admin.laboratories.create');
+		$admins = array();
+		$users = User::all();
+
+		foreach ($users as $key => $user) {
+			$roles = $user->roles;
+			if($roles->contains(1)){
+				$admins[] = $user;
+			}
+		}
+		return View::make('admin.laboratories.create')->with('users',$admins);
 	}
 
 	public function store()
@@ -21,13 +30,14 @@ class LaboratoriesController extends BaseController
 		$rules = array(
             'name'      => 'required',
             'building'      => 'required|numeric',            
+            'user'		=> 'required',
         );        
         $messages = [
         	'required' 	=> 'Este campo es obligatorio !',
         	'email'	   	=> 'Correo no valido',
         	'min'	   	=> 'La matrícula no es valida',
         	'size'		=> 'La matrícula no es valida',
-        	'numeric'	=> 'Debes de poner el número del edificio!'
+        	'numeric'	=> 'Debes de poner el número del edificio!',
        	];
 		$validator = Validator::make(Input::all(), $rules, $messages);
 		
@@ -39,6 +49,7 @@ class LaboratoriesController extends BaseController
 			$lab = new Laboratory;
 			$lab->name = Input::get('name');
 			$lab->building = Input::get('building');
+			$lab->user_id = Input::get('user');
 			$lab->save();
 
 			Session::flash('message', 'Successfully created laboratory!');
@@ -57,7 +68,16 @@ class LaboratoriesController extends BaseController
 	{
 		//
 		$laboratory = Laboratory::find($id);
-		return View::make('admin.laboratories.edit')->with('laboratory',$laboratory);
+
+		$admins = array();		
+		$users = User::all();
+		foreach ($users as $key => $user) {
+			$roles = $user->roles;
+			if($roles->contains(1)){
+				$admins[] = $user;
+			}
+		}
+		return View::make('admin.laboratories.edit',['laboratory' => $laboratory, 'users' => $admins]);
 	}
 
 	public function update($id)
@@ -65,7 +85,8 @@ class LaboratoriesController extends BaseController
 		//
 		$rules = array(
             'name'      => 'required',
-            'building'      => 'required|numeric',            
+            'building'      => 'required|numeric',       
+            'user'		=>'required',     
         );        
         $messages = [
         	'required' 	=> 'Este campo es obligatorio !',
@@ -84,6 +105,7 @@ class LaboratoriesController extends BaseController
 			$lab = Laboratory::find($id);
 			$lab->name = Input::get('name');
 			$lab->building = Input::get('building');
+			$lab->user_id = Input::get('user');
 			$lab->save();
 
 			Session::flash('message', 'Successfully updated laboratory!');
