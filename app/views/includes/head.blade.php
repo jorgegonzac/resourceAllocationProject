@@ -88,7 +88,12 @@
 			});
 		});
 	});
+	$(document).ready(function(){
+		$("div.search_bar_user").click(function(e){
+			alert();
+		});
 
+	});
 		
 
 </script>
