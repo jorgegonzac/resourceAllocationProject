@@ -5,7 +5,7 @@
         @include('includes.header1')
     </head>
     
-    <body>
+    <body onload="display_ct()">
         <div class="container">
             <div class="row">
                 @yield('content')

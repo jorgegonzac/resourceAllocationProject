@@ -11,6 +11,8 @@
 {{ HTML::style('css/styles.css')}}
 {{ HTML::style('css/material-fullpalette.css')}}
 {{ HTML::style('css/material.css')}}
+<link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+
 
 <!-- JS are placed here -->
 
@@ -26,16 +28,42 @@
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
+<script type="text/javascript"> 
+	function display_c(){
+		var refresh=1000; // Refresh rate in milli seconds
+		mytime=setTimeout('display_ct()',refresh)
+	}
+
+	function display_ct() {
+		var strcount
+		var x = new Date()
+		document.getElementById('ct').innerHTML = x.toLocaleString();
+		tt=display_c();
+	}
+</script>
+
 <script>
 
 	function showStudentInfo(){
 
 		$.get('../../account', function(data){
-			console.log(data);
-            $('.userInfo').empty();
-            $('.userInfo').append(data);
-            $("#userModal").modal('show');
+			$.get('../../activeBookings', function(data2){
+				$.get('../../activeWaiting', function(data3){
+				console.log(data);
+				console.log(data2);
+				console.log(data3);
+	            $('.userInfo').empty();
+	            $('.userInfo').append(data);
+	            $('.activeBook').empty();
+	            $('.activeBook').append(data2);
+	            $('.activeWait').empty();
+	            $('.activeWait').append(data3);
+	            $("#userModal").modal('show');
+	            });
+            });
         });
+
+
 
 	}
 

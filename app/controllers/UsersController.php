@@ -98,13 +98,17 @@ class UsersController extends \BaseController {
 		$user = User::where('school_id', '=', $id)->get();
 		$userInfo= "<h2>Información de alumno</h2><br>";
 		foreach($user as $usr){
+			
 			$name= $usr->first_name;
 			$lastName=$usr->first_last_name;
 			$lastName2=$usr->second_last_name;
 			$mail1=$usr->email1;
 			$mail2=$usr->email2;
 			$major=$usr->carrera;
-			$userInfo.="<h4>Nombre: " . $name . " " . $lastName ." ".$lastName2 ."<br> Correo: ". $mail1 ."<br> Correo alternativo: " . $mail2." <br> Carrera: ".$major."</h4><br>";
+			$userInfo.="<h4>Nombre: " . $name . " " . $lastName ." ".$lastName2 ."<br> 
+			Correo: ". $mail1 ."<br> 
+			Correo alternativo: " . $mail2." <br> 
+			Carrera: ".$major."</h4><br>";
 		 	
 		 }
 

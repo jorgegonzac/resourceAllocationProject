@@ -69,13 +69,13 @@
  -->
 
 	            <li>
-	            	<a href="../../index"><i class="fa fa-home fa-3x" style="color:white"></i></a>
+	            	<a href="../../index"><i class="fa fa-home fa-2x" style="color:white"></i></a>
 	            </li>
 	            <li>
-	            	<a onclick="showStudentInfo()"><i class="fa fa-user fa-3x" style="color:white"></i></a></button>
+	            	<a onclick="showStudentInfo()"><i class="fa fa-user fa-2x" style="color:white"></i></a></button>
 	            </li>
 	            <li>
-	            	<a href="../logout"><i class="fa fa-power-off fa-3x" style="color:white"></i></a>
+	            	<a href="../../logout"><i class="fa fa-power-off fa-2x" style="color:white"></i></a>
 	            </li>
 
 			</ul>
@@ -89,23 +89,55 @@
 </div>
 
 	<!-- Modal -->
-	<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" >
 	  <div class="modal-dialog modal-dialog-center modal-lg">
 	    <div class="modal-content">
+	    	<div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h2 class="modal-title">Información del usuario</h2>
+                <span id='ct' ></span>
+
+            </div>
 	        <br>
+	        <div class="bs-example bs-example-tabs">
+	            <ul id="myTab" class="nav nav-tabs">
+	              <li class="active"><a href="#account" data-toggle="tab">Cuenta de Usuario</a></li>
+	              <li class=""><a href="#bookings" data-toggle="tab">Reservaciones Activas</a></li>
+	              <li class=""><a href="#waiting" data-toggle="tab">Lista de Espera</a></li>
+	            </ul>
+        	</div>
 	      
 	    	<div class="modal-body">
-	        	<div class="userInfo"></div>
+		    	<div id="myTabContent" class="tab-content">
+		    			<!-- ACCOUNT USER INFO -->
+				        <div class="tab-pane fade active in" id="account">
+				        	<div class="userInfo"></div>
+				        	<center>
+							    <button type="button" class="btn btn-default">Guardar</button>
+						    </center>
+			        	</div>
+
+			        	<!-- ACTIVE BOOKINGS -->
+
+			        	<div class="tab-pane fade" id="bookings">
+				        	<div class="activeBook"></div>
+			        	</div>
+
+			        	<div class="tab-pane fade" id="waiting">
+				        	<div class="activeWait"></div>
+			        	</div>
+		        	
+		    	
+		    	</div>
+			  	<div class="modal-footer">
+				  	<center>
+				    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				    </center>
+	      		</div>
 	    	</div>
-	    </div>
-		  	<div class="modal-footer">
-		  	<center>
-		    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		    </center>
-      	</div>
-	    </div>
 	  </div>
 	</div>
+</div>
 
 
 
