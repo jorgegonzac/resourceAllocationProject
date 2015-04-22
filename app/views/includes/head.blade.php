@@ -27,6 +27,46 @@
 
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<script type="text/javascript"> 
+	function display_c(){
+		var refresh=1000; // Refresh rate in milli seconds
+		mytime=setTimeout('display_ct()',refresh)
+	}
+
+	function display_ct() {
+		var strcount
+		var x = new Date()
+		document.getElementById('ct').innerHTML = x.toLocaleString();
+		tt=display_c();
+	}
+
+
+
+function showStudentInfo(){
+
+		$.get('../../account', function(data){
+			$.get('../../activeBookings', function(data2){
+				$.get('../../activeWaiting', function(data3){
+				console.log(data);
+				console.log(data2);
+				console.log(data3);
+	            $('.userInfo').empty();
+	            $('.userInfo').append(data);
+	            $('.activeBook').empty();
+	            $('.activeBook').append(data2);
+	            $('.activeWait').empty();
+	            $('.activeWait').append(data3);
+	            $("#userModal").modal('show');
+	            });
+            });
+        });
+ }
+
+
+</script>
+
+
 <script>
 
 

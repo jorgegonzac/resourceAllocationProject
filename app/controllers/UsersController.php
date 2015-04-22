@@ -96,7 +96,7 @@ class UsersController extends \BaseController {
 		//
 		$id = Session::get('school_id');
 		$user = User::where('school_id', '=', $id)->get();
-		$userInfo= "<h2>Información de alumno</h2><br>";
+		$userInfo= "";
 		foreach($user as $usr){
 			
 			$name= $usr->first_name;

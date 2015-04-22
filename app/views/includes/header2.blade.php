@@ -1,4 +1,4 @@
-<!-- HEADER FOR INDEX AND LAB VIEW -->
+<!-- HEADER FOR BOOKING VIEW WITH NO SELECT -->
 
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
@@ -21,12 +21,12 @@
 
 			<ul class="nav navbar-nav navbar-left">
 				<br>
-				<select id="selectLaboratory" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+				<!-- <select id="selectLaboratory" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 					<option value="100">Todos Los Laboratorios</option>
 		   			@foreach($laboratories as $laboratory)
 			   			<option value="{{ $laboratory->id }}">{{ $laboratory->name }}</option>
 		   			@endforeach
-				</select>
+				</select> -->
 
 			</ul>
 
