@@ -1,6 +1,5 @@
-<br><br><br><br>
 <section id="grid" class="grid clearfix">
-    <br><br><br>
+    <br>
 			<h2> {{ $msg }}</h2>
 			@foreach( $bookings as $booking)
 					<a  href="{{ URL::to('index/' . $booking->id . '/showBookingForm') }}" data-path-hover="M 0,0 0,38 90,58 180.5,38 180,0 z">
