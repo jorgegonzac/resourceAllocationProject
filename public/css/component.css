@@ -72,7 +72,7 @@
 
 .grid figure button {
 	position: absolute;
-	padding: 4px 20px;
+	padding: 9px 90px;
 	border: none;
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -135,7 +135,7 @@
 
 .demo-1 .grid figure button,
 .demo-3 .grid figure button {
-	top: 50%;
+	top: 90%;
 	left: 50%;
 	border: 3px solid transparent;
 	background: #2424B2;
