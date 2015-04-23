@@ -13,7 +13,7 @@ class SessionsController extends BaseController {
 			return Redirect::to('index');
 		}
 
-		return View::make('sessions.create');
+		return View::make('sessions.login');
 	}
 
 	public function store()

@@ -4,7 +4,7 @@ class Laboratory extends Eloquent {
     
     // MASS ASSIGNMENT -------------------------------------------------------
     // define which attributes are mass assignable (for security)
-    protected $fillable = array('name', 'building');
+    protected $fillable = array('name', 'building','user_id');
 
     // DEFINE RELATIONSHIPS --------------------------------------------------
     
@@ -14,5 +14,8 @@ class Laboratory extends Eloquent {
     
     public function resources() {
         return $this->hasMany('Resource');
+    }
+    public function user(){
+        return $this->belongsTo('User');        
     }
 }

@@ -73,6 +73,8 @@ function showStudentInfo(){
 	$(document).ready(function(){
 	    $('#myTable').dataTable();
 	});
+	
+
 	$(document).ready(function(){
 		$('#selectLaboratory').on('change', function(){
 			var id = $(this).val();
@@ -81,6 +83,7 @@ function showStudentInfo(){
 			if (id == 0){
 				returnAll = 1;
 			}
+
 			$.post('../index',{ id : id, returnResources : returnResources, returnAll : returnAll }).done(function(data){
 				console.log(data);
 				$('.clearfix').empty();
@@ -89,6 +92,18 @@ function showStudentInfo(){
 		    		$(".clearfix").append("<a href=\"{{ URL::to('index/ " + value.id + " /showBookingForm') }}\"data-path-hover=\"M 0,0 0,38 90,58 180.5,38 180,0 z\"><figure><img src=\""+value.image+"\"style=\"width:250px;height:437px\" /><svg viewBox=\"0 0 180 320\" preserveAspectRatio=\"none\"><path d=\"M 0 0 L 0 182 L 90 126.5 L 180 182 L 180 0 L 0 0 z \"/></svg><figcaption><h2>"+value.name+"</h2><p>"+value.description+"</p></figcaption><button>Apartar</button></figure></a>");
 		    	});
 		    	$('.clearfix').append('');
+
+			
+			$.ajax({
+				url: "../lab",
+				type: 'get',
+				cache: false,
+				data: { 'id' : id, 'returnResources' : returnResources, 'returnAll' : returnAll },
+				datatype: 'html',
+				success: function(data){
+					$('.resources').html(data);
+				}
+
 			});
 		});
 	});
@@ -134,7 +149,12 @@ function showStudentInfo(){
 			});
 		});
 	});
+	$(document).ready(function(){
+		$("div.search_bar_user").click(function(e){
+			alert();
+		});
 
+	});
 		
 
 </script>
@@ -153,6 +173,7 @@ function showStudentInfo(){
 	});
 
 </script>
+
 
 <script>
             (function() {

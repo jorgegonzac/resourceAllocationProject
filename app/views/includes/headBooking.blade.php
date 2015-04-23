@@ -24,8 +24,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 {{ HTML::script('js/bootstrap.js') }}
 {{ HTML::script('js/bootstrap.min.js') }}
-
-
+<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 <script type="text/javascript"> 
@@ -43,6 +42,12 @@
 </script>
 
 <script>
+	$(document).ready(function(){
+		$('#selectLaboratory').on('change', function(){
+			var id = $(this).val();
+			document.location.href = '/lab/'+id;
+		});
+	});
 
 	function showStudentInfo(){
 
@@ -94,8 +99,8 @@
 		for(k=0;k< chklength;k++){
 			if(chk_arr[k].checked){
 				unselected = 0;
-				console.log(chk_arr[k].value);
-				array_schedules[array_schedules.length] = chk_arr[k].value;
+				var decrypted = CryptoJS.AES.decrypt(chk_arr[k].value.toString(), "kiJowNsYub48xIb");
+				array_schedules[array_schedules.length] = decrypted.toString(CryptoJS.enc.Utf8);
 			}
 		}
 		if(unselected == 1){
@@ -110,7 +115,6 @@
             $('.booking_msg').append(data);
             $("#myModal").modal('show');
         });
-
 
 	}	
 
@@ -277,12 +281,14 @@
 						//saving the bottom time of the time period
 						var end_period = bottom_time_yy + "-" + top_time_mm + "-" + top_time_dd + " " + top_this_day_hh;
 
-
-
 	             		if(invalid_date == 0){
-		             		boddy += "<tr> <td><input type='checkbox' name='time_checkbox[]' value='b%" +init_period+"%" +end_period+"' onchange='validateMaxChecks(this)' class='time_checkbox'/>    " + start_hour_split[0] +" - " +end_hour_split[0] +"</td> </tr>";	             		
+							time = "b%"+init_period+"%" +end_period;
+							encryptedtime = CryptoJS.AES.encrypt(time, "kiJowNsYub48xIb");
+							boddy += "<tr> <td><input type='checkbox' name='time_checkbox[]' value='" + encryptedtime + "' onchange='validateMaxChecks(this)' class='time_checkbox'/>    " + start_hour_split[0] +" - " +end_hour_split[0] +"</td> </tr>";	             		
 	             		}else if(invalid_date == 1){
-		             		boddy += "<tr> <td><input type='checkbox' name='time_checkbox[]' value='w%" +init_period+"%" +end_period+"' onchange='validateMaxChecks(this)' class='time_checkbox'/>  <a style='color:red'> " + start_hour_split[0] +" - " +end_hour_split[0] +"</a> </td> </tr>";	             			             			
+							time = "w%"+init_period+"%" +end_period;
+							encryptedtime = CryptoJS.AES.encrypt(time, "kiJowNsYub48xIb");
+							boddy += "<tr> <td><input type='checkbox' name='time_checkbox[]' value='" + encryptedtime + "' onchange='validateMaxChecks(this)' class='time_checkbox'/>  <a style='color:red'> " + start_hour_split[0] +" - " +end_hour_split[0] +"</a> </td> </tr>";	             			             			
 	             		}	             	
 	             	}
 	             	//if the laboral day has already finished

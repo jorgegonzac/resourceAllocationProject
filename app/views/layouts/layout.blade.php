@@ -8,9 +8,6 @@
 
     <body>
         <div class="container">
-            <header>
-            </header>
-
             <div id="resources" class="row">
                 @yield('content')
             </div>

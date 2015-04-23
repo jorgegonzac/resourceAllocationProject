@@ -2,7 +2,7 @@
 <html lang="en" class="demo-3 no-js">
     <head>
         @include('includes.head')
-        @include('includes.header1')
+        @include('includes.header')
     </head>
     
     <body onload="display_ct()">

@@ -4,20 +4,18 @@
 	<!-- <div class="row"> -->
 
 
-
 		<div class="resources">
- 
 			<section id="grid" class="grid clearfix">
-			<h2> Recursos usados recientemente</h2>
-			@foreach( $recentBookings as $recentBooking)
-					<a  href="{{ URL::to('index/' . $recentBooking->id . '/showBookingForm') }}" data-path-hover="M 0,0 0,38 90,58 180.5,38 180,0 z">
-						{{ Form::hidden('id', $recentBooking->id) }}
+			<h2> {{ $msg }}</h2>
+			@foreach( $bookings as $booking)
+					<a  href="{{ URL::to('index/' . $booking->id . '/showBookingForm') }}" data-path-hover="M 0,0 0,38 90,58 180.5,38 180,0 z">
+						{{ Form::hidden('id', $booking->id) }}
 						<figure>
-							<img src="{{$recentBooking->image}}" style="width:250px;height:437px" />
+							<img src="{{$booking->image}}" style="width:250px;height:437px" />
 							<svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 0 0 L 0 182 L 90 126.5 L 180 182 L 180 0 L 0 0 z "/></svg>
 							<figcaption>
-								<h2>{{$recentBooking->name}}</h2>
-								<p>{{$recentBooking->description}}</p>
+								<h2>{{$booking->name}}</h2>
+								<p>{{$booking->description}}</p>
 							</figcaption>
 							<button>Apartar</button>
 						</figure>
@@ -26,6 +24,7 @@
 			@endforeach
 				</section>
 
+
 		</div>
 
 
@@ -33,6 +32,8 @@
 	
 	
  	<script type="text/javascript">
+
+
             (function() {
     
                 function init() {
@@ -61,4 +62,7 @@
             })();
     </script>
 	
+		</div>
+		</section>
+
 @stop
