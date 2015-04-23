@@ -30,6 +30,8 @@
 	$(document).ready(function(){
 	    $('#myTable').dataTable();
 	});
+	
+
 	$(document).ready(function(){
 		$('#selectLaboratory').on('change', function(){
 			var id = $(this).val();

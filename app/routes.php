@@ -18,7 +18,9 @@ Route::resource('sessions', 'SessionsController');
 Route::get('index', 'StudentController@showRecent');
 Route::get('index/{id}/showBookingForm', 'StudentController@showBookingForm');
 
-Route::get('lab', 'StudentController@showLaboratoryResources');
+Route::get('lab/{id}', 'StudentController@showLaboratoryResourcesView'); //returns a View
+Route::get('lab', 'StudentController@showLaboratoryResources');	//returns html code
+
 Route::get('search', 'StudentController@search');
 
 Route::get('admin', 'AdminController@showAdmin');

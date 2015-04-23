@@ -27,6 +27,12 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 <script>
+	$(document).ready(function(){
+		$('#selectLaboratory').on('change', function(){
+			var id = $(this).val();
+			document.location.href = '/lab/'+id;
+		});
+	});
 
 	function validateMaxChecks(check){
 		 chk_arr =  document.getElementsByName('time_checkbox[]');

@@ -29,8 +29,23 @@ class StudentController extends \BaseController {
 			return Redirect::to('login');
 		}
 	}
-
-	public function showLaboratoryResources()
+	public function showLaboratoryResourcesView($id)
+	{
+			//resource ID
+			$msg;
+			if ($id == 0){
+				//Todos los laboratorios
+				$resources = Resource::all();
+				$msg = "Todos los laboratorios";
+			}else{
+				//SACA RECURSOS DE LABORATORIO ESPECIFICO
+				$resources = Resource::where('laboratory_id', '=', $id)->get();				
+				$lab = Laboratory::find($id);
+				$msg = "Laboratorio: ".$lab->name;
+			}
+			return View::make('student.index', ['bookings' => $resources, 'msg' => $msg]);
+	}
+public function showLaboratoryResources()
 	{
 		$returnResources = Input::get('returnResources');
 		if($returnResources){
@@ -53,7 +68,6 @@ class StudentController extends \BaseController {
 				return $returnHTML;
 		}
 	}
-
 	public function showBookingForm($id){
 		$resource = Resource::find($id);
 		$category = Category::find($resource->category_id);
