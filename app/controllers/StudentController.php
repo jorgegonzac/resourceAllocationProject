@@ -2,6 +2,18 @@
 
 class StudentController extends \BaseController {
 
+	public function search(){
+		$word = Input::get('label');
+		$wordToFind = '%'.$word.'%';
+		$resources = Resource::where('tags','LIKE',$wordToFind)->orWhere('name','LIKE',$wordToFind)->get();
+		$msg;
+		if(count($resources)==0){
+			$msg = "No se encontraron resultados";
+		}else{
+			$msg = "Resultado de la búsqueda con: ".$word;
+		}
+		return View::make('student.index', ['bookings' => $resources, 'msg' => $msg]);
+	}
 	public function showRecent()
 	{
 		if (Session::get('school_id'))
@@ -12,7 +24,7 @@ class StudentController extends \BaseController {
 				$recent = Resource::where('id', '=', $booking->resource_id)->get();
 				$recents = array_add($recents, $booking->resource_id, $recent[0]);
 			}
-			return View::make('student.index', ['recentBookings' => $recents]);
+			return View::make('student.index', ['bookings' => $recents, 'msg' => 'Recursos Usados Recientemente']);
 		}else{
 			return Redirect::to('login');
 		}
@@ -25,15 +37,20 @@ class StudentController extends \BaseController {
 			//RECUPERA ID LAB
 			$id = Input::get('id');
 			$returnAll = Input::get('returnAll');
+			$resources;
+			$msg;
 			if ($returnAll){
 				//Todos los laboratorios
-				return $resources = Resource::all();
+				$resources = Resource::all();
+				$msg = "Todos los laboratorios";
 			}else{
 				//SACA RECURSOS DE LABORATORIO ESPECIFICO
-				return $resources = Resource::where('laboratory_id', '=', $id)->get();				
+				$resources = Resource::where('laboratory_id', '=', $id)->get();				
+				$lab = Laboratory::find($id);
+				$msg = "Laboratorio: ".$lab->name;
 			}
-		}else{
-			//NO ES EL POST DE LOS LABORATORIOS
+				$returnHTML = View::make('student.resources', ['bookings' => $resources, 'msg' => $msg]);
+				return $returnHTML;
 		}
 	}
 

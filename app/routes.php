@@ -16,8 +16,10 @@ Route::resource('sessions', 'SessionsController');
 
 
 Route::get('index', 'StudentController@showRecent');
-Route::post('index', 'StudentController@showLaboratoryResources');
 Route::get('index/{id}/showBookingForm', 'StudentController@showBookingForm');
+
+Route::get('lab', 'StudentController@showLaboratoryResources');
+Route::get('search', 'StudentController@search');
 
 Route::get('admin', 'AdminController@showAdmin');
 
