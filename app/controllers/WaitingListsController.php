@@ -56,7 +56,9 @@ class WaitingListsController extends \BaseController {
 	{
 		$id = Session::get('school_id');
 
-		$active = Waitinglist::where('user_id', '=', $id)->leftJoin('resources', 'waitinglists.resource_id', '=', 'resources.id')->get();
+		$active = Waitinglist::where('user_id', '=', $id)->
+					where('end_date', '>=',new DateTime('today'))->
+					leftJoin('resources', 'waitinglists.resource_id', '=', 'resources.id')->get();
 		$userActive= "<h3>Reservaciones en espera</h3><br>";
 		
 		if ($active->isEmpty()) {

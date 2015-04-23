@@ -100,6 +100,7 @@ class BookingsController extends \BaseController {
 		$image="";
 		$id = Session::get('school_id');
 		$active = Booking::where('return_date', '=', '0000-00-00 00:00:00')->
+							where('end_date', '>=',new DateTime('today'))->
 							where('user_id', '=', $id)->
 							leftJoin('resources', 'bookings.resource_id', '=', 'resources.id')->get();
 		$userActive= "<h3>Reservaciones Activas</h3><br>";
@@ -107,6 +108,7 @@ class BookingsController extends \BaseController {
 		if ($active->isEmpty()) {
 
 			return $userActive .="<br><br><p>No cuenta con reservaciones activas. </p>";
+			// echo "EMPTY";
 
 		}
 

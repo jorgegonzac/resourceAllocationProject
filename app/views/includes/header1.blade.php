@@ -74,7 +74,7 @@
 	            	<a href="../../index"><i class="fa fa-home fa-2x" style="color:white"></i></a>
 	            </li>
 	            <li>
-	            	<a onclick="showStudentInfo()"><i class="fa fa-user fa-2x" style="color:white"></i></a></button>
+	            	<a href="#" onclick="showStudentInfo()"><i class="fa fa-user fa-2x" style="color:white"></i></a>
 	            </li>
 	            <li>
 	            	<a href="../../logout"><i class="fa fa-power-off fa-2x" style="color:white"></i></a>
@@ -97,7 +97,7 @@
 	    	<div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h2 class="modal-title">Información del usuario</h2>
-                <span id='ct' ></span>
+                <span id='ct'></span>
 
             </div>
 	        <br>

@@ -37,12 +37,18 @@
 	function display_ct() {
 		var strcount
 		var x = new Date()
-		document.getElementById('ct').innerHTML = x.toLocaleString();
+		document.getElementById('ct').innerHTML = x;
 		tt=display_c();
 	}
 
 
 
+</script>
+
+
+<script>
+
+	
 function showStudentInfo(){
 
 		$.get('../../account', function(data){
@@ -62,12 +68,6 @@ function showStudentInfo(){
             });
         });
  }
-
-
-</script>
-
-
-<script>
 
 
 	$(document).ready(function(){
