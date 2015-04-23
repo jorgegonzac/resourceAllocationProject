@@ -142,12 +142,12 @@ class BookingsController extends \BaseController {
 		            <td><img src=\"".$image." \"style=\"width:60px;height:60px\"/></td>
 		            <td>".$date."</td>
 		            <td>".$start_arr[1]."</td>
-		            <td>".$end_arr[1]."</td>";
+		            <td>".$end_arr[1]."</td></tr>";
 
 		            
 
 		}
-		$userActive.="</tr></tbody></table></div>";
+		$userActive.="</tbody></table></div>";
 		return $userActive; 
 		// return $active;
 	}

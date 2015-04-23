@@ -2,7 +2,7 @@
 <html>
     <head>
         @include('includes.headBooking')
-        @include('includes.header2')
+        @include('includes.header1')
     </head>
     
     <body onload="display_ct()">
