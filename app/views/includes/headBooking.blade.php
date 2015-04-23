@@ -34,8 +34,8 @@
 	}
 
 	function display_ct() {
-		var strcount
-		var x = new Date()
+		var strcount;
+		var x = new Date();
 		document.getElementById('ct').innerHTML = x;
 		tt=display_c();
 	}
