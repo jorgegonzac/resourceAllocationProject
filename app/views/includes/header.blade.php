@@ -20,7 +20,8 @@
 			<ul class="nav navbar-nav navbar-left">
 				<br>
 				<select id="selectLaboratory" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-					<option value="0">Todos Los Laboratorios</option>
+					<option value="-1" selected disabled>Selecciona una opción</option>
+					<option value="0"> Todos Los Laboratorios</option>
 		   			@foreach($laboratories as $laboratory)
 			   			<option value="{{ $laboratory->id }}">{{ $laboratory->name }}</option>
 		   			@endforeach
@@ -34,10 +35,10 @@
 				<li>
 					<br>
 					<div class".search_bar_user">
-						<form action="" class="search-form">
+						<form method="get" action="../../search" class="search-form">
 			                <div class="form-group has-feedback">
-			            		<label for="search" class="sr-only">Search</label>
-			            		<input type="text" class="form-control" name="search" id="search" placeholder="    Buscar2">
+			            		<label for="label" class="sr-only">Search</label>
+			            		<input type="text" class="form-control" name="label" id="label" placeholder="    Buscar">
 			              		<span class="glyphicon glyphicon-search form-control-feedback"></span>
 			            	</div>
 		            	</form>
@@ -47,27 +48,6 @@
 	            </li>
 
 
-	            <!-- <li class="dropdown">
-
-	            	<a href="#" id="selectLaboratory" class="dropdown-toggle" data-toggle="dropdown">Themes <b class="caret"></b></a>
-
-	            	<ul class="dropdown-menu">
-
-	            		<li><a href=""><option value="100">Todos Los Laboratorios</option></a></li>
-		   			@foreach($laboratories as $laboratory)
-			   			<li><a href=""><option value="{{ $laboratory->id }}">{{ $laboratory->name }}</option></a></li>
-		   			@endforeach
-
-
-
-
-	            	</ul>
-
-
-
-	            </li>
- -->
-
 	            <li>
 	            	<a href="../../index"><i class="fa fa-home fa-3x" style="color:white"></i></a>
 	            </li>
@@ -75,7 +55,7 @@
 	            	<a href="../index"><i class="fa fa-user fa-3x" style="color:white"></i></a>
 	            </li>
 	            <li>
-	            	<a href="../logout"><i class="fa fa-power-off fa-3x" style="color:white"></i></a>
+	            	<a href="../../logout"><i class="fa fa-power-off fa-3x" style="color:white"></i></a>
 	            </li>
 
 			</ul>
