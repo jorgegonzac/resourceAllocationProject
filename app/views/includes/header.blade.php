@@ -1,52 +1,69 @@
-<!-- HEADER PARA USUARIOS LOGO / LABORATORIOS / SEARCH / HOME / USER INTERFACE / LOGOUT -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
-<nav class="row bg_gris">
-	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">		<!--LOGO TEC-->
-		<a href="">
-			<p class="logo_header"><img src="../../images/logotec.png" style="width:45px;height:45px"/></p>
-		</a>
-	</div> 	
-	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4  padding_header">		<!--SELECT LABS-->
-		<select id="selectLaboratory" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-			<option value="0">Todos Los Laboratorios</option>
-   			@foreach($laboratories as $laboratory)
-	   			<option value="{{ $laboratory->id }}">{{ $laboratory->name }}</option>
-   			@endforeach
-		</select>
-	</div> 	
+	<div class="container">
 
-	</div> 	
-	<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 padding_header">		<!--SEARCH BAR-->
-		<div class="search_bar_user">
-			<!-- search box -->
-	        <div class="col-md-4 col-md-offset-3">
-	            <form action="" class="search-form">
-	                <div class="form-group has-feedback">
-	            		<label for="search" class="sr-only">Search</label>
-	            		<input type="text" class="form-control" name="search" id="search" placeholder="    Buscar">
-	              		<span class="glyphicon glyphicon-search form-control-feedback"></span>
-	            	</div>
-	            </form>
-	        </div>
-	        <!-- end searchbox -->
-	    </div>
+		<div class="navbar-header">
+
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+
+				<span class="sr-only">Toggle Navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+
+			</button>	
+			<a class="navbar-brand" href="#"><img src="/images/logotec.png" style="width:40px;height:40px"/></a>
+		</div>	
+
+		<div class="navbar-collapse collapse">
+
+			<ul class="nav navbar-nav navbar-left">
+				<br>
+				<select id="selectLaboratory" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					<option value="-1" selected disabled>Selecciona una opción</option>
+					<option value="0"> Todos Los Laboratorios</option>
+		   			@foreach($laboratories as $laboratory)
+			   			<option value="{{ $laboratory->id }}">{{ $laboratory->name }}</option>
+		   			@endforeach
+				</select>
+
+			</ul>
+
+
+			<ul class="nav navbar-nav navbar-right">
+
+				<li>
+					<br>
+					<div class".search_bar_user">
+						<form method="get" action="../../search" class="search-form">
+			                <div class="form-group has-feedback">
+			            		<label for="label" class="sr-only">Search</label>
+			            		<input type="text" class="form-control" name="label" id="label" placeholder="    Buscar">
+			              		<span class="glyphicon glyphicon-search form-control-feedback"></span>
+			            	</div>
+		            	</form>
+		            </div>
+		           
+
+	            </li>
+
+
+	            <li>
+	            	<a href="../../index"><i class="fa fa-home fa-3x" style="color:white"></i></a>
+	            </li>
+	            <li>
+	            	<a href="../index"><i class="fa fa-user fa-3x" style="color:white"></i></a>
+	            </li>
+	            <li>
+	            	<a href="../../logout"><i class="fa fa-power-off fa-3x" style="color:white"></i></a>
+	            </li>
+
+			</ul>
+
+
+		</div>
+
+
 	</div>
 
-	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">		<!-- HOME -->
-		<a href="">
-			<p class="home_header"><i class="fa fa-home fa-2x" style="color:white"></i></p>
-		</a>
-	</div>
-	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">		<!--USER ACCOUNT (MODAL)-->
-		<a href="">
-
-			<p class="account_header"><i class="fa fa-user fa-2x" style="color:white"></i></p>
-		</a>
-	</div>
-	<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">		<!--  LOGOUT  -->
-
-			<p class="logout_header"><i class="fa fa-power-off fa-2x" style="color:white"></i></p>
-		</a>
-	</div>
-</nav>
-
+</div>

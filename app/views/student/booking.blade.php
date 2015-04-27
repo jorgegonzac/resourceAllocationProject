@@ -147,7 +147,8 @@ td{
                     
                 </div>
 
-                <div class="bookingModal">                   
+                <div class="bookingModal text-center">                   
+                    <img src="/images/loading.gif" id="loading-indicator" style="display:none" />
                     <!-- Modal HTML -->
                     <div id="myModal" class="modal fade">
                         <div class="modal-dialog modal-dialog-center modal-lg">
@@ -157,8 +158,8 @@ td{
                                     <h4 class="modal-title">Resumen de Reservas</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <p>Las siguientes reservas fueron hechas</p>
-                                    <div class="booking_msg"></div>
+                                    <div class="booking_msg">
+                                    </div>
                                     <p class="text-warning"><small>Es importante que te presentes en la fecha y hora indicada.</small></p>
                                 </div>
                                 <div class="modal-footer">
