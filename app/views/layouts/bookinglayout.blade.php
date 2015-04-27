@@ -2,19 +2,18 @@
 <html>
     <head>
         @include('includes.headBooking')
-        @include('includes.header1')
+        @include('includes.header')
     </head>
     
     <body>
         <div class="container">
-            <div class="row">
+            <div id="resources" class="row">
                 @yield('content')
             </div>
-        </div>
-        
-        <footer class="row">
-            @include('includes.footer')
-        </footer>
+            <footer class="row">
+                @include('includes.footer')
+            </footer>
+        </div>        
     </body>
         
 </html>
