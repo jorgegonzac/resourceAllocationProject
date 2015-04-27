@@ -41,7 +41,7 @@ class UsersController extends \BaseController {
             'school_id'  => 'required|size:9|alpha_num',
         );        
         $messages = [
-        	'required' 	=> 'Este campo es obligatorio ',
+        	'required' 	=> 'Este campo es obligatorio',
         	'email'	   	=> 'Correo no valido',
         	'min'	   	=> 'La matrícula no es válida',
         	'size'	=> 'La matrícula no es válida'
@@ -115,7 +115,7 @@ class UsersController extends \BaseController {
             'school_id'  => 'required|size:9|alpha_num',
         );
 		$messages = [
-        	'required' 	=> 'Este campo es obligatorio ',
+        	'required' 	=> 'Este campo es obligatorio',
         	'email'	   	=> 'Correo no valido',
         	'size'	   	=> 'La matrícula no es válida',
         	'alpha_num'	=> 'La matrícula no es válida'
