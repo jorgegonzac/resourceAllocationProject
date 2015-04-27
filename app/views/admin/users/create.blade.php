@@ -31,7 +31,7 @@
 			</div>
 
 			<div class="form-group">
-				{{ Form::label('email1', 'Correo:&nbsp; ') }}
+				{{ Form::label('email1', 'Correo:&nbsp;') }}
 				{{ Form::text('email1') }}
 				<div class="errors">
 					{{ $errors->first('email1', '<span class="error">:message</span>') }}
