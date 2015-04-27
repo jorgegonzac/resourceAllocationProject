@@ -79,3 +79,10 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+View::composer('*', function($view)
+{
+	$laboratories = Laboratory::all();
+	$resources = Resource::all();
+	$view->with(array('laboratories' => $laboratories, 'resources' => $resources));
+});

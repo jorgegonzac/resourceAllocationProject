@@ -1,0 +1,179 @@
+/************************************/
+/*	         Header User			*/
+/************************************/
+
+.bg_gris{
+
+	background: #2424B2;
+	height: 60px;
+	box-shadow: 10px 5px 5px #7A7A7A;
+	z-index:9999;
+	position:fixed;
+	width:102%;
+	top:0;
+	left:0;
+	 
+
+}
+
+.padding_header{
+	padding-top: 13px;
+}
+
+.logo_header{
+	color: black;
+	font-size: 14pt;
+	font-weight: bold;
+	text-decoration: none;
+
+}
+
+.search_bar_user{
+	text-align: right;
+	padding-left:20px;
+	padding-top:7px;
+}
+
+.search_bar_user{
+	/*margin-top: 4px;*/
+	width: 170%;
+	padding-bottom:50px;
+
+}
+
+.home_header{
+	color: black;
+	font-size: 14pt;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 10px 10px;
+}
+
+.account_header{
+	color: black;
+	font-size: 14pt;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 10px 10px;
+
+}
+
+.logout_header{
+	color: black;
+	font-size: 14pt;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 10px 10px;
+
+}
+
+/************************************/
+/*	         Header Admin			*/
+/************************************/
+
+.bg_gris_admin{
+	background: #9595A1;
+	height: 80px;
+}
+
+.logo_header_admin{
+	color: black;
+	font-size: 14pt;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 25px 10px;
+}
+
+.home_header_admin{
+	color: black;
+	font-size: 14pt;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 25px 10px;
+}
+
+.search_bar_admin{
+	margin-top: 14px;
+	width: 100%;
+}
+
+.logout_header_admin{
+	color: black;
+	font-size: 14pt;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 25px 10px;
+}
+
+/************************************/
+/*	         Sidebar Admin			*/
+/************************************/
+
+.sidebar_admin {
+	background: #e6e7e8;
+	text-align: center;
+	padding: 0px 0px;
+	font-size: 28pt;
+}
+
+.sidebar_admin li {
+	list-style: none;
+	padding: 10px 0;
+	border: 1px solid black;
+}
+
+.sidebar_admin li a {
+	color: #6d6e70;
+	text-decoration: none;
+}
+
+.sidebar_admin li a.active {
+	color: #007833;
+}
+
+.sidebar_admin li a:hover {
+	color: #007833;
+}
+
+
+/************************************/
+/*	          Admin Content			*/
+/************************************/
+.content_icon_admin {
+	background: none;
+	border: none;
+}
+.error{
+	color: red ;
+}
+
+
+#selectSchedule{
+	display: none;
+}
+
+
+
+
+/************************************/
+/*	          Booking Content			*/
+/************************************/
+
+.content_booking{
+	z-index:10;
+	margin-top: 100px;
+}
+
+.modal-dialog-center { /* Edited classname 10/03/2014 */
+    margin: 0;
+    position: absolute;
+    top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+@media (max-width: 767px) {
+  .modal-dialog-center { /* Edited classname 10/03/2014 */
+    width: 100%;
+  }
+} 

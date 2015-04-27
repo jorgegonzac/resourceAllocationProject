@@ -10,8 +10,43 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::get('login', 'SessionsController@create');
+Route::get('logout', 'SessionsController@destroy');
+Route::resource('sessions', 'SessionsController');
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+
+Route::get('index', 'StudentController@showRecent');
+Route::get('index/{id}/showBookingForm', 'StudentController@showBookingForm');
+
+Route::get('lab/{id}', 'StudentController@showLaboratoryResourcesView'); //returns a View
+Route::get('lab', 'StudentController@showLaboratoryResources');	//returns html code
+
+Route::get('search', 'StudentController@search');
+
+Route::get('admin', 'AdminController@showAdmin');
+
+Route::resource('users', 'UsersController');
+
+Route::resource('laboratories','LaboratoriesController');
+
+Route::resource('categories','CategoriesController');
+
+Route::resource('resources', 'ResourcesController');
+
+Route::resource('timetables', 'TimetablesController');
+Route::get('assign', 'TimetablesController@assign');
+Route::post('assign', 'TimetablesController@showSchedules');
+
+Route::resource('schedules', 'SchedulesController');
+
+Route::resource('bookings', 'AdminController@showBookings');
+
+Route::resource('waitinglists', 'AdminController@showWaitingLists');
+
+Route::resource('book', 'ResourcesController@book');
+
+Route::post('booking','BookingsController@bookResurce');
+
+
+
+
