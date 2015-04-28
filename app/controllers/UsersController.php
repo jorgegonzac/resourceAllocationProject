@@ -107,8 +107,8 @@ class UsersController extends \BaseController {
 			$major=$usr->career;
 			$userInfo.="<h4>Nombre: " . $name . " " . $lastName ." ".$lastName2 ."<br> 
 			Correo: ". $mail1 ."<br> 
-			Correo alternativo:<input type=\"text\" id=\"emailAlt\" value=\"" . $mail2."\" ><a href=\"#\" id=\"editAlt\"><i class=\"fa fa-pencil-square-o fa-1\" id=\"editAlt\" ></i></a> <br> 
-			Carrera:<input type=\"text\" id=\"major\"value=\"" .$major."\"><a href=\"#\" id=\"editMajor\"><i class=\"fa fa-pencil-square-o fa-1\"></i></a></h4><br>";
+			Correo alternativo: " . $mail2." <br> 
+			Carrera: " .$major."<br></h4>";
 		 	
 		 }
 

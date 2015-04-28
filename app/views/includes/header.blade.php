@@ -95,9 +95,9 @@
 		    			<!-- ACCOUNT USER INFO -->
 				        <div class="tab-pane fade active in" id="account">
 				        	<div class="userInfo"></div>
-				        	<center>
+				        	<!-- <center>
 							    <button type="button" class="btn btn-primary">Guardar</button>
-						    </center>
+						    </center> -->
 			        	</div>
 
 			        	<!-- ACTIVE BOOKINGS -->
