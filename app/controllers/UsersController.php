@@ -41,10 +41,10 @@ class UsersController extends \BaseController {
             'school_id'  => 'required|size:9|alpha_num',
         );        
         $messages = [
-        	'required' 	=> 'Este campo es obligatorio !',
+        	'required' 	=> 'Este campo es obligatorio',
         	'email'	   	=> 'Correo no valido',
-        	'min'	   	=> 'La matrícula no es valida',
-        	'size'	=> 'La matrícula no es valida'
+        	'min'	   	=> 'La matrícula no es válida',
+        	'size'	=> 'La matrícula no es válida'
        	];
 		$validator = Validator::make(Input::all(), $rules, $messages);
 		
@@ -66,7 +66,7 @@ class UsersController extends \BaseController {
 				$user->alternative = 1;
 			}
 			$user->save(); 
-			Session::flash('message', 'Successfully created user!');
+			Session::flash('message', 'Successfully created user');
 			return Redirect::to('users');
 		}
 	}
@@ -146,10 +146,10 @@ class UsersController extends \BaseController {
             'school_id'  => 'required|size:9|alpha_num',
         );
 		$messages = [
-        	'required' 	=> 'Este campo es obligatorio !',
+        	'required' 	=> 'Este campo es obligatorio',
         	'email'	   	=> 'Correo no valido',
-        	'size'	   	=> 'La matrícula no es valida',
-        	'alpha_num'	=> 'La matrícula no es valida'
+        	'size'	   	=> 'La matrícula no es válida',
+        	'alpha_num'	=> 'La matrícula no es válida'
        	];	
 		$validator = Validator::make(Input::all(), $rules, $messages);
 
@@ -172,7 +172,7 @@ class UsersController extends \BaseController {
 			}
 			$user->save();
 
-			Session::flash('message', 'Successfully updated user!');
+			Session::flash('message', 'Successfully updated user');
 			return Redirect::to('users');
 		}
 	}
@@ -189,7 +189,7 @@ class UsersController extends \BaseController {
 		//
 		$user = User::find($id);
 		$user->delete();
-		Session::flash('message', 'Successfully deleted user!');
+		Session::flash('message', 'Successfully deleted user');
 		return Redirect::to('users');
 	}
 

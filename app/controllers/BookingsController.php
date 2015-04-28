@@ -34,6 +34,11 @@ class BookingsController extends \BaseController {
 		$message	= "";
 		$waiting_msg	= "<h3>En lista de espera: <br></h3>";
 		$booking_msg	= "<h3>Reservas hechas: <br></h3>";
+		$waitings 		= "";
+		$bookings 		= "";
+		$resource 		= Resource::find($resource_id);
+		$user 			= User::where('school_id','=',$user_id)->first();
+
 		if( !isset($schedules) or is_null($schedules)){
 			return "<h1>Error: ningún horario fue seleccionado<h1>";
 		}
@@ -48,7 +53,7 @@ class BookingsController extends \BaseController {
 				$waitinglist->start_date 	= 	$aux[1];
 				$waitinglist->end_date		=	$aux[2];
 				$waitinglist->save();
-				$waiting_msg .= "<h4>" . $aux[1] . " - " . $aux[2] . "</h4> <br>";
+				$waitings .= "<h4>" . $aux[1] . " - " . $aux[2] . "</h4> <br>";
 			}else{
 				//save it on bookings
 				$booking 	= new Booking();
@@ -57,11 +62,29 @@ class BookingsController extends \BaseController {
 				$booking->start_date 	=	$aux[1];
 				$booking->end_date		=	$aux[2];
 				$booking->save();
-				$booking_msg .= "<h4>" . $aux[1] . " - " . $aux[2] . "</h4> <br>";
+				$bookings .= "<h4>" . $aux[1] . " - " . $aux[2] . "</h4> <br>";
 			}
 		}
-		$message .= $waiting_msg.$booking_msg;
-		return $message;
+		$resourceName = $resource->name;
+		$labName 	  = $resource->laboratory->name;
+		$userName	  = "".$user->first_name;
+		$alternativeEmail	=	"".$user->email2;
+		$alternative  = $user->alternative;
+
+		//send notification to first mail
+		//Use of queue to avoid user delay experience
+		Mail::send('student.bookingNotification', array('userName'=>$userName, 'resourceName'=>$resourceName, 'labName'=>$labName, 'bookings'=>$bookings, 'waitings'=>$waitings), function($msg) use($user) {
+		    $msg->to($user->email1, $user->school_id)->subject('Notificación de reserva');
+		});
+
+		if($user->alternative == 1){
+		//send notification to alternative mail
+			Mail::send('student.bookingNotification', array('userName'=>$userName, 'resourceName'=>$resourceName, 'labName'=>$labName, 'bookings'=>$bookings, 'waitings'=>$waitings), function($msg) use($user) {
+			    $msg->to($user->email2, $user->school_id)->subject('Notificación de reserva');
+			});
+		}
+
+		return View::make('student.bookingSummary', ['bookings' => $bookings, 'waitings' => $waitings]);
 	}
 
 	/**

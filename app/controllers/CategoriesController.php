@@ -41,7 +41,7 @@ class CategoriesController extends BaseController {
             'name'      => 'required',
         );        
         $messages = [
-        	'required' 	=> 'Este campo es obligatorio !',
+        	'required' 	=> 'Este campo es obligatorio',
         	'email'	   	=> 'Correo no valido',
         	'min'	   	=> 'La matrícula no es valida',
         	'size'	=> 'La matrícula no es valida'
@@ -104,7 +104,7 @@ class CategoriesController extends BaseController {
             'name'      => 'required',
         );        
         $messages = [
-        	'required' 	=> 'Este campo es obligatorio !',
+        	'required' 	=> 'Este campo es obligatorio',
         	'email'	   	=> 'Correo no valido',
         	'min'	   	=> 'La matrícula no es valida',
         	'size'	=> 'La matrícula no es valida'

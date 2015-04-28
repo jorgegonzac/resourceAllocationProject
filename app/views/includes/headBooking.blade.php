@@ -92,6 +92,7 @@
 		} 
 	}
 	function saveBookings(){
+		
 		chk_arr =  document.getElementsByName('time_checkbox[]');
 		chklength = chk_arr.length;       
 		unselected = 1;      
@@ -110,10 +111,14 @@
 
 		resource_id = '{{$resource->id}}';
 		// save the bookings
+    	$('#loading-indicator').show();
+
         $.post('../../booking', { schedules: array_schedules, resource_id: resource_id }).done(function(data){
             $('.booking_msg').empty();
             $('.booking_msg').append(data);
-            $("#myModal").modal('show');
+            console.log("Booking saved");
+	        $("#myModal").modal('show');
+	    	$('#loading-indicator').hide();
         });
 
 	}	
