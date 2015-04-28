@@ -3,7 +3,7 @@
 class UsersController extends \BaseController {
 
 	/**
-	 * Display a listing of the resource.
+	 * Display a listing of the users.
 	 *
 	 * @return Response
 	 */
@@ -16,7 +16,7 @@ class UsersController extends \BaseController {
 	}
 
 	/**
-	 * Show the form for creating a new resource.
+	 * Show the form for creating a new user.
 	 *
 	 * @return Response
 	 */
@@ -73,7 +73,7 @@ class UsersController extends \BaseController {
 
 
 	/**
-	 * Display the specified resource.
+	 * Display the specified user.
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -85,9 +85,40 @@ class UsersController extends \BaseController {
 		return View::make('admin.users.show')->with('user',$user);
 	}
 
+	/**
+	 * Display info of user currently logged in.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function showCurrent()
+	{
+		//
+		$id = Session::get('school_id');
+		$user = User::where('school_id', '=', $id)->get();
+		$userInfo= "";
+		foreach($user as $usr){
+			
+			$name= $usr->first_name;
+			$lastName=$usr->first_last_name;
+			$lastName2=$usr->second_last_name;
+			$mail1=$usr->email1;
+			$mail2=$usr->email2;
+			$major=$usr->career;
+			$userInfo.="<h4>Nombre: " . $name . " " . $lastName ." ".$lastName2 ."<br> 
+			Correo: ". $mail1 ."<br> 
+			Correo alternativo: " . $mail2." <br> 
+			Carrera: " .$major."<br></h4>";
+		 	
+		 }
+
+		 return $userInfo;
+		// $info .= "<h4>" . $aux[1] . " - " . $aux[2] . "</h4> <br>";
+	}
+
 
 	/**
-	 * Show the form for editing the specified resource.
+	 * Show the form for editing the specified user.
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -101,7 +132,7 @@ class UsersController extends \BaseController {
 
 
 	/**
-	 * Update the specified resource in storage.
+	 * Update the specified user in storage.
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -148,7 +179,7 @@ class UsersController extends \BaseController {
 
 
 	/**
-	 * Remove the specified resource from storage.
+	 * Remove the specified user from storage.
 	 *
 	 * @param  int  $id
 	 * @return Response

@@ -50,7 +50,7 @@
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-weight: 300;
-	font-size: 180%;
+	font-size: 140%;
 	-webkit-transition: -webkit-transform 0.3s;
 	transition: transform 0.3s;
 }
@@ -59,7 +59,7 @@
 	padding: 0 20px;
 	color: #aaa;
 	font-weight: 300;
-	font-size: 150%;
+	font-size: 100%;
 	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
 	transition: opacity 0.3s, transform 0.3s;
 }
@@ -72,7 +72,7 @@
 
 .grid figure button {
 	position: absolute;
-	padding: 4px 20px;
+	padding: 9px 90px;
 	border: none;
 	text-transform: uppercase;
 	letter-spacing: 1px;
@@ -135,7 +135,7 @@
 
 .demo-1 .grid figure button,
 .demo-3 .grid figure button {
-	top: 50%;
+	top: 90%;
 	left: 50%;
 	border: 3px solid transparent;
 	background: #2424B2;

@@ -47,6 +47,11 @@ Route::resource('book', 'ResourcesController@book');
 
 Route::post('booking','BookingsController@bookResurce');
 
+Route::get('account', 'UsersController@showCurrent');
+Route::get('activeBookings', 'BookingsController@showActiveBookings');
+Route::get('activeWaiting', 'WaitingListsController@showActiveWaiting');
+
+
 
 
 

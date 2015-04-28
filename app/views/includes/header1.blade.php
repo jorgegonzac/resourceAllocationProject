@@ -1,3 +1,5 @@
+<!-- HEADER FOR INDEX AND LAB VIEW -->
+
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
 	<div class="container">
@@ -12,7 +14,7 @@
 				<span class="icon-bar"></span>
 
 			</button>	
-			<a class="navbar-brand" href="../../index"><img src="../../images/logotec.png" style="width:40px;height:40px"/></a>
+			<a class="navbar-brand" href="#"><img src="/images/logotec.png" style="width:40px;height:40px"/></a>
 		</div>	
 
 		<div class="navbar-collapse collapse">
@@ -20,8 +22,7 @@
 			<ul class="nav navbar-nav navbar-left">
 				<br>
 				<select id="selectLaboratory" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-					<option value="-1" selected disabled>Selecciona una opción</option>
-					<option value="0"> Todos Los Laboratorios</option>
+					<option value="100">Todos Los Laboratorios</option>
 		   			@foreach($laboratories as $laboratory)
 			   			<option value="{{ $laboratory->id }}">{{ $laboratory->name }}</option>
 		   			@endforeach
@@ -35,10 +36,10 @@
 				<li>
 					<br>
 					<div class".search_bar_user">
-						<form method="get" action="../../search" class="search-form">
+						<form action="" class="search-form">
 			                <div class="form-group has-feedback">
-			            		<label for="label" class="sr-only">Search</label>
-			            		<input type="text" class="form-control" name="label" id="label" placeholder="    Buscar">
+			            		<label for="search" class="sr-only">Search</label>
+			            		<input type="text" class="form-control" name="search" id="search" placeholder="    Buscar">
 			              		<span class="glyphicon glyphicon-search form-control-feedback"></span>
 			            	</div>
 		            	</form>
@@ -47,6 +48,27 @@
 
 	            </li>
 
+
+	            <!-- <li class="dropdown">
+
+	            	<a href="#" id="selectLaboratory" class="dropdown-toggle" data-toggle="dropdown">Themes <b class="caret"></b></a>
+
+	            	<ul class="dropdown-menu">
+
+	            		<li><a href=""><option value="100">Todos Los Laboratorios</option></a></li>
+		   			@foreach($laboratories as $laboratory)
+			   			<li><a href=""><option value="{{ $laboratory->id }}">{{ $laboratory->name }}</option></a></li>
+		   			@endforeach
+
+
+
+
+	            	</ul>
+
+
+
+	            </li>
+ -->
 
 	            <li>
 	            	<a href="../../index"><i class="fa fa-home fa-2x" style="color:white"></i></a>
@@ -58,7 +80,6 @@
 	            	<a href="../../logout"><i class="fa fa-power-off fa-2x" style="color:white"></i></a>
 	            </li>
 
-
 			</ul>
 
 
@@ -69,9 +90,7 @@
 
 </div>
 
-<!-- MODAL USER -->
-
-<!-- Modal -->
+	<!-- Modal -->
 	<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" >
 	  <div class="modal-dialog modal-dialog-center modal-lg">
 	    <div class="modal-content">
@@ -95,9 +114,9 @@
 		    			<!-- ACCOUNT USER INFO -->
 				        <div class="tab-pane fade active in" id="account">
 				        	<div class="userInfo"></div>
-				        	<!-- <center>
+				        	<center>
 							    <button type="button" class="btn btn-primary">Guardar</button>
-						    </center> -->
+						    </center>
 			        	</div>
 
 			        	<!-- ACTIVE BOOKINGS -->
@@ -118,9 +137,6 @@
 	  </div>
 	</div>
 </div>
-
-
-
 
 
 
