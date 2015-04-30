@@ -42,7 +42,7 @@ Route::resource('schedules', 'SchedulesController');
 Route::resource('bookings', 'BookingsController');
 Route::get('bookings/{id}/close','BookingsController@close');
 
-Route::resource('waitinglists', 'WaitinglistsController');
+Route::resource('waitinglists', 'WaitingListsController');
 
 Route::resource('book', 'ResourcesController@book');
 
