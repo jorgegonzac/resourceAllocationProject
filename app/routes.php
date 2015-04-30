@@ -39,9 +39,10 @@ Route::post('assign', 'TimetablesController@showSchedules');
 
 Route::resource('schedules', 'SchedulesController');
 
-Route::resource('bookings', 'AdminController@showBookings');
+Route::resource('bookings', 'BookingsController');
+Route::get('bookings/{id}/close','BookingsController@close');
 
-Route::resource('waitinglists', 'AdminController@showWaitingLists');
+Route::resource('waitinglists', 'WaitinglistsController');
 
 Route::resource('book', 'ResourcesController@book');
 

@@ -152,7 +152,9 @@
 	display: none;
 }
 
-
+.menu-content a{
+	display: block;
+}
 
 
 /************************************/

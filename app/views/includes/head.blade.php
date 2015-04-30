@@ -98,8 +98,14 @@
 		});
 
 	});
-		
 
+	function showLoadingIndicator(){
+	        $("#myModal").modal('show');		
+	}	
+
+	$(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	})	
 </script>
 
 <script>
