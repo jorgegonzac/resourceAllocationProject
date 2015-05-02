@@ -93,7 +93,6 @@
 			</div>
 		</div>
 
-		<br><br><br><br><br>
 		<div class="text-center">
 		    {{ Form::button('Crear',array('type' => 'submit', 'class' => 'btn btn-success')) }}
 		
