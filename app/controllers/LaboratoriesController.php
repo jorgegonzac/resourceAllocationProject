@@ -33,11 +33,11 @@ class LaboratoriesController extends BaseController
             'user'		=> 'required',
         );        
         $messages = [
-        	'required' 	=> 'Este campo es obligatorio !',
+        	'required' 	=> 'Este campo es obligatorio',
         	'email'	   	=> 'Correo no valido',
         	'min'	   	=> 'La matrícula no es valida',
         	'size'		=> 'La matrícula no es valida',
-        	'numeric'	=> 'Debes de poner el número del edificio!',
+        	'numeric'	=> 'Debes de poner el número del edificio',
        	];
 		$validator = Validator::make(Input::all(), $rules, $messages);
 		
@@ -52,7 +52,7 @@ class LaboratoriesController extends BaseController
 			$lab->user_id = Input::get('user');
 			$lab->save();
 
-			Session::flash('message', 'Successfully created laboratory!');
+			Session::flash('message', 'Successfully created laboratory');
 			return Redirect::to('laboratories');
 		}
 	}
@@ -89,11 +89,11 @@ class LaboratoriesController extends BaseController
             'user'		=>'required',     
         );        
         $messages = [
-        	'required' 	=> 'Este campo es obligatorio !',
+        	'required' 	=> 'Este campo es obligatorio ',
         	'email'	   	=> 'Correo no valido',
         	'min'	   	=> 'La matrícula no es valida',
         	'size'		=> 'La matrícula no es valida',
-        	'numeric'	=> 'Debes de poner el número del edificio!'
+        	'numeric'	=> 'Debes de poner el número del edificio'
        	];
 		$validator = Validator::make(Input::all(), $rules, $messages);
 		
@@ -108,7 +108,7 @@ class LaboratoriesController extends BaseController
 			$lab->user_id = Input::get('user');
 			$lab->save();
 
-			Session::flash('message', 'Successfully updated laboratory!');
+			Session::flash('message', 'Successfully updated laboratory');
 			return Redirect::to('laboratories');
 		}
 	}
@@ -118,7 +118,7 @@ class LaboratoriesController extends BaseController
 		//
 		$lab = Laboratory::find($id);
 		$lab->delete();
-		Session::flash('message', 'Successfully deleted laboratory!');
+		Session::flash('message', 'Successfully deleted laboratory');
 		return Redirect::to('laboratories');
 	}
 

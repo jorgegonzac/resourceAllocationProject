@@ -30,7 +30,7 @@ class ResourcesController extends BaseController {
             'image'		=>	'required',
         );        
         $messages = [
-        	'required' 	=> 'Este campo es obligatorio!',
+        	'required' 	=> 'Este campo es obligatorio',
        	];
 		$validator = Validator::make(Input::all(), $rules, $messages);
 		
@@ -84,7 +84,7 @@ class ResourcesController extends BaseController {
             'timetable'	=>	'required',
         );        
         $messages = [
-        	'required' 	=> 'Este campo es obligatorio!',
+        	'required' 	=> 'Este campo es obligatorio',
        	];
 		$validator = Validator::make(Input::all(), $rules, $messages);
 		
@@ -110,7 +110,7 @@ class ResourcesController extends BaseController {
 				$resource->image = $resource->image;
 			}
 			$resource->save();
-			Session::flash('message', 'Successfully created resource!');
+			Session::flash('message', 'Successfully created resource');
 			$resource->timetables()->attach([$timetable_id]);
 			return Redirect::to('resources');
 		}
@@ -120,7 +120,7 @@ class ResourcesController extends BaseController {
 	{
 		$resource = Resource::find($id);
 		$resource->delete();
-		Session::flash('message', 'Successfully deleted resource!');
+		Session::flash('message', 'Successfully deleted resource');
 		return Redirect::to('resources');
 	}
 

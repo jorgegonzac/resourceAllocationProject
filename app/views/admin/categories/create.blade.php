@@ -20,7 +20,7 @@
 		{{ Form::open(array('route' => 'categories.store')) }}
 		<div class="inputs">
 			<div class="form-group">
-				{{ Form::label('name', 'Nombre:') }}
+				{{ Form::label('name', 'Nombre:&nbsp;') }}
 				{{ Form::text('name') }}
 				<div class="errors">
 					{{ $errors->first('name', '<span class="error">:message</span>') }}
@@ -28,7 +28,7 @@
 			</div>
 
 			<div class="form-group">
-				{{ Form::label('description', 'Descripción:') }}
+				{{ Form::label('description', 'Descripción:&nbsp;') }}
 				{{ Form::text('description') }}
 			</div>
 		</div>

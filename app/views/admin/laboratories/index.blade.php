@@ -31,11 +31,11 @@
 
 	                {{ Form::open(array('url' => 'laboratories/' . $lab->id)) }}
 	                    {{ Form::hidden('_method', 'DELETE') }}
-	                    {{ Form::button('<i class="fa fa-trash fa-lg"></i>', array('type' => 'submit', 'class' => 'content_icon_admin')) }}
+	                    {{ Form::button('<i class="fa fa-trash fa-lg" data-toggle="tooltip" data-placement="left" title="Eliminar"></i>', array('type' => 'submit', 'class' => 'content_icon_admin')) }}
 
 	                {{ Form::close() }}
-	                <a  href="{{ URL::to('laboratories/' . $lab->id) }}"> <i class="fa fa-eye fa-lg"></i> </a>
-	                <a  href="{{ URL::to('laboratories/' . $lab->id . '/edit') }}"> <i class="fa fa-pencil-square-o fa-lg"></i></a>
+	                <a  href="{{ URL::to('laboratories/' . $lab->id) }}"> <i class="fa fa-eye fa-lg" data-toggle="tooltip" data-placement="left" title="Mostrar"></i> </a>
+	                <a  href="{{ URL::to('laboratories/' . $lab->id . '/edit') }}"> <i class="fa fa-pencil-square-o fa-lg" data-toggle="tooltip" data-placement="left" title="Editar"></i></a>
 
 	            	</td>
 		        </tr>	        

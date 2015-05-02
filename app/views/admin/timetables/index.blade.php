@@ -34,10 +34,10 @@
 		            <td>
 	                {{ Form::open(array('url' => 'timetables/' . $timetable->id)) }}
 	                    {{ Form::hidden('_method', 'DELETE') }}
-	                    {{ Form::button('<i class="fa fa-trash fa-lg"></i>', array('type' => 'submit', 'class' => 'content_icon_admin')) }}
+	                    {{ Form::button('<i class="fa fa-trash fa-lg" data-toggle="tooltip" data-placement="left" title="Eliminar"></i>', array('type' => 'submit', 'class' => 'content_icon_admin')) }}
 
 	                {{ Form::close() }}
-	                <a  href="{{ URL::to('timetables/' . $timetable->id) }}"> <i class="fa fa-eye fa-lg"></i> </a>
+	                <a  href="{{ URL::to('timetables/' . $timetable->id) }}"> <i class="fa fa-eye fa-lg" data-toggle="tooltip" data-placement="left" title="Mostrar"></i> </a>
 	            	</td>
 		        </tr>	        
 	        @endforeach
