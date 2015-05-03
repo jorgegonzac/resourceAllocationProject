@@ -22,7 +22,7 @@ class SchedulesController extends BaseController {
         );        
 
         $messages = [
-        	'required' 	=> 'Este campo es obligatorio!',
+        	'required' 	=> 'Este campo es obligatorio',
        	];
 		$validator = Validator::make(Input::only('name'), $rules, $messages);
 		$weekday = Input::get('day');
@@ -75,7 +75,7 @@ class SchedulesController extends BaseController {
 			->withErrors(['invalid_hour' => 'La hora de inicio debe ser menor a la hora de fin.']);
 		}else{
 			return Redirect::back()
-			->withErrors(['name' => 'Este campo es obligatorio!', 
+			->withErrors(['name' => 'Este campo es obligatorio', 
 				'invalid_hour' => 'La hora de inicio debe ser menor a la hora de fin.'])
 			->withInput();
 		}
@@ -102,7 +102,7 @@ class SchedulesController extends BaseController {
         );        
 
         $messages = [
-        	'required' 	=> 'Este campo es obligatorio!',
+        	'required' 	=> 'Este campo es obligatorio',
        	];
 		$validator = Validator::make(Input::only('name'), $rules, $messages);
 		$weekday = Input::get('day');
@@ -143,7 +143,7 @@ class SchedulesController extends BaseController {
 			$schedule->end_hour = $endHour;
 			$schedule->weekday = $weekday;
 			$schedule->save();
-			Session::flash('message', 'Successfully updated schedule!');
+			Session::flash('message', 'Successfully updated schedule');
 			return Redirect::to('schedules');
 		}else if(($startAux < $endAux) && ($validator->fails())){
 			return Redirect::back()
@@ -155,7 +155,7 @@ class SchedulesController extends BaseController {
 			->withErrors(['invalid_hour' => 'La hora de inicio debe ser menor a la hora de fin.']);
 		}else{
 			return Redirect::back()
-			->withErrors(['name' => 'Este campo es obligatorio!', 
+			->withErrors(['name' => 'Este campo es obligatorio', 
 				'invalid_hour' => 'La hora de inicio debe ser menor a la hora de fin.'])
 			->withInput();
 		}		
