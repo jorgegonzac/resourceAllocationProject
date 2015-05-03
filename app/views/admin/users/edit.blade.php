@@ -75,10 +75,6 @@
 
 			{{ Form::close() }}
 
-
-			<form action="{{ URL::to('users') }}">
-		        	<button type="submit" class="btn btn-danger"> Cancelar</button>
-			</form>
 		</div>
 	</div>
 </div>

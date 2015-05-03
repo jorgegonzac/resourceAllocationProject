@@ -23,7 +23,7 @@
 
 			<div class="form-group">
 				{{ Form::label('description', 'Descripción:&nbsp;') }}
-				{{ Form::text('description') }} <br>
+				{{ Form::text('description') }}
 				{{ $errors->first('description', '<span class="error">:message</span>') }}
 			</div>
 
@@ -35,7 +35,7 @@
 				    <option value="{{ $lab->id }}">{{ $lab->name }}</option>
 				    @endforeach
 				</select>
-				<br>
+				
 				{{ $errors->first('laboratory', '<span class="error">:message</span>') }}
 			</div>
 
@@ -47,8 +47,8 @@
 				    <option value="{{ $category->id }}">{{ $category->name }}</option>
 				    @endforeach
 				</select>
-				<br>
-				{{ $errors->first('category', '<span class="error">:message</span>') }}
+				
+				{{ $errors->first('category', '<span class="errors">:message</span>') }}
 			</div>
 
 			<div class="form-group">
@@ -60,20 +60,20 @@
 				    @endforeach
 				</select>
 				<br>
-				{{ $errors->first('timetable', '<span class="error">:message</span>') }}
+				{{ $errors->first('timetable', '<span class="errors">:message</span>') }}
 			</div>
 
 			<div class="form-group">
 				{{ Form::label('tags', 'Tags:&nbsp;') }}
 				{{ Form::text('tags', '', array('placeholder' => 'Tag1%Tag2%Tag3')) }} <br>
-				{{ $errors->first('tags', '<span class="error">:message</span>') }}
+				{{ $errors->first('tags', '<span class="errors">:message</span>') }}
 			</div>
 
 			<div class="pull-right text-center">
 				{{ Form::label('image', 'Imagen:')}}
 				<img src="{{$resource->image}}" style="width:60px;height:60px" />
 				{{ Form::file('image') }} <br>
-				{{ $errors->first('image', '<span class="error">:message</span>') }}
+				{{ $errors->first('image', '<span class="errors">:message</span>') }}
 			</div>
 		</div>
 

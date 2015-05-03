@@ -54,7 +54,7 @@ class TimetablesController extends BaseController {
 	            'name'      => 'required',
 	        );        
 	        $messages = [
-	        	'required' 	=> 'Este campo es obligatorio !',
+	        	'required' 	=> 'Este campo es obligatorio ',
 	       	];
 			$validator = Validator::make(Input::all(), $rules, $messages);
 			
@@ -66,7 +66,7 @@ class TimetablesController extends BaseController {
 				$timetable = new Timetable;
 				$timetable->description  = Input::get('name');
 				$timetable->save(); 
-				Session::flash('message', 'Successfully created timetable!');
+				Session::flash('message', 'Successfully created timetable');
 				return Redirect::to('timetables');
 			}
 		}

@@ -7,7 +7,7 @@
 <div class="form" style="width:800px; margin:0 auto;">
 
 	<div class="text-center">
-		<h2>Crear Nuevo Recurso</h2>
+		<h2>Nuevo Recurso</h2>
 	</div>
 	<div class="sep"></div>
 
