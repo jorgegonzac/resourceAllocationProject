@@ -45,8 +45,8 @@
 		            <td>{{ 'La categoria de este recurso<br>fue eliminada.'}}</td>
 		            @endif
 
-		            @if($resource->timetable[0])
-		            <td>{{$resource->timetable[0]}}</td>
+		            @if($resource->timetables[0])
+		            <td>{{$resource->timetables[0]->description}}</td>
 		            @else
 		            <td>{{ 'El calendario de este recurso<br>fue eliminado.' }}</td>
 		            @endif

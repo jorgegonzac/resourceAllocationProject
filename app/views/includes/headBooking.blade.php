@@ -54,9 +54,6 @@
 		$.get('../../account', function(data){
 			$.get('../../activeBookings', function(data2){
 				$.get('../../activeWaiting', function(data3){
-				console.log(data);
-				console.log(data2);
-				console.log(data3);
 	            $('.userInfo').empty();
 	            $('.userInfo').append(data);
 	            $('.activeBook').empty();
@@ -113,8 +110,6 @@
 				alert("Error: Seleccione primero un horario. ");
 				return;
 			}
-			console.log(document.getElementById('#resource-deleted').value());
-
 			resource_id = '{{$resource->id}}';
 			// save the bookings
 	    	$('#loading-indicator').show();
@@ -122,7 +117,6 @@
 	        $.post('../../booking', { schedules: array_schedules, resource_id: resource_id }).done(function(data){
 	            $('.booking_msg').empty();
 	            $('.booking_msg').append(data);
-	            console.log("Booking saved");
 		        $("#myModal").modal('show');
 		    	$('#loading-indicator').hide();
 	        });
@@ -152,7 +146,6 @@
                 @endforeach
 
              	var today = new Date();
-             	console.log("today:"+today);
              	//var today = new Date('2015-04-03 10:30:00');
              	var today_date = today.toDateString();
              	var day = today.getDay();	 //today's day
@@ -200,7 +193,6 @@
              		var this_day = new Date();
              		//add diff_days to today's date to calculate the booking day date
              		this_day.setDate( this_day.getDate() + diff_days);
-             		console.log("this_day:"+this_day);
              		boddy = " <div class='timetable'> <table class='table table-striped table-hover '>  <tbody>";
              		var booking_start_date;
              		var booking_end_date;
