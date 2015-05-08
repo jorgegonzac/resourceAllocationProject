@@ -4,7 +4,12 @@ class AdminController extends \BaseController {
 
 	public function showAdmin()
 	{
-		return View::make('admin.index');
+		if (Session::get('school_id') && Session::get('role')==1)
+		{
+			return View::make('admin.index');
+		}else{
+			return Redirect::to('login');
+		}
 	}
 
 	public function showUsers()

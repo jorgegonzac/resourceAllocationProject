@@ -28,7 +28,7 @@
 		    <tbody>
 		    	@foreach($waitings as $key => $waiting)
 		        <tr>
-		            <td>{{ $waiting->resource->name }}</td>
+		            <td>{{ $waiting->name }}</td>
 		            <td>{{ $waiting->user_id }}</td>
 		            <td>{{ $waiting->start_date }}</td>
 		            <td>{{ $waiting->end_date }}</td>

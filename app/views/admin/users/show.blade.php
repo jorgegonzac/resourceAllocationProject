@@ -39,6 +39,12 @@
             <td><strong>Carrera:</strong> </td>
             <td>{{ $user->career }}</td>
         </tr>
+
+        <tr>
+            <td><strong>Rol:</strong> </td>
+            <td>{{ $user->role_description }}</td>
+        </tr>
+
     </table>
 
     <div class="text-center">

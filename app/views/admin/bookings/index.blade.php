@@ -37,7 +37,7 @@
 		    <tbody>
 		    	@foreach($bookings as $key => $booking)
 		        <tr>
-		            <td>{{ $booking->resource->name }}</td>
+		            <td>{{ $booking->name }}</td>
 		            <td>{{ $booking->user_id }}</td>
 		            <td>{{ $booking->start_date }}</td>
 		            <td>{{ $booking->end_date }}</td>
