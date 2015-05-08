@@ -7,7 +7,6 @@ class LaboratoriesController extends BaseController
 	{
 		if (Session::get('school_id') && Session::get('super')==1)
 		{
-		//
 			$laboratories = Laboratory::all();
 			return View::make('admin.laboratories.index')->with('laboratories',$laboratories);
 		}else{

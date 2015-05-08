@@ -13,7 +13,7 @@
     <table class='table borderless' >
         <tr>
             <td><strong>Nombre:</strong> </td>
-            <td>{{ $user->first_name   }}</td>
+            <td>{{ $user->first_name  }}</td>
         </tr>
         <tr>
             <td><strong>Apellido paterno:</strong> </td>
@@ -49,7 +49,7 @@
 
     <div class="text-center">
     <form action="{{ URL::to('users') }}">
-            <button type="submit" class="btn btn-info"> Regresar</button>
+        <button type="submit" class="btn btn-info"> Regresar</button>
     </form>
 
     </div>

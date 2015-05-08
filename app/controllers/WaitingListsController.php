@@ -12,21 +12,26 @@ class WaitinglistsController extends \BaseController {
 		if (Session::get('school_id') && Session::get('role')==1)
 		{
 			if(Session::get('super')==1){
-				$waitings = DB::table('waitinglists')
-					->join('resources','resources.id', '=', 'waitinglists.resource_id')
-					->select('name','user_id','start_date','end_date','waitinglists.id')
-					->get();
+				//$waitings = DB::table('waitinglists')
+				//	->join('resources','resources.id', '=', 'waitinglists.resource_id')
+				//	->select('name','user_id','start_date','end_date','waitinglists.id')
+				//	->get();
+				$waitings = Waitinglist::all();
 			}else{
-				$waitings = DB::table('waitinglists')
-					->join('resources','resources.id', '=', 'waitinglists.resource_id')
-					->select('name','user_id','start_date','end_date','waitinglists.id')
-					->where('laboratory_id','=',Session::get('lab_id'))
-					->get();
+				//$waitings = DB::table('waitinglists')
+				//	->join('resources','resources.id', '=', 'waitinglists.resource_id')
+				//	->select('name','user_id','start_date','end_date','waitinglists.id')
+				//	->where('laboratory_id','=',Session::get('lab_id'))
+				//	->get();
+				$lists = Waitinglist::with('resource')->get();
+				$waitings = array();
+				foreach($lists as $list){
+					if($list->resource['laboratory_id'] === Session::get('lab_id')){
+						$waitings[] = $list;
+					}
+				}
 			}
 			//$waitings = Waitinglist::orderBy('start_date', 'desc')->get();
-
-			
-
 			return View::make('admin.waitinglists.index', array('waitings' => $waitings));
 		}else{
 			return Redirect::to('login');

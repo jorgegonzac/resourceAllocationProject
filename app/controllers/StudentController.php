@@ -19,6 +19,7 @@ class StudentController extends \BaseController {
 			return Redirect::to('login');
 		}
 	}
+
 	public function showRecent()
 	{
 		if (Session::get('school_id') && Session::get('role')==2)
@@ -26,7 +27,7 @@ class StudentController extends \BaseController {
 			$bookings = Booking::with('resource')->distinct()->orderBy('id', 'DESC')->take(8)->get();
 			$recents = array();
 			foreach($bookings as $booking){
-				$recent = Resource::where('id', '=', $booking->resource_id)->get();
+				$recent = Resource::withTrashed()->where('id', '=', $booking->resource_id)->get();
 				$recents = array_add($recents, $booking->resource_id, $recent[0]);
 			}
 			return View::make('student.index', ['bookings' => $recents, 'msg' => 'Recursos Usados Recientemente']);
@@ -34,6 +35,7 @@ class StudentController extends \BaseController {
 			return Redirect::to('login');
 		}
 	}
+
 	public function showLaboratoryResourcesView($id)
 	{
 		if (Session::get('school_id') && Session::get('role')==2)
@@ -84,10 +86,9 @@ public function showLaboratoryResources()
 		}
 	}
 	public function showBookingForm($id){
-
 		if (Session::get('school_id') && Session::get('role')==2)
 		{
-			$resource = Resource::find($id);
+			$resource = Resource::withTrashed()->find($id);
 			$category = Category::find($resource->category_id);
 			$timetables = $resource->timetables;
 			$bookings =	Booking::where('resource_id','=',$resource->id)->get();
