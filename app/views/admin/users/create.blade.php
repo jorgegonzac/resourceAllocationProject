@@ -46,11 +46,6 @@
 				</div>
 			</div>
 
-			<div class="form-group">
-				{{ Form::label('password', 'Contraseña:&nbsp; ') }}
-				{{ Form::text('password') }}
-
-			</div>
 
 			<div class="form-group">
 				{{ Form::label('school_id', 'Matrícula:&nbsp; ') }}
@@ -64,7 +59,19 @@
 				{{ Form::label('career', 'Carrera:&nbsp;') }}
 				{{ Form::text('career') }}
 			</div>
-		
+			
+			<div class="form-group" class="text-center">        
+                Selecciona un rol:
+                <select name="rol" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
+                    <option selected disabled>Selecciona un rol</option>
+                    <option  value="2"> Estudiante</option>
+                    <option  value="1"> Administrador</option>
+                    <option  value="3"> Super Administrador</option>
+                </select>
+                <div class="errors">
+                    {{ $errors->first('rol', '<span class="error">:message</span>') }}
+                </div>
+            </div>		
 		</div>
 			
 			<div class="text-center">
