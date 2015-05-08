@@ -46,8 +46,6 @@ Route::get('bookings/{id}/close','BookingsController@close');
 
 Route::resource('waitinglists', 'WaitingListsController');
 
-Route::resource('book', 'ResourcesController@book');
-
 Route::post('booking','BookingsController@bookResurce');
 
 Route::get('account', 'UsersController@showCurrent');

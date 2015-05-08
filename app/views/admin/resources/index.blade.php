@@ -27,7 +27,7 @@
 		        </tr>
 		    </thead>
 		    <tbody>
-		    	@foreach($resources as $resource)
+		    	@foreach($data as $resource)
 		        <tr>
 		            <td>{{ $resource->id }}</td>
 		            <td>{{ $resource->name }}</td>

@@ -9,10 +9,15 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
-		//get all the users
-		$users = User::all();
+		if (Session::get('school_id') && Session::get('super')==1)
+		{
+			//get all the users
+			$users = User::all();
 
-		return View::make('admin.users.index')->with('users',$users);
+			return View::make('admin.users.index')->with('users',$users);
+		}else{
+			return Redirect::to('login');
+		}
 	}
 
 	/**
@@ -22,8 +27,13 @@ class UsersController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
-		return View::make('admin.users.create');
+		if (Session::get('school_id') && Session::get('super')==1)
+		{
+			//
+			return View::make('admin.users.create');
+		}else{
+			return Redirect::to('login');
+		}
 	}
 
 
@@ -34,41 +44,50 @@ class UsersController extends \BaseController {
 	 */
 	public function store()
 	{
+		if (Session::get('school_id') && Session::get('super')==1)
+		{
 		//
-		$rules = array(
-            'email1'      => 'required|email',
-            'email2'      => 'email',            
-            'school_id'  => 'required|size:9|alpha_num',
-        );        
-        $messages = [
-        	'required' 	=> 'Este campo es obligatorio',
-        	'email'	   	=> 'Correo no valido',
-        	'min'	   	=> 'La matrícula no es válida',
-        	'size'	=> 'La matrícula no es válida'
-       	];
-		$validator = Validator::make(Input::all(), $rules, $messages);
-		
-		if($validator->fails()){
-			return Redirect::to('users/create')
-			->withErrors($validator->messages())
-			->withInput(Input::except('password'));
-		}else{
-			$user = new User;
-			$user->first_name		=	Input::get('first_name');
-			$user->first_last_name	=	Input::get('first_last_name');
-			$user->second_last_name	=	Input::get('second_last_name');
-			$user->email1 			=	Input::get('email1');
-			$user->email2 			=	Input::get('email2');
-			$user->password 		=	Input::get('password');
-			$user->school_id		=	Input::get('school_id');
-			$user->career 			=	Input::get('career');
-			if($user->email2 != ""){
-				$user->alternative = 1;
+			$rules = array(
+	            'email1'      => 'required|email',
+	            'email2'      => 'email',            
+	            'school_id'  => 'required|size:9|alpha_num',
+	            'rol'		=> 'required',
+	        );        
+	        $messages = [
+	        	'required' 	=> 'Este campo es obligatorio',
+	        	'email'	   	=> 'Correo no valido',
+	        	'min'	   	=> 'La matrícula no es válida',
+	        	'size'	=> 'La matrícula no es válida'
+	       	];
+			$validator = Validator::make(Input::all(), $rules, $messages);
+			
+			if($validator->fails()){
+				return Redirect::to('users/create')
+				->withErrors($validator->messages())
+				->withInput(Input::except('password'));
+			}else{
+				$user = new User;
+				$user->first_name		=	Input::get('first_name');
+				$user->first_last_name	=	Input::get('first_last_name');
+				$user->second_last_name	=	Input::get('second_last_name');
+				$user->email1 			=	Input::get('email1');
+				$user->email2 			=	Input::get('email2');
+				$user->password 		=	Input::get('password');
+				$user->school_id		=	Input::get('school_id');
+				$user->career 			=	Input::get('career');
+				if($user->email2 != ""){
+					$user->alternative = 1;
+				}
+				$user->save(); 
+
+				$user->roles()->attach(Input::get('rol'));
+				Session::flash('message', 'Successfully created user');
+				return Redirect::to('users');
 			}
-			$user->save(); 
-			Session::flash('message', 'Successfully created user');
-			return Redirect::to('users');
+		}else{
+			return Redirect::to('login');
 		}
+
 	}
 
 
@@ -80,9 +99,23 @@ class UsersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
-		$user = User::find($id);
-		return View::make('admin.users.show')->with('user',$user);
+		if (Session::get('school_id') && Session::get('super')==1)
+		{
+			//
+			$user = User::find($id);
+			$roles = $user->roles;
+			if($roles[0]->id == 1){
+				$user->role_description = 'Administrador';
+			}elseif ($roles[0]->id == 2) {
+				$user->role_description = 'Estudiante';
+			}elseif ($roles[0]->id == 3) {
+				$user->role_description = 'Super Usuario';
+			}
+			return View::make('admin.users.show')->with('user',$user);
+
+		}else{
+			return Redirect::to('login');
+		}
 	}
 
 	/**
@@ -93,27 +126,31 @@ class UsersController extends \BaseController {
 	 */
 	public function showCurrent()
 	{
-		//
-		$id = Session::get('school_id');
-		$user = User::where('school_id', '=', $id)->get();
-		$userInfo= "";
-		foreach($user as $usr){
-			
-			$name= $usr->first_name;
-			$lastName=$usr->first_last_name;
-			$lastName2=$usr->second_last_name;
-			$mail1=$usr->email1;
-			$mail2=$usr->email2;
-			$major=$usr->career;
-			$userInfo.="<h4>Nombre: " . $name . " " . $lastName ." ".$lastName2 ."<br> 
-			Correo: ". $mail1 ."<br> 
-			Correo alternativo: " . $mail2." <br> 
-			Carrera: " .$major."<br></h4>";
-		 	
-		 }
+		if (Session::get('school_id') && Session::get('role')==2)
+		{
+			//
+			$id = Session::get('school_id');
+			$user = User::where('school_id', '=', $id)->get();
+			$userInfo= "";
+			foreach($user as $usr){
+				
+				$name= $usr->first_name;
+				$lastName=$usr->first_last_name;
+				$lastName2=$usr->second_last_name;
+				$mail1=$usr->email1;
+				$mail2=$usr->email2;
+				$major=$usr->career;
+				$userInfo.="<h4>Nombre: " . $name . " " . $lastName ." ".$lastName2 ."<br> 
+				Correo: ". $mail1 ."<br> 
+				Correo alternativo: " . $mail2." <br> 
+				Carrera: " .$major."<br></h4>";
+			 	
+			 }
 
-		 return $userInfo;
-		// $info .= "<h4>" . $aux[1] . " - " . $aux[2] . "</h4> <br>";
+			 return $userInfo;
+		}else{
+			return Redirect::to('login');
+		}
 	}
 
 
@@ -125,9 +162,14 @@ class UsersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
+		if (Session::get('school_id') && Session::get('super')==1)
+		{
 		//
-		$user = User::find($id);
-		return View::make('admin.users.edit')->with('user',$user);
+			$user = User::find($id);
+			return View::make('admin.users.edit')->with('user',$user);
+		}else{
+			return Redirect::to('login');
+		}
 	}
 
 
@@ -139,41 +181,50 @@ class UsersController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
-		$rules = array(
-            'email1'      => 'required|email',
-            'email2'      => 'email',            
-            'school_id'  => 'required|size:9|alpha_num',
-        );
-		$messages = [
-        	'required' 	=> 'Este campo es obligatorio',
-        	'email'	   	=> 'Correo no valido',
-        	'size'	   	=> 'La matrícula no es válida',
-        	'alpha_num'	=> 'La matrícula no es válida'
-       	];	
-		$validator = Validator::make(Input::all(), $rules, $messages);
+		if (Session::get('school_id') && Session::get('super')==1)
+		{
+			//
+			$rules = array(
+	            'email1'      => 'required|email',
+	            'email2'      => 'email',            
+	            'school_id'  => 'required|size:9|alpha_num',
+	            'rol'		=>	'required',
+	        );
+			$messages = [
+	        	'required' 	=> 'Este campo es obligatorio',
+	        	'email'	   	=> 'Correo no valido',
+	        	'size'	   	=> 'La matrícula no es válida',
+	        	'alpha_num'	=> 'La matrícula no es válida'
+	       	];	
+			$validator = Validator::make(Input::all(), $rules, $messages);
 
-		if($validator->fails()){
-			return Redirect::to('users/' . $id . '/edit')
-			->withErrors($validator)
-			->withInput(Input::except('password'));
-		}else{
-			$user = User::find($id);
-			$user->first_name		=	Input::get('first_name');
-			$user->first_last_name	=	Input::get('first_last_name');
-			$user->second_last_name	=	Input::get('second_last_name');
-			$user->email1 			=	Input::get('email1');
-			$user->email2 			=	Input::get('email2');
-			$user->password 		=	Input::get('password');
-			$user->school_id		=	Input::get('school_id');
-			$user->career 			=	Input::get('career');
-			if($user->email2 != ""){
-				$user->alternative = 1;
+			if($validator->fails()){
+				return Redirect::to('users/' . $id . '/edit')
+				->withErrors($validator)
+				->withInput(Input::except('password'));
+			}else{
+				$user = User::find($id);
+				$user->first_name		=	Input::get('first_name');
+				$user->first_last_name	=	Input::get('first_last_name');
+				$user->second_last_name	=	Input::get('second_last_name');
+				$user->email1 			=	Input::get('email1');
+				$user->email2 			=	Input::get('email2');
+				$user->password 		=	Input::get('password');
+				$user->school_id		=	Input::get('school_id');
+				$user->career 			=	Input::get('career');
+				if($user->email2 != ""){
+					$user->alternative = 1;
+				}
+				$user->save();
+				$roles = $user->roles;
+				$user->roles()->detach($roles[0]);
+				$user->roles()->attach(Input::get('rol'));
+				
+				Session::flash('message', 'Successfully updated user');
+				return Redirect::to('users');
 			}
-			$user->save();
-
-			Session::flash('message', 'Successfully updated user');
-			return Redirect::to('users');
+		}else{
+			return Redirect::to('login');
 		}
 	}
 
@@ -186,11 +237,16 @@ class UsersController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
-		$user = User::find($id);
-		$user->delete();
-		Session::flash('message', 'Successfully deleted user');
-		return Redirect::to('users');
+		if (Session::get('school_id') && Session::get('super')==1)
+		{
+			//
+			$user = User::find($id);
+			$user->delete();
+			Session::flash('message', 'Successfully deleted user');
+			return Redirect::to('users');
+		}else{
+			return Redirect::to('login');
+		}
 	}
 
 

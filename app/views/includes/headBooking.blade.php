@@ -146,6 +146,7 @@
                 @endforeach
 
              	var today = new Date();
+             	console.log("today:"+today);
              	//var today = new Date('2015-04-03 10:30:00');
              	var today_date = today.toDateString();
              	var day = today.getDay();	 //today's day
@@ -193,7 +194,7 @@
              		var this_day = new Date();
              		//add diff_days to today's date to calculate the booking day date
              		this_day.setDate( this_day.getDate() + diff_days);
-
+             		console.log("this_day:"+this_day);
              		boddy = " <div class='timetable'> <table class='table table-striped table-hover '>  <tbody>";
              		var booking_start_date;
              		var booking_end_date;

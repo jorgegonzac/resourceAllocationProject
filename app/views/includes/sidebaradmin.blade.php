@@ -1,7 +1,13 @@
 
 <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
 	<div class="nav-side-menu">
-	    <div class="brand"><img src="../../images/logotec.png" style="width:30px;height:30px"/>                Nombre de Lab</div>
+	    <div class="brand"><img src="../../images/logotec.png" style="width:30px;height:30px"/>  
+	    	@if(Session::get('super') == 1)
+	    	Super Usuario
+	    	@endif
+	    	{{ Session::get('lab_name') }} 
+
+	    </div>
 	    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
 	  
 	        <div class="menu-list">
@@ -14,19 +20,22 @@
 	                  </a>
 	                </li>
 	<!-- usuarios -->
-
+					@if(Session::get('super')==1)
 	                 <li>
 	                  <a href="../../users">
 	                  <i class="fa fa-users fa-lg"></i>Usuarios
 	                  </a>
 	                </li>
+	                @endif
 	<!-- labs -->
 
+					@if(Session::get('super')==1)
 	                 <li>
 	                  <a href="../../laboratories">
 	                  <i class="fa fa-flask fa-lg"></i>Laboratorios
 	                  </a>
 	                  </li>
+	                @endif
 	<!-- categorias -->
 
 	                <li>
@@ -69,7 +78,7 @@
 	                </li>
 	<!-- logout -->
 	                <li>
-		            	<a href="logout"><i class="fa fa-power-off fa-lg"></i>Salir
+		            	<a href="../../logout"><i class="fa fa-power-off fa-lg"></i>Salir
 		            	</a>
 		            </li>
 	            </ul>

@@ -49,6 +49,12 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     public function getAuthIdentifier(){
         return $this->school_id;
     }
+
+    public function lab()
+    {
+        return $this->hasOne('Laboratory');
+    }
+
     public static function boot()
     {
         parent::boot();
