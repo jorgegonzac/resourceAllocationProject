@@ -14,7 +14,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
      *
      * @var string
      */
+    use SoftDeletingTrait;
     protected $table = 'users';
+    protected $dates = ['deleted_at'];
+    protected $softDelete = true;
 
     protected $fillable = array('first_name', 'first_last_name', 'second_last_name','email1','school_id', 'email2', 'alternative', 'career');
 
