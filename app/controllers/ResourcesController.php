@@ -121,7 +121,7 @@ class ResourcesController extends BaseController {
 			$validator = Validator::make(Input::all(), $rules, $messages);
 			
 			if($validator->fails()){
-				return Redirect::to('resources/create')
+				return Redirect::to('resources/' . $id . '/edit')
 				->withErrors($validator->messages())
 				->withInput();
 			}else{
