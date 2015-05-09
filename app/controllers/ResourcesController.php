@@ -106,38 +106,6 @@ class ResourcesController extends BaseController {
 	public function update($id)
 	{
 
-		$rules = array(
-            'name'      => 'required',
-            'description'      => 'required',
-            'tags' 		=>	'required',
-            'laboratory'	=>	'required',
-            'category'	=>	'required',
-            'timetable'	=>	'required',
-        );        
-        $messages = [
-        	'required' 	=> 'Este campo es obligatorio',
-       	];
-		$validator = Validator::make(Input::all(), $rules, $messages);
-		
-		if($validator->fails()){
-			return Redirect::to('resources/' . $id . '/edit')
-			->withErrors($validator->messages())
-			->withInput();
-		}else{
-			$resource = Resource::find($id);
-			$resource->name = Input::get('name');
-			$resource->description = Input::get('description');
-			$resource->laboratory_id = Input::get('laboratory');
-			$resource->category_id = Input::get('category');
-			$timetable_id = Input::get('timetable');
-			$resource->tags = Input::get('tags');
-			if (Input::hasFile('image')){
-				$name = Input::file('image')->getClientOriginalName();
-				$resource->image = '/images/' . $name;	
-				$file = Input::file('image');
-				$destionationPath = public_path() . '/images/';
-				$succes = $file->move($destionationPath, $name);
-
 		if (Session::get('school_id') && Session::get('role')==1)
 		{
 			$rules = array(
