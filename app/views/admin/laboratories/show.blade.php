@@ -25,11 +25,19 @@
             </tr>
             <tr>
                 <td><strong>Encargado:</strong> </td>
+                @if($laboratory->user)
                 <td>{{ $laboratory->user->first_name." ".$laboratory->user->first_last_name." ".$laboratory->user->second_last_name }}</td>
+                @else
+                <td>{{'El encargado de este laboratorio<br>fue eliminado.'}}</td>
+                @endif
             </tr>
             <tr>
                 <td><strong>Correo de Contacto:</strong> </td>
+                @if($laboratory->user)
                 <td>{{ $laboratory->user->email1}}</td>
+                @else
+                <td>{{'Ninguno'}}</td>
+                @endif
             </tr>
         
         </table>

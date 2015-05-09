@@ -56,10 +56,10 @@
 		<div class="text-center">
 		    {{ Form::button('Crear',array('type' => 'submit', 'class' => 'btn btn-success')) }}
 		
-			{{ Form::close() }}
+		{{ Form::close() }}
 
 			<form action="{{ URL::to('laboratories') }}">
-		        	<button type="submit" class="btn btn-danger"> Cancelar</button>
+		        <button class="btn btn-danger">Cancelar</button>
 			</form>
 		</div>
 

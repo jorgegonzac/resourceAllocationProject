@@ -10,10 +10,12 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::get('/', function(){
+	return Redirect::to('login');
+});
 Route::get('login', 'SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
 Route::resource('sessions', 'SessionsController');
-
 
 Route::get('index', 'StudentController@showRecent');
 Route::get('index/{id}/showBookingForm', 'StudentController@showBookingForm');
@@ -44,15 +46,13 @@ Route::get('bookings/{id}/close','BookingsController@close');
 
 Route::resource('waitinglists', 'WaitingListsController');
 
-Route::resource('book', 'ResourcesController@book');
-
 Route::post('booking','BookingsController@bookResurce');
 
 Route::get('account', 'UsersController@showCurrent');
 Route::get('activeBookings', 'BookingsController@showActiveBookings');
 Route::get('activeWaiting', 'WaitingListsController@showActiveWaiting');
 
-
+Route::get('users/{id}/delete', 'UsersController@destroy');
 
 
 

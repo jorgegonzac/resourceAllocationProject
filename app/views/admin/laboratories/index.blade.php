@@ -26,7 +26,13 @@
 		        <tr>
 		            <td>{{ $lab->name }}</td>
 		            <td>{{ $lab->building }}</td>
+		            
+		            @if($lab->user)
 		            <td>{{ $lab->user->first_name." ".$lab->user->first_last_name." " }}</td>
+		            @else
+		            <td>{{'El encargado de este laboratorio<br>fue eliminado.'}}</td>
+		            @endif
+
 		            <td>
 
 	                {{ Form::open(array('url' => 'laboratories/' . $lab->id)) }}

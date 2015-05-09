@@ -54,9 +54,6 @@
 		$.get('../../account', function(data){
 			$.get('../../activeBookings', function(data2){
 				$.get('../../activeWaiting', function(data3){
-				console.log(data);
-				console.log(data2);
-				console.log(data3);
 	            $('.userInfo').empty();
 	            $('.userInfo').append(data);
 	            $('.activeBook').empty();
@@ -91,37 +88,40 @@
 		    
 		} 
 	}
+
 	function saveBookings(){
-		
-		chk_arr =  document.getElementsByName('time_checkbox[]');
-		chklength = chk_arr.length;       
-		unselected = 1;      
-		var array_schedules = new Array();
-		for(k=0;k< chklength;k++){
-			if(chk_arr[k].checked){
-				unselected = 0;
-				var decrypted = CryptoJS.AES.decrypt(chk_arr[k].value.toString(), "kiJowNsYub48xIb");
-				array_schedules[array_schedules.length] = decrypted.toString(CryptoJS.enc.Utf8);
+		var deleted = document.getElementById('is_deleted');
+		if(deleted.outerText){
+			alert("Este recurso no esta disponible en este momento.\nIntente más tarde o contacte al administrador del laboratorio");
+			window.location.href = "../../index";
+		}else{
+			chk_arr =  document.getElementsByName('time_checkbox[]');
+			chklength = chk_arr.length;       
+			unselected = 1;      
+			var array_schedules = new Array();
+			for(k=0;k< chklength;k++){
+				if(chk_arr[k].checked){
+					unselected = 0;
+					var decrypted = CryptoJS.AES.decrypt(chk_arr[k].value.toString(), "kiJowNsYub48xIb");
+					array_schedules[array_schedules.length] = decrypted.toString(CryptoJS.enc.Utf8);
+				}
 			}
+			if(unselected == 1){
+				alert("Error: Seleccione primero un horario. ");
+				return;
+			}
+			resource_id = '{{$resource->id}}';
+			// save the bookings
+	    	$('#loading-indicator').show();
+
+	        $.post('../../booking', { schedules: array_schedules, resource_id: resource_id }).done(function(data){
+	            $('.booking_msg').empty();
+	            $('.booking_msg').append(data);
+		        $("#myModal").modal('show');
+		    	$('#loading-indicator').hide();
+	        });
 		}
-		if(unselected == 1){
-			alert("Error: Seleccione primero un horario. ");
-			return;
-		}
-
-		resource_id = '{{$resource->id}}';
-		// save the bookings
-    	$('#loading-indicator').show();
-
-        $.post('../../booking', { schedules: array_schedules, resource_id: resource_id }).done(function(data){
-            $('.booking_msg').empty();
-            $('.booking_msg').append(data);
-            console.log("Booking saved");
-	        $("#myModal").modal('show');
-	    	$('#loading-indicator').hide();
-        });
-
-	}	
+	}
 
 
 	$(document).ready(function(){
@@ -193,7 +193,6 @@
              		var this_day = new Date();
              		//add diff_days to today's date to calculate the booking day date
              		this_day.setDate( this_day.getDate() + diff_days);
-
              		boddy = " <div class='timetable'> <table class='table table-striped table-hover '>  <tbody>";
              		var booking_start_date;
              		var booking_end_date;

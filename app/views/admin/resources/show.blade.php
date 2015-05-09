@@ -27,15 +27,27 @@
         </tr>
         <tr>
             <td><strong>Laboratorio:</strong></td>
-            <td> {{ $resource->laboratory->name }}</td>
+            @if($resource->laboratory)
+            <td>{{ $resource->laboratory->name }}</td>
+            @else
+            <td>{{ 'El laboratorio de este recurso<br>fue eliminado.'}}</td>
+            @endif
         </tr>
         <tr>
             <td><strong>Categoria:</strong></td>
-            <td> {{ $resource->category->name }}</td>
+            @if($resource->category)
+            <td>{{ $resource->category->name }}</td>
+            @else
+            <td>{{ 'La categoria de este recurso<br>fue eliminada.'}}</td>
+            @endif
         </tr>
         <tr>
             <td><strong>Calendario:</strong> </td>
-            <td>{{ $resource->timetables[0]->description }}</td>
+            @if($resource->timetable[0])
+            <td>{{$resource->timetable[0]}}</td>
+            @else
+            <td>{{ 'El calendario de este recurso<br>fue eliminado.' }}</td>
+            @endif
         </tr>
         <tr>
             <td><strong>Tags:</strong></td>

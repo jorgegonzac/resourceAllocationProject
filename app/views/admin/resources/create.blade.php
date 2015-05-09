@@ -34,12 +34,18 @@
 			<div class="form-group">
 				<!--{{ Form::label('laboratory', 'Laboratorio:') }}-->
 									
+				@if(Session::get('super') == 1)
 					<select name="laboratory" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 					    <option selected disabled>Selecciona un laboratorio</option>
-					    @foreach($laboratories as $lab)
-					    <option value="{{ $lab->id }}">{{ $lab->name }}</option>
-					    @endforeach
+						@foreach($laboratories as $laboratory)
+							    <option value="{{ $laboratory->id }}">{{ $laboratory->name }}</option>
+						@endforeach
 					</select>
+				@else
+					<select name="laboratory" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					    <option selected  value="{{ Session::get('lab_id') }}">{{ Session::get('lab_name') }}</option>
+					</select>
+				@endif				
 				
 
 				<div class="errors">
