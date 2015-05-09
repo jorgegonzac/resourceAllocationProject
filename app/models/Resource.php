@@ -5,6 +5,10 @@ class Resource extends Eloquent {
     // MASS ASSIGNMENT -------------------------------------------------------
     // define which attributes are mass assignable (for security)
     protected $fillable = array('name', 'description', 'image','category_id','laboratory_id','tags');
+    use SoftDeletingTrait;
+    protected $table = 'resources';
+    protected $dates = ['deleted_at'];
+    protected $softDelete = true;
 
     // DEFINE RELATIONSHIPS --------------------------------------------------
 

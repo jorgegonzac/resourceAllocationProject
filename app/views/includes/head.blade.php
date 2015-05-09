@@ -121,7 +121,7 @@
 				}else{
 					$('.assigned_schedules').empty();
 					//Append header
-					$('.assigned_schedules').append('<div class=' + '"row"' + '><div class=' + '"col-lg-1"' + '>ID</div><div class=' + '"col-lg-2"' + '>Nombre</div><div class=' + '"col-lg-2"' + '>Día de la semana</div><div class='+'"col-lg-2"'+'>Hora de Inicio</div><div class='+'"col-lg-2"'+'>Hora de Fin</div><div class='+'"col-lg-1"'+'>Acciones</div></div>');
+					$('.assigned_schedules').append('<div class=' + '"row"' + '><div class=' + '"col-lg-1"' + '>ID</div><div class=' + '"col-lg-2"' + '>Nombre</div><div class=' + '"col-lg-2"' + '>Día</div><div class='+'"col-lg-2"'+'>Inicio</div><div class='+'"col-lg-2"'+'>Fin</div><div class='+'"col-lg-1"'+'>Acciones</div></div>');
 					$.each(data[0], function(key, value){
 						//Append body
 						$('.assigned_schedules').append('<div class=' +'"row"'+'><div class='+'"col-lg-1"'+'>'+value.id+'</div><div class='+'"col-lg-2"'+'>'+value.name+'</div><div class='+'"col-lg-2"'+'>'+value.weekday+'</div><div class='+'"col-lg-2"'+'>'+value.start_hour+'</div><div class='+'"col-lg-2"'+'>'+value.end_hour+'</div><div class='+'"col-lg-1"'+'><a href=""><p>Desasignar</p></a></div></div>');

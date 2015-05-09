@@ -7,9 +7,7 @@
 			<h2>Calendarios</h2>
 		</div>
 		<div class="col-xs-6 col-sm-6 col-md-6 text-right">
-			<a href="assign" class="btn btn-primary form-control">
-				<p>Asignar Horario a Calendario</p>
-			</a>
+			<a href="assign" class="btn btn-info">Asignar Horario a Calendario</a>
 			<form action="{{ URL::to('timetables/create') }}">
 	        	<button type="submit" class="btn btn-success">Nuevo Calendario</button>
 			</form>

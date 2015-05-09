@@ -5,6 +5,10 @@ class Laboratory extends Eloquent {
     // MASS ASSIGNMENT -------------------------------------------------------
     // define which attributes are mass assignable (for security)
     protected $fillable = array('name', 'building','user_id');
+    use SoftDeletingTrait;
+    protected $table = 'laboratories';
+    protected $dates = ['deleted_at'];
+    protected $softDelete = true;
 
     // DEFINE RELATIONSHIPS --------------------------------------------------
     

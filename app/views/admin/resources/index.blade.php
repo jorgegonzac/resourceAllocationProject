@@ -27,14 +27,30 @@
 		        </tr>
 		    </thead>
 		    <tbody>
-		    	@foreach($resources as $resource)
+		    	@foreach($data as $resource)
 		        <tr>
 		            <td>{{ $resource->id }}</td>
 		            <td>{{ $resource->name }}</td>
 		            <td>{{ $resource->description }}</td>
+
+		            @if($resource->laboratory)
 		            <td>{{ $resource->laboratory->name }}</td>
+		            @else
+		            <td>{{ 'El laboratorio de este recurso<br>fue eliminado.'}}</td>
+		            @endif
+
+		            @if($resource->category)
 		            <td>{{ $resource->category->name }}</td>
-		            <td>{{ $resource->timetables[0]->description }}</td>
+		            @else
+		            <td>{{ 'La categoria de este recurso<br>fue eliminada.'}}</td>
+		            @endif
+
+		            @if($resource->timetables[0])
+		            <td>{{$resource->timetables[0]->description}}</td>
+		            @else
+		            <td>{{ 'El calendario de este recurso<br>fue eliminado.' }}</td>
+		            @endif
+
 		            <td>{{ $resource->tags }}</td>
 		            <td><img src="{{$resource->image}}" style="width:60px;height:60px" /></td>
 		            <td>

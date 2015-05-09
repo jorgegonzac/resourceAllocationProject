@@ -10,7 +10,7 @@
 
 	<div class="text-center">
 
-		<h2> Crear Nueva Categoría</h2>
+		<h2>Nueva Categoría</h2>
 
 	</div>
 
@@ -41,8 +41,6 @@
 		        	<button type="submit" class="btn btn-danger"> Cancelar</button>
 			</form>
 		</div>
-
-		
 	</div>
 </div>
 @stop

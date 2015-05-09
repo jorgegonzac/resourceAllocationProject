@@ -7,7 +7,7 @@
 <div class="form" style="width:800px; margin:0 auto;">
 
 	<div class="text-center">
-		<h2>Crear Nuevo Recurso</h2>
+		<h2>Nuevo Recurso</h2>
 	</div>
 	<div class="sep"></div>
 
@@ -34,12 +34,18 @@
 			<div class="form-group">
 				<!--{{ Form::label('laboratory', 'Laboratorio:') }}-->
 									
+				@if(Session::get('super') == 1)
 					<select name="laboratory" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 					    <option selected disabled>Selecciona un laboratorio</option>
-					    @foreach($laboratories as $lab)
-					    <option value="{{ $lab->id }}">{{ $lab->name }}</option>
-					    @endforeach
+						@foreach($laboratories as $laboratory)
+							    <option value="{{ $laboratory->id }}">{{ $laboratory->name }}</option>
+						@endforeach
 					</select>
+				@else
+					<select name="laboratory" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+					    <option selected  value="{{ Session::get('lab_id') }}">{{ Session::get('lab_name') }}</option>
+					</select>
+				@endif				
 				
 
 				<div class="errors">
@@ -93,7 +99,6 @@
 			</div>
 		</div>
 
-		<br><br><br><br><br>
 		<div class="text-center">
 		    {{ Form::button('Crear',array('type' => 'submit', 'class' => 'btn btn-success')) }}
 		

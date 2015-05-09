@@ -8,7 +8,7 @@
 
 
     <div class="text-center">
-        <h3>Categoría </h3><h1>{{ $category->name }}</h1>
+        <h3>Categoría</h3><h1>{{ $category->name }}</h1>
     </div>
 
     <div class="sep"></div>

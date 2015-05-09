@@ -1,30 +1,40 @@
 @extends('layouts.adminlayout')
 @section('content')
 
-<div class="text-center">
+{{ HTML::style('css/style_form.css')}}
 
-	<h2>Crear Nuevo Calendario</h2><br>
+<style type="text/css">
+.form{height: 300px;}
+</style>
 
+<div class="form" style="width:800px; margin:0 auto;">
+
+	<div class="text-center">
+		<h2>Nuevo Calendario</h2>
+	</div>
+
+	<div class="sep"></div>
+
+	<div class="container-form">
 	{{ Form::open(array('route' => 'timetables.store')) }}
 
-		<div class="form-group">
-			{{ Form::label('name', 'Nombre:') }}
-			{{ Form::text('name') }}
-			{{ $errors->first('name', '<div class="error">:message</div>') }}
-		</div>
+		<div class="inputs">
+			<div class="form-group">
+				{{ Form::label('name', '&nbsp;Nombre:&nbsp;&nbsp;') }}
+				{{ Form::text('name') }}
+				{{ $errors->first('name', '<div class="errors">:message</div>') }}
+			</div>
+			
+		</div>		
 
-		<br>
 		<div class="text-center">
-		    {{ Form::button('Crear Calendario',array('type' => 'submit', 'class' => 'btn btn-success', 'name' => 'crear_calendario')) }}
+			{{ Form::button('Crear Calendario',array('type' => 'submit', 'class' => 'btn btn-success', 'name' => 'crear_calendario')) }}
+			{{ Form::close() }}
+			<form action="{{ URL::to('timetables') }}">
+		        	<button type="submit" class="btn btn-danger"> Cancelar</button>
+			</form>
 		</div>
-
-	{{ Form::close() }}
-
-
-		<form action="{{ URL::to('timetables') }}">
-	        	<button type="submit" class="btn btn-danger"> Cancelar</button>
-		</form>
-
+	</div>
 </div>
 
 @stop
