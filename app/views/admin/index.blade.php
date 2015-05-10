@@ -29,5 +29,39 @@
 	<canvas id = "mostUsed" width = "600" height="300" ></canvas>
 
 </div>
+
+
+
+<script >
+
+	(function(){
+		var ctx = document.getElementById('mostUsed').getContext('2d');
+
+		var chart = {
+
+			labels:{{json_encode($resource)}},
+
+			datasets:[{
+
+				data:{{json_encode($total)}}
+
+
+			}]
+
+
+
+		};
+
+
+		new Chart(ctx).Bar(chart);
+
+	})();
+
+
+
+
+
+</script>
+
 @stop
 
