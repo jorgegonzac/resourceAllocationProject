@@ -140,14 +140,34 @@ class UsersController extends \BaseController {
 				$mail1=$usr->email1;
 				$mail2=$usr->email2;
 				$major=$usr->career;
-				$userInfo.="<h4>Nombre: " . $name . " " . $lastName ." ".$lastName2 ."<br> 
-				Correo: ". $mail1 ."<br> 
-				Correo alternativo: " . $mail2." <br> 
-				Carrera: " .$major."<br></h4>";
+				$userInfo.="
+                <form action='../../changeEmail' method='post'>
+					<h4>Nombre: " . $name . " " . $lastName ." ".$lastName2 ."<br> 
+					Correo: ". $mail1 ."<br> 
+					Correo alternativo:  <input type='text' name='alternativeMail' value='$mail2'> <br> 
+					Carrera: " .$major."<br></h4>
+	                <button type='submit' class='btn btn-primary'> Guardar </button>
+                </form>                                            
+				";
 			 	
 			 }
 
 			 return $userInfo;
+		}else{
+			return Redirect::to('login');
+		}
+	}
+
+	public function changeEmail(){
+		if (Session::get('school_id') && Session::get('role')==2)
+		{
+			$alternative = Input::get('alternativeMail');
+			$school_id	 = Session::get('school_id');
+			$user 	= User::where('school_id','=',$school_id)->first();
+			$user->email2 = $alternative;
+			$user->save();
+			return Redirect::to('index');
+
 		}else{
 			return Redirect::to('login');
 		}
