@@ -24,6 +24,8 @@
 {{ HTML::script('js/snap.svg-min.js') }}
 {{ HTML::script('js/bootstrap.js') }}
 {{ HTML::script('js/bootstrap.min.js') }}
+{{ HTML::script('js/Chart.min.js') }}
+
 
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
