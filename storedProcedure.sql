@@ -1,5 +1,5 @@
 DELIMITER //
- CREATE PROCEDURE GetAllProducts()
+ CREATE PROCEDURE ResourceTotal(IN lab_id INT(10))
    BEGIN
    DECLARE curMonth INT;
 	DECLARE curYear INT;
