@@ -8,7 +8,7 @@
         @include('includes.sidebaradmin')
 		
 		<footer>
-	    	@include('includes.footer')
+	    	@include('includes.footerGraphs')
 	    </footer>
   	</body>
 </html>
