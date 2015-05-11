@@ -21,7 +21,7 @@
 			<div class="text-center">
 			<h3>Selecciona un calendario:</h3>
 			<div class="col-lg-5"></div>
-				<select id="selectTimetable" class="btn btn-default">
+				<select name="timetable" id="selectTimetable" class="btn btn-default">
 					<option selected disabled>Selecciona un calendario</option>
 		   			@foreach($timetables as $timetable)
 			   			<option value="{{$timetable->id}}">{{ $timetable->description }}</option>
@@ -36,7 +36,7 @@
 			<div class="col-lg-6"></div>
 			<div class="col-lg unassigned_schedules">
 				<div class="text-center">
-					<select id="selectSchedule" class="btn btn-default">
+					<select name="schedule" id="selectSchedule" class="btn btn-default">
 					</select>
 				</div>	
 			</div>
