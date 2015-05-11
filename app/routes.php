@@ -28,6 +28,7 @@ Route::get('search', 'StudentController@search');
 Route::get('admin', 'AdminController@showAdmin');
 
 Route::resource('users', 'UsersController');
+Route::post('changeEmail','UsersController@changeEmail');
 
 Route::resource('laboratories','LaboratoriesController');
 

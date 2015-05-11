@@ -1,7 +1,7 @@
-CREATE DEFINER=`resources`@`localhost` PROCEDURE `ResourceTotal`(IN lab_id int(10))
-BEGIN
-
-	DECLARE curMonth INT;
+DELIMITER //
+ CREATE PROCEDURE ResourceTotal(IN lab_id INT(10))
+   BEGIN
+   DECLARE curMonth INT;
 	DECLARE curYear INT;
 	SET curMonth = (select MONTH(NOW()));
 	SET curYear = (select YEAR(NOW()));
@@ -12,5 +12,5 @@ BEGIN
 	AND MONTH(bookings.start_date) = curMonth
 	AND YEAR(bookings.start_date) = curYear
 	group by resources.name;
-
-   END
+   END //
+ DELIMITER ;
