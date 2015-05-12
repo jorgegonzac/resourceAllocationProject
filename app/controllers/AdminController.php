@@ -10,21 +10,112 @@ class AdminController extends \BaseController {
 
 			if(Session::get('super') == 1){
 
-				$total = DB::select('CALL ResourceTotalSuper()');
-				$resources= array();
-				$totals = array();
-				foreach($total as $t){
+				$totalRec = DB::select('CALL ResourceTotalSuper()');
+				$totalCat = DB::select('CALL CategoryTotal_super()');
+				$totalUseSup = DB::select('CALL UserTotal_super()');
+				$totalMonth = DB::select('CALL monthTotal_super()');
+				$totalDay = DB::select('CALL DayTotal_super()');
+				$resourcesSup= array();
+				$categories= array();
+				$usersSup= array();
+				$totalRes = array();
+				$totalsCat = array();
+				$totalsUse= array();
+				$months = array(
+					"Enero", 
+					"Febrero", 
+					"Marzo", 
+					"Abril", 
+					"Mayo", 
+					"Junio", 
+					"Julio",
+					"Agosto",
+					"Septiembre",
+					"Octubre",
+					"Noviembre",
+					"Diciembre"
+				);
 
-					$resource_name = $t->name;
-					$resource_count = $t->total;
-					$resources = array_add($resources,$count,$resource_name);
-					$totals = array_add($totals,$count,$resource_count);
-					$count++;
+				$totalMonths = array(					
+					1=>0,
+					2=>0,
+					3=>0,
+					4=>0,
+					5=>0,
+					6=>0,
+					7=>0,
+					8=>0,
+					9=>0,
+					10=>0,
+					11=>0,
+					12=>0,
+				);
+
+				$totalDays = array(
+										
+					1=>0,
+					2=>0,
+					3=>0,
+					4=>0,
+					5=>0,
+					6=>0,
+				);
+
+				//Users	
+				foreach($totalUseSup as $tus){
+					$user_name = $tus->school_id;
+					$user_count = $tus->total;
+					$usersSup = array_add($usersSup,$count,$user_name);
+					$totalsUse = array_add($totalsUse,$count,$user_count);
+					$count++;	
 				}
-				 return View::make('admin.index',['resource' => $resources],['total' => $totals]);
+
+				//Resources
+				$count=0;
+				foreach($totalRec as $tr){
+					$resource_name = $tr->name;
+					$resource_count = $tr->total;
+					$resourcesSup = array_add($resourcesSup,$count,$resource_name);
+					$totalRes = array_add($totalRes,$count,$resource_count);
+					$count++;					
+				}	
+
 				
 
+				//Categories	
+				$count=0;			
+				foreach($totalCat as $tc){
+					$category_name = $tc->name;
+					$category_count = $tc->total;
+					$categories = array_add($categories,$count,$category_name);
+					$totalsCat = array_add($totalsCat,$count,$category_count);
+					$count++;					
+				}			
 
+				//month
+				foreach($totalMonth as $tm){
+					$num_month = $tm->month;
+					$month_count = $tm->total;
+					$totalMonths[$num_month]=$month_count;				
+				}			
+
+				// daily
+				foreach($totalDay as $td){
+					$num_day = $td->day;
+					$day_count = $td->total;
+					$totalDays[$num_day-1]=$day_count;						
+				}															
+
+				return View::make('admin.index')
+				->with(['resourceSuper'=>$resourcesSup])
+				->with(['totalSuper' => $totalRes])
+				->with(['category' => $categories])
+				->with(['totalCat' => $totalsCat])	
+				->with(['userSuper' => $usersSup])
+				->with(['totalUser' => $totalsUse])
+				->with(['monthSuper' => $months])
+				->with(['totalmonthSup' => $totalMonths])
+				->with(['totalDay' => $totalDays]);
 			}
 			
 			$lab_id = Session::get('lab_id');
