@@ -50,6 +50,7 @@ class AdminController extends \BaseController {
 					11=>0,
 					12=>0,
 				);
+				$totalMonths2=array();
 
 				$totalDays = array(
 										
@@ -60,6 +61,8 @@ class AdminController extends \BaseController {
 					5=>0,
 					6=>0,
 				);
+
+				$totalDays2=array();
 
 				//Users	
 				foreach($totalUseSup as $tus){
@@ -93,18 +96,32 @@ class AdminController extends \BaseController {
 				}			
 
 				//month
+				$count=0;
 				foreach($totalMonth as $tm){
 					$num_month = $tm->month;
 					$month_count = $tm->total;
 					$totalMonths[$num_month]=$month_count;				
-				}			
+				}
 
+				foreach($totalMonths as $tms => $val){
+
+					$totalMonths2 = array_add($totalMonths2,$count,$val);
+					$count++;	
+				}			
+				$count=0;
 				// daily
 				foreach($totalDay as $td){
 					$num_day = $td->day;
 					$day_count = $td->total;
 					$totalDays[$num_day-1]=$day_count;						
-				}															
+				}
+				foreach($totalDays as $tds => $val1){
+
+					$totalDays2 = array_add($totalDays2,$count,$val1);
+					$count++;	
+				}
+
+															
 
 				return View::make('admin.index')
 				->with(['resourceSuper'=>$resourcesSup])
@@ -114,8 +131,8 @@ class AdminController extends \BaseController {
 				->with(['userSuper' => $usersSup])
 				->with(['totalUser' => $totalsUse])
 				->with(['monthSuper' => $months])
-				->with(['totalmonthSup' => $totalMonths])
-				->with(['totalDay' => $totalDays]);
+				->with(['totalmonthSup' => $totalMonths2])
+				->with(['totalDay' => $totalDays2]);
 			}
 			
 			$lab_id = Session::get('lab_id');
@@ -173,6 +190,9 @@ class AdminController extends \BaseController {
 				
 
 			);
+
+			$totalDays2 = array();
+			$totalMonths2 = array();
 			
 			// RESOURCE
 			foreach($total as $t){
@@ -183,6 +203,7 @@ class AdminController extends \BaseController {
 				$totals = array_add($totals,$count,$resource_count);
 				$count++;
 			}
+			//var_dump($totals);
 			// USER
 			$count=0;
 			foreach($totalUser as $tu){
@@ -194,6 +215,7 @@ class AdminController extends \BaseController {
 				$count++;
 			}
 			// MONTHLY
+			$count=0;
 			foreach($totalMonth as $tm){
 
 				$monthss = $tm->month;
@@ -201,17 +223,33 @@ class AdminController extends \BaseController {
 				$totalMonths[$monthss]=$monthCount;	
 				
 			}
-			// var_dump($totalMonths);
+			foreach($totalMonths as $tms => $val){
 
+				$totalMonths2 = array_add($totalMonths2,$count,$val);
+				$count++;	
+			}
+			//var_dump($totalMonths);
+			//var_dump($months);
+			$count=0;
 			// DAILY
 			foreach($totalWeek as $tw){
 
 				$days = $tw->day;
 				$dayCount = $tw->total;
-				$totalDays[$days-1]=$dayCount;	
-				
+				$totalDays[$days-1]=$dayCount;
+	
 			}
-			 //var_dump($totalDays);
+
+			foreach($totalDays as $td => $val){
+
+				$totalDays2 = array_add($totalDays2,$count,$val);
+				$count++;	
+			}
+
+
+		
+
+			//var_dump($totalMonths2);
 
 			return View::make('admin.index')
 				->with(['resource'=>$resources])
@@ -219,8 +257,8 @@ class AdminController extends \BaseController {
 				->with(['userName'=>$users])
 				->with(['userCount' => $totalUsers])
 				->with(['month' => $months])
-				->with(['monthCount' => $totalMonths])
-				->with(['dayCount' => $totalDays]);
+				->with(['monthCount' => $totalMonths2])
+				->with(['dayCount' => $totalDays2]);
 
 			
 		}else{
