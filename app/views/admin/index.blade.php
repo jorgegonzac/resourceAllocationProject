@@ -27,7 +27,7 @@
 		  <br><br>
 
 		  
-		  <div class="row">
+		
 		  <div class="col-xs-12">
 		  	<h3 align="center">Usuarios más activos</h3>
 		  	<div class="sample shadow-z-2">
@@ -35,24 +35,23 @@
 		  		<canvas id = "mostUser"  ></canvas>
 		  	</div>
 		  </div>
-		</div>
+		
 
 		<br><br>
 
-		<div class="row">
 		  <div class="col-xs-12">
 		  	<h3 align="center">Reservaciones por mes</h3>
-		  	<div class="sample shadow-z-2">
+		  	<div class="sample shadow-z-2" margin="30px">
 		  		
 		  		<canvas id = "mostMonth"></canvas>
 		  	</div>
 		  </div>
 		 
-		</div>
+
 
 		<br><br>
 
-		<div class="row">
+		
 		  <div class="col-xs-12">
 		  	<h3 align="center">Reservaciones por día</h3>
 		  	<div class="sample shadow-z-2">
@@ -61,7 +60,7 @@
 		  	</div>
 		  </div>
 		 
-		</div>
+	
 		
 		
 		<script >
@@ -79,8 +78,9 @@
 					labels:{{json_encode($resource)}},
 
 					datasets:[{
-
+						fillColor: "#66C2FF",
 						data:{{json_encode($total)}}
+						
 
 					}]
 
@@ -91,6 +91,8 @@
 					labels:{{json_encode($userName)}},
 
 					datasets:[{
+
+						fillColor: "#66C2FF",
 
 						data:{{json_encode($userCount)}}
 
@@ -103,7 +105,11 @@
 					labels: {{json_encode($month)}},
 
 					datasets:[{
-
+						fillColor: "#66C2FF",
+						scaleBackdropPaddingY : 9,
+						tooltipYPadding: 6,
+						 strokeColor: "#0066FF",
+						 pointColor: "",
 						data:{{json_encode($monthCount)}}
 
 					}]
@@ -115,8 +121,10 @@
 					labels: ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"],
 
 					datasets:[{
+						fillColor: "#66C2FF",
 
 						data:{{json_encode($dayCount)}}
+
 
 					}]
 
