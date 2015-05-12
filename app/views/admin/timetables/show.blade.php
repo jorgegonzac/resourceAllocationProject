@@ -30,26 +30,26 @@
 		    	<table class="table table-striped table-bordered">
 		    		<thead>
 				        <tr>
-				        	<td>Horas:</td>
-				            <td>Lunes</td>
-				            <td>Martes</td>
-				            <td>Miercoles</td>
-				            <td>Jueves</td>
-				            <td>Viernes</td>
-				            <td>Sábado</td>
+				        	<td align="center">Horas:</td>
+				            <td align="center">Lunes</td>
+				            <td align="center">Martes</td>
+				            <td align="center">Miércoles</td>
+				            <td align="center">Jueves</td>
+				            <td align="center">Viernes</td>
+				            <td align="center">Sábado</td>
 				        </tr>
 				    </thead>
 				    <tbody>
 				    	<?php $i = 0; ?>
 				        @foreach($horas as $hora)
 				        <tr>
-							<td>{{$hora}}</td>
-							<td>{{$lunes[$hora]}}</td>
-							<td>{{$martes[$hora]}}</td>
-							<td>{{$miercoles[$hora]}}</td>
-							<td>{{$jueves[$hora]}}</td>
-							<td>{{$viernes[$hora]}}</td>
-							<td>{{$sabado[$hora]}}</td>
+							<td align="center">{{$hora}}</td>
+							<td align="center">{{$lunes[$hora]}}</td>
+							<td align="center">{{$martes[$hora]}}</td>
+							<td align="center">{{$miercoles[$hora]}}</td>
+							<td align="center">{{$jueves[$hora]}}</td>
+							<td align="center">{{$viernes[$hora]}}</td>
+							<td align="center">{{$sabado[$hora]}}</td>
 				        </tr>
 				        <?php $i++; ?>
 				        @endforeach
