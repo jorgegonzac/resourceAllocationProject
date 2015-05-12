@@ -126,7 +126,8 @@
 					$('.assigned_schedules').append('<div class=' + '"row"' + '><div class=' + '"col-lg-1"' + '>ID</div><div class=' + '"col-lg-2"' + '>Nombre</div><div class=' + '"col-lg-2"' + '>Día</div><div class='+'"col-lg-2"'+'>Inicio</div><div class='+'"col-lg-2"'+'>Fin</div><div class='+'"col-lg-1"'+'>Acciones</div></div>');
 					$.each(data[0], function(key, value){
 						//Append body
-						$('.assigned_schedules').append('<div class=' +'"row"'+'><div class='+'"col-lg-1"'+'>'+value.id+'</div><div class='+'"col-lg-2"'+'>'+value.name+'</div><div class='+'"col-lg-2"'+'>'+value.weekday+'</div><div class='+'"col-lg-2"'+'>'+value.start_hour+'</div><div class='+'"col-lg-2"'+'>'+value.end_hour+'</div><div class='+'"col-lg-1"'+'><a href=""><p>Desasignar</p></a></div></div>');
+						console.log(id);
+						$('.assigned_schedules').append('<div class=' +'"row"'+'><div class='+'"col-lg-1"'+'>'+value.id+'</div><div class='+'"col-lg-2"'+'>'+value.name+'</div><div class='+'"col-lg-2"'+'>'+value.weekday+'</div><div class='+'"col-lg-2"'+'>'+value.start_hour+'</div><div class='+'"col-lg-2"'+'>'+value.end_hour+'</div><div class='+'"col-lg-1"'+'><a href="deassign/'+id+'/'+value.id+'"><p>Desasignar</p></a></div></div>');
 					});
 					//Validar que haya disponibles
 					$('#selectSchedule').empty();

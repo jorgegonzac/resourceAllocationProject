@@ -5,6 +5,8 @@
 
 <style type="text/css">
 .form{height: 300px;}
+
+.asignar-escondido{display: none !important;}
 </style>
 
 <div class="form" style="width:800px; margin:0 auto;">
@@ -22,6 +24,7 @@
 			<div class="form-group">
 				{{ Form::label('name', '&nbsp;Nombre:&nbsp;&nbsp;') }}
 				{{ Form::text('name') }}
+				{{ Form::text('asignar', '...', array('class' => 'asignar-escondido')) }}
 				{{ $errors->first('name', '<div class="errors">:message</div>') }}
 			</div>
 			

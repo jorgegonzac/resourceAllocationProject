@@ -68,9 +68,17 @@ class TimetablesController extends BaseController {
 	{
 		if (Session::get('school_id') && Session::get('role')==1)
 		{
-			if(Input::get('agregar')){
+			if(Input::get('asignar') == ''){
 				//Validar si ya esta asignada
-				return 'Agregar';
+				$timetableId = Input::get('timetable');
+				$scheduleId  = Input::get('schedule');
+				$query = DB::table('timetables_schedules')->insert(
+					array(
+						'timetable_id' => $timetableId,
+						'schedule_id'  => $scheduleId
+					)
+				);
+				return Redirect::to('assign');
 			}else{
 				$rules = array(
 		            'name'      => 'required',
@@ -242,4 +250,8 @@ class TimetablesController extends BaseController {
 		}
 	}
 
+	public function deassign($timetableId, $scheduleId){
+		$temp =  DB::table('timetables_schedules')->where('timetable_id', '=', $timetableId)->where('schedule_id', '=', $scheduleId)->delete();
+		return Redirect::to('assign');
+	}
 }

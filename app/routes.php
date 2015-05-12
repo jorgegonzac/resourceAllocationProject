@@ -55,5 +55,5 @@ Route::get('activeWaiting', 'WaitingListsController@showActiveWaiting');
 
 Route::get('users/{id}/delete', 'UsersController@destroy');
 
-
+Route::get('deassign/{timetableId}/{scheduleId}', 'TimetablesController@deassign');
 
