@@ -118,7 +118,7 @@
 					new Chart(ctx4).Bar(chartResourcesSuper);
 					new Chart(ctx5).Line(chartCategory);
 					new Chart(ctx6).Bar(chartUserSuper);
-					new Chart(ctx7).Bar(chartMonthSup);
+					new Chart(ctx7).Line(chartMonthSup);
 					new Chart(ctx8).Bar(chartDaySup);
 
 				})();
