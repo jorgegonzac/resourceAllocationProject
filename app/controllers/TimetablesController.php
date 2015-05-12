@@ -190,27 +190,27 @@ class TimetablesController extends BaseController {
 				foreach ($arr_cmp as $key => $value){
 					switch ($weekday) {
 						case 'Lunes':
-							$lunes[$value] = 1;
+							$lunes[$value] = "<i class=\"fa fa-check\" style=\"color:green\"></i>";
 							break;
 
 						case 'Martes':
-							$martes[$value] = 1;
+							$martes[$value] = "<i class=\"fa fa-check\" style=\"color:green\"></i>";
 							break;
 
 						case 'Miercoles':
-							$miercoles[$value] = 1;
+							$miercoles[$value] = "<i class=\"fa fa-check\" style=\"color:green\"></i>";
 							break;
 
 						case 'Jueves':
-							$jueves[$value] = 1;
+							$jueves[$value] = "<i class=\"fa fa-check\" style=\"color:green\"></i>";
 							break;
 
 						case 'Viernes':
-							$viernes[$value] = 1;
+							$viernes[$value] = "<i class=\"fa fa-check\" style=\"color:green\"></i>";
 							break;
 
 						case 'Sabado':
-							$sabado[$value] = 1;
+							$sabado[$value] = "<i class=\"fa fa-check\" style=\"color:green\"></i>";
 							break;
 						
 						default:
