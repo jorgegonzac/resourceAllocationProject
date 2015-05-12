@@ -2592,7 +2592,7 @@ h6 {
 a,
 a:hover,
 a:focus {
-  color: #009688;
+  color: #001996;
 }
 body .well.well-sm,
 .container .well.well-sm,
@@ -7060,7 +7060,7 @@ fieldset[disabled] .navbar .btn-link:focus {
   color: #03a9f4;
 }
 .nav-tabs {
-  background: #009688;
+  background: #868D9D;
 }
 .nav-tabs > li > a {
   color: #FFFFFF;
@@ -8197,6 +8197,7 @@ hr.on-light {
 }
 .shadow-z-2 {
   box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding:18px;
 }
 .shadow-z-3 {
   box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);

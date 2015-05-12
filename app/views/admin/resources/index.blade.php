@@ -27,24 +27,40 @@
 		        </tr>
 		    </thead>
 		    <tbody>
-		    	@foreach($resources as $resource)
+		    	@foreach($data as $resource)
 		        <tr>
 		            <td>{{ $resource->id }}</td>
 		            <td>{{ $resource->name }}</td>
 		            <td>{{ $resource->description }}</td>
+
+		            @if($resource->laboratory)
 		            <td>{{ $resource->laboratory->name }}</td>
+		            @else
+		            <td>{{ 'El laboratorio de este recurso<br>fue eliminado.'}}</td>
+		            @endif
+
+		            @if($resource->category)
 		            <td>{{ $resource->category->name }}</td>
-		            <td>{{ $resource->timetables[0]->description }}</td>
+		            @else
+		            <td>{{ 'La categoria de este recurso<br>fue eliminada.'}}</td>
+		            @endif
+
+		            @if($resource->timetables[0])
+		            <td>{{$resource->timetables[0]->description}}</td>
+		            @else
+		            <td>{{ 'El calendario de este recurso<br>fue eliminado.' }}</td>
+		            @endif
+
 		            <td>{{ $resource->tags }}</td>
 		            <td><img src="{{$resource->image}}" style="width:60px;height:60px" /></td>
 		            <td>
 	                {{ Form::open(array('url' => 'resources/' . $resource->id)) }}
 	                    {{ Form::hidden('_method', 'DELETE') }}
-	                    {{ Form::button('<i class="fa fa-trash fa-lg"></i>', array('type' => 'submit', 'class' => 'content_icon_admin')) }}
+	                    {{ Form::button('<i class="fa fa-trash fa-lg" data-toggle="tooltip" data-placement="left" title="Eliminar"></i>', array('type' => 'submit', 'class' => 'content_icon_admin')) }}
 
 	                {{ Form::close() }}
-	                <a  href="{{ URL::to('resources/' . $resource->id) }}"> <i class="fa fa-eye fa-lg"></i> </a>
-	                <a  href="{{ URL::to('resources/' . $resource->id . '/edit') }}"> <i class="fa fa-pencil-square-o fa-lg"></i></a>
+	                <a  href="{{ URL::to('resources/' . $resource->id) }}"> <i class="fa fa-eye fa-lg" data-toggle="tooltip" data-placement="left" title="Mostrar"></i> </a>
+	                <a  href="{{ URL::to('resources/' . $resource->id . '/edit') }}"> <i class="fa fa-pencil-square-o fa-lg" data-toggle="tooltip" data-placement="left" title="Editar"></i></a>
 
 	            	</td>
 		        </tr>	        

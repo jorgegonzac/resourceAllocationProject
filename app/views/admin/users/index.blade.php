@@ -39,13 +39,11 @@
 		            <td>{{ $user->career }}</td>
 		            <td>
 
-	                {{ Form::open(array('url' => 'users/' . $user->id)) }}
-	                    {{ Form::hidden('_method', 'DELETE') }}
-	                    {{ Form::button('<i class="fa fa-trash fa-lg"></i>', array('type' => 'submit', 'class' => 'content_icon_admin')) }}
+		            <a  href="{{ URL::to('users/' . $user->id) . '/delete' }}"><i class="fa fa-trash fa-lg content_icon_admin"  data-toggle="tooltip" data-placement="left" title="Eliminar" type="submit"></i></a>
 
-	                {{ Form::close() }}
-	                <a  href="{{ URL::to('users/' . $user->id) }}"> <i class="fa fa-eye fa-lg"></i> </a>
-	                <a  href="{{ URL::to('users/' . $user->id . '/edit') }}"> <i class="fa fa-pencil-square-o fa-lg"></i></a>
+	                <a  href="{{ URL::to('users/' . $user->id) }}"> <i class="fa fa-eye fa-lg"  data-toggle="tooltip" data-placement="left" title="Mostrar"></i> </a>
+	                
+	                <a  href="{{ URL::to('users/' . $user->id . '/edit') }}"> <i class="fa fa-pencil-square-o fa-lg"  data-toggle="tooltip" data-placement="left" title="Editar"></i></a>
 
 	            	</td>
 		        </tr>	        

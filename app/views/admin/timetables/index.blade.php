@@ -7,9 +7,7 @@
 			<h2>Calendarios</h2>
 		</div>
 		<div class="col-xs-6 col-sm-6 col-md-6 text-right">
-			<a href="assign" class="btn btn-primary form-control">
-				<p>Asignar Horario a Calendario</p>
-			</a>
+			<a href="assign" class="btn btn-info">Asignar Horario a Calendario</a>
 			<form action="{{ URL::to('timetables/create') }}">
 	        	<button type="submit" class="btn btn-success">Nuevo Calendario</button>
 			</form>
@@ -34,10 +32,10 @@
 		            <td>
 	                {{ Form::open(array('url' => 'timetables/' . $timetable->id)) }}
 	                    {{ Form::hidden('_method', 'DELETE') }}
-	                    {{ Form::button('<i class="fa fa-trash fa-lg"></i>', array('type' => 'submit', 'class' => 'content_icon_admin')) }}
+	                    {{ Form::button('<i class="fa fa-trash fa-lg" data-toggle="tooltip" data-placement="left" title="Eliminar"></i>', array('type' => 'submit', 'class' => 'content_icon_admin')) }}
 
 	                {{ Form::close() }}
-	                <a  href="{{ URL::to('timetables/' . $timetable->id) }}"> <i class="fa fa-eye fa-lg"></i> </a>
+	                <a  href="{{ URL::to('timetables/' . $timetable->id) }}"> <i class="fa fa-eye fa-lg" data-toggle="tooltip" data-placement="left" title="Mostrar"></i> </a>
 	            	</td>
 		        </tr>	        
 	        @endforeach

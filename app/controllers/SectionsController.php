@@ -4,9 +4,11 @@ class SectionsController extends BaseController
 {
 	public function showRecent()
 	{
+		$user_id=Session::get('school_id');
 		if (Session::get('school_id'))
 		{
-			$bookings = Booking::with('resource')->distinct()->orderBy('id', 'DESC')->take(8)->get();
+			// $bookings = Booking::with('resource')->distinct()->orderBy('id', 'DESC')->take(8)->get();
+			$bookings = Booking::where('user_id', '=', $user_id)->get();				
 			$recents = array();
 			foreach($bookings as $booking){
 				$recent = Resource::where('id', '=', $booking->resource_id)->get();
