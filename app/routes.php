@@ -10,10 +10,12 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::get('/', function(){
+	return Redirect::to('login');
+});
 Route::get('login', 'SessionsController@create');
 Route::get('logout', 'SessionsController@destroy');
 Route::resource('sessions', 'SessionsController');
-
 
 Route::get('index', 'StudentController@showRecent');
 Route::get('index/{id}/showBookingForm', 'StudentController@showBookingForm');
@@ -26,6 +28,7 @@ Route::get('search', 'StudentController@search');
 Route::get('admin', 'AdminController@showAdmin');
 
 Route::resource('users', 'UsersController');
+Route::post('changeEmail','UsersController@changeEmail');
 
 Route::resource('laboratories','LaboratoriesController');
 
@@ -39,14 +42,18 @@ Route::post('assign', 'TimetablesController@showSchedules');
 
 Route::resource('schedules', 'SchedulesController');
 
-Route::resource('bookings', 'AdminController@showBookings');
+Route::resource('bookings', 'BookingsController');
+Route::get('bookings/{id}/close','BookingsController@close');
 
-Route::resource('waitinglists', 'AdminController@showWaitingLists');
-
-Route::resource('book', 'ResourcesController@book');
+Route::resource('waitinglists', 'WaitingListsController');
 
 Route::post('booking','BookingsController@bookResurce');
 
+Route::get('account', 'UsersController@showCurrent');
+Route::get('activeBookings', 'BookingsController@showActiveBookings');
+Route::get('activeWaiting', 'WaitingListsController@showActiveWaiting');
 
+Route::get('users/{id}/delete', 'UsersController@destroy');
 
+Route::get('deassign/{timetableId}/{scheduleId}', 'TimetablesController@deassign');
 

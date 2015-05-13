@@ -3,14 +3,11 @@
 <style>
 
 h3{
-
     color:black;
-   
 }
 
 
 .form_booking{
-
     vertical-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -22,17 +19,14 @@ h3{
     vertical-align: center;
     margin: 0 auto;
     padding: 20px;
-
 }
 
 th{
-
     text-align: center;
     font-size: large;
 }
 
 td{
-
     text-align: justify;
 }
 
@@ -65,7 +59,7 @@ td{
         <div class="jumbotron">
             <div class="row">
                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-
+                    {{ '<p id="is_deleted">'.$resource->deleted_at.'</p>' }}
                     <h1 align="center">{{ $resource->name }} </h1>
                     <p align="center"> Categoría: {{ $category->name }}</p>
                     <p align="center"> Descripción: {{ $resource->description }} </p>

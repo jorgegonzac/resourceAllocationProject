@@ -12,24 +12,68 @@
 {{ HTML::style('css/styles.css')}}
 {{ HTML::style('css/material-fullpalette.css')}}
 {{ HTML::style('css/material.css')}}
+<link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+
+<!-- {{ HTML::style('css/bootstrap.min.css')}} -->
 
 <!-- JS are placed here -->
 <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
-
+{{ HTML::script('js/jquery.dataTables.min.js') }}
 {{ HTML::script('js/hovers.js') }}
 {{ HTML::script('js/snap.svg-min.js') }}
-{{ HTML::script('js/jquery.dataTables.min.js') }}
 {{ HTML::script('js/bootstrap.js') }}
 {{ HTML::script('js/bootstrap.min.js') }}
+{{ HTML::script('js/Chart.min.js') }}
+
 
 
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<script type="text/javascript"> 
+	function display_c(){
+		var refresh=1000; // Refresh rate in milli seconds
+		mytime=setTimeout('display_ct()',refresh)
+	}
+
+	function display_ct() {
+		var strcount;
+		var x = new Date();
+		document.getElementById('ct').innerHTML = x;
+		tt=display_c();
+	}
+
+	function showStudentInfo(){
+
+		$.get('../../account', function(data){
+			$.get('../../activeBookings', function(data2){
+				$.get('../../activeWaiting', function(data3){
+				console.log(data);
+				console.log(data2);
+				console.log(data3);
+	            $('.userInfo').empty();
+	            $('.userInfo').append(data);
+	            $('.activeBook').empty();
+	            $('.activeBook').append(data2);
+	            $('.activeWait').empty();
+	            $('.activeWait').append(data3);
+	            $("#userModal").modal('show');
+	            });
+            });
+        });
+ }
+
+
+
+</script>
+
+
 <script>
+
 	$(document).ready(function(){
 	    $('#myTable').dataTable();
 	});
+
 	
 
 	$(document).ready(function(){
@@ -55,6 +99,9 @@
 	});
 
 
+
+
+
 	$(document).ready(function(){
 		$('#selectTimetable').on('change', function(){
 			var id = $(this).val();
@@ -76,10 +123,11 @@
 				}else{
 					$('.assigned_schedules').empty();
 					//Append header
-					$('.assigned_schedules').append('<div class=' + '"row"' + '><div class=' + '"col-lg-1"' + '>ID</div><div class=' + '"col-lg-2"' + '>Nombre</div><div class=' + '"col-lg-2"' + '>Día de la semana</div><div class='+'"col-lg-2"'+'>Hora de Inicio</div><div class='+'"col-lg-2"'+'>Hora de Fin</div><div class='+'"col-lg-1"'+'>Acciones</div></div>');
+					$('.assigned_schedules').append('<div class=' + '"row"' + '><div class=' + '"col-lg-1"' + '>ID</div><div class=' + '"col-lg-2"' + '>Nombre</div><div class=' + '"col-lg-2"' + '>Día</div><div class='+'"col-lg-2"'+'>Inicio</div><div class='+'"col-lg-2"'+'>Fin</div><div class='+'"col-lg-1"'+'>Acciones</div></div>');
 					$.each(data[0], function(key, value){
 						//Append body
-						$('.assigned_schedules').append('<div class=' +'"row"'+'><div class='+'"col-lg-1"'+'>'+value.id+'</div><div class='+'"col-lg-2"'+'>'+value.name+'</div><div class='+'"col-lg-2"'+'>'+value.weekday+'</div><div class='+'"col-lg-2"'+'>'+value.start_hour+'</div><div class='+'"col-lg-2"'+'>'+value.end_hour+'</div><div class='+'"col-lg-1"'+'><a href=""><p>Desasignar</p></a></div></div>');
+						console.log(id);
+						$('.assigned_schedules').append('<div class=' +'"row"'+'><div class='+'"col-lg-1"'+'>'+value.id+'</div><div class='+'"col-lg-2"'+'>'+value.name+'</div><div class='+'"col-lg-2"'+'>'+value.weekday+'</div><div class='+'"col-lg-2"'+'>'+value.start_hour+'</div><div class='+'"col-lg-2"'+'>'+value.end_hour+'</div><div class='+'"col-lg-1"'+'><a href="deassign/'+id+'/'+value.id+'"><p>Desasignar</p></a></div></div>');
 					});
 					//Validar que haya disponibles
 					$('#selectSchedule').empty();
@@ -98,8 +146,14 @@
 		});
 
 	});
-		
 
+	function showLoadingIndicator(){
+	        $("#myModal").modal('show');		
+	}	
+
+	$(function () {
+	  $('[data-toggle="tooltip"]').tooltip()
+	})	
 </script>
 
 <script>
@@ -116,3 +170,39 @@
 	});
 
 </script>
+
+
+<script>
+            (function() {
+    
+                function init() {
+                    var speed = 300,
+                        easing = mina.backout;
+
+                    [].slice.call ( document.querySelectorAll( '#grid > a' ) ).forEach( function( el ) {
+                        var s = Snap( el.querySelector( 'svg' ) ), path = s.select( 'path' ),
+                            pathConfig = {
+                                from : path.attr( 'd' ),
+                                to : el.getAttribute( 'data-path-hover' )
+                            };
+
+                        el.addEventListener( 'mouseenter', function() {
+                            path.animate( { 'path' : pathConfig.to }, speed, easing );
+                        } );
+
+                        el.addEventListener( 'mouseleave', function() {
+                            path.animate( { 'path' : pathConfig.from }, speed, easing );
+                        } );
+                    } );
+                }
+
+                init();
+
+            })();
+    </script>
+
+	
+
+
+
+

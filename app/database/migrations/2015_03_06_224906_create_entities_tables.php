@@ -57,10 +57,10 @@ class CreateEntitiesTables extends Migration {
 			$t->string('first_name', 20)->nullable();
 			$t->string('first_last_name', 20)->nullable();
 			$t->string('second_last_name', 20)->nullable();
-			$t->string('email1',50)->unique();
-			$t->string('email2',50)->unique()->nullable();
+			$t->string('email1',50);
+			$t->string('email2',50)->nullable();
 			$t->string('password')->nullable();
-			$t->string('school_id',9)->unique();
+			$t->string('school_id',9);
 			$t->boolean('alternative')->default(false);
 			$t->string('career')->nullable();
 			$t->timestamps();
