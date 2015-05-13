@@ -4,12 +4,8 @@ class AdminController extends \BaseController {
 
 	public function showAdmin()
 	{
-		$count=0;
-		if (Session::get('school_id') && Session::get('role')==1)
-		{ 
-
-			if(Session::get('super') == 1){
-
+//		$count=0;
+/*
 				$totalRec = DB::select('CALL ResourceTotalSuper()');
 				$totalCat = DB::select('CALL CategoryTotal_super()');
 				$totalUseSup = DB::select('CALL UserTotal_super()');
@@ -246,11 +242,6 @@ class AdminController extends \BaseController {
 				$count++;	
 			}
 
-
-		
-
-			//var_dump($totalMonths2);
-
 			return View::make('admin.index')
 				->with(['resource'=>$resources])
 				->with(['total'=>$totals])
@@ -261,10 +252,22 @@ class AdminController extends \BaseController {
 				->with(['dayCount' => $totalDays2]);
 
 			
+		
+*/
+			//var_dump($totalMonths2);
+
+		if (Session::get('school_id') && (Session::get('role')==1 || Session::get('role')==3))
+		{ 
+			return View::make('admin.index');
+			if(Session::get('super') == 1){
+			}else{
+				return Redirect::to('login');
+			}
 		}else{
 			return Redirect::to('login');
 		}
 	}
+
 
 	public function showUsers()
 	{
