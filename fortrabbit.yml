@@ -3,11 +3,15 @@ version: 1
 
 composer:
 
-	mode: always
+	# composer should use update
+    method: install
 
-	method: install
+    # make sure composer runs after each push
+    mode: always
 
-post-deploy:  
+post-deploy:
+
 	script: artisan
+
 	args:
 		- migrate
